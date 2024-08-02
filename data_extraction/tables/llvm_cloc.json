@@ -1,0 +1,334 @@
+
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.90",
+  "elapsed_seconds"    : 122.457526922226,
+  "n_files"            : 120256,
+  "n_lines"            : 29616163,
+  "files_per_second"   : 982.022118382121,
+  "lines_per_second"   : 241848.449371426},
+"C++" :{
+  "nFiles": 30194,
+  "blank": 975706,
+  "comment": 1894567,
+  "code": 5640396},
+"LLVM IR" :{
+  "nFiles": 36542,
+  "blank": 653631,
+  "comment": 6392493,
+  "code": 3077064},
+"C/C++ Header" :{
+  "nFiles": 12091,
+  "blank": 321928,
+  "comment": 507402,
+  "code": 1500198},
+"C" :{
+  "nFiles": 10740,
+  "blank": 263843,
+  "comment": 1513585,
+  "code": 1022977},
+"YAML" :{
+  "nFiles": 5197,
+  "blank": 71011,
+  "comment": 66739,
+  "code": 934283},
+"Assembly" :{
+  "nFiles": 11030,
+  "blank": 521902,
+  "comment": 1293143,
+  "code": 873637},
+"JSON" :{
+  "nFiles": 116,
+  "blank": 18,
+  "comment": 0,
+  "code": 422073},
+"Python" :{
+  "nFiles": 2364,
+  "blank": 53316,
+  "comment": 59934,
+  "code": 229431},
+"reStructuredText" :{
+  "nFiles": 1991,
+  "blank": 71796,
+  "comment": 87882,
+  "code": 148034},
+"XML" :{
+  "nFiles": 130,
+  "blank": 187,
+  "comment": 823,
+  "code": 143667},
+"CMake" :{
+  "nFiles": 2219,
+  "blank": 13198,
+  "comment": 8649,
+  "code": 98162},
+"Fortran 90" :{
+  "nFiles": 2158,
+  "blank": 20581,
+  "comment": 98418,
+  "code": 74411},
+"Objective-C" :{
+  "nFiles": 1903,
+  "blank": 20840,
+  "comment": 33369,
+  "code": 73925},
+"Markdown" :{
+  "nFiles": 230,
+  "blank": 14306,
+  "comment": 0,
+  "code": 59546},
+"HTML" :{
+  "nFiles": 84,
+  "blank": 4802,
+  "comment": 602,
+  "code": 44790},
+"Windows Module Definition" :{
+  "nFiles": 210,
+  "blank": 4715,
+  "comment": 156,
+  "code": 36276},
+"Bazel" :{
+  "nFiles": 63,
+  "blank": 2330,
+  "comment": 821,
+  "code": 31513},
+"Objective-C++" :{
+  "nFiles": 548,
+  "blank": 7146,
+  "comment": 6706,
+  "code": 27177},
+"OpenCL" :{
+  "nFiles": 616,
+  "blank": 5675,
+  "comment": 10121,
+  "code": 20546},
+"SVG" :{
+  "nFiles": 28,
+  "blank": 0,
+  "comment": 23,
+  "code": 13711},
+"Pascal" :{
+  "nFiles": 61,
+  "blank": 3316,
+  "comment": 20490,
+  "code": 11329},
+"Perl" :{
+  "nFiles": 24,
+  "blank": 2036,
+  "comment": 1920,
+  "code": 7823},
+"CSV" :{
+  "nFiles": 64,
+  "blank": 4,
+  "comment": 0,
+  "code": 6809},
+"Bourne Shell" :{
+  "nFiles": 115,
+  "blank": 1049,
+  "comment": 1187,
+  "code": 6754},
+"CUDA" :{
+  "nFiles": 249,
+  "blank": 2597,
+  "comment": 8369,
+  "code": 6258},
+"OCaml" :{
+  "nFiles": 38,
+  "blank": 1439,
+  "comment": 2389,
+  "code": 5047},
+"SWIG" :{
+  "nFiles": 127,
+  "blank": 1089,
+  "comment": 17,
+  "code": 4990},
+"Lisp" :{
+  "nFiles": 23,
+  "blank": 413,
+  "comment": 302,
+  "code": 3641},
+"awk" :{
+  "nFiles": 2,
+  "blank": 114,
+  "comment": 100,
+  "code": 3525},
+"CSS" :{
+  "nFiles": 22,
+  "blank": 463,
+  "comment": 133,
+  "code": 2769},
+"TeX" :{
+  "nFiles": 5,
+  "blank": 191,
+  "comment": 5,
+  "code": 2556},
+"Smalltalk" :{
+  "nFiles": 187,
+  "blank": 0,
+  "comment": 3,
+  "code": 2298},
+"JavaScript" :{
+  "nFiles": 23,
+  "blank": 305,
+  "comment": 953,
+  "code": 2286},
+"make" :{
+  "nFiles": 337,
+  "blank": 795,
+  "comment": 211,
+  "code": 2068},
+"HLSL" :{
+  "nFiles": 112,
+  "blank": 654,
+  "comment": 2259,
+  "code": 1955},
+"Bourne Again Shell" :{
+  "nFiles": 13,
+  "blank": 230,
+  "comment": 361,
+  "code": 1751},
+"DOS Batch" :{
+  "nFiles": 60,
+  "blank": 180,
+  "comment": 52,
+  "code": 1551},
+"Windows Resource File" :{
+  "nFiles": 113,
+  "blank": 144,
+  "comment": 45,
+  "code": 1181},
+"Starlark" :{
+  "nFiles": 19,
+  "blank": 172,
+  "comment": 407,
+  "code": 940},
+"Expect" :{
+  "nFiles": 10,
+  "blank": 23,
+  "comment": 28,
+  "code": 716},
+"TypeScript" :{
+  "nFiles": 15,
+  "blank": 119,
+  "comment": 239,
+  "code": 696},
+"Fortran 77" :{
+  "nFiles": 66,
+  "blank": 42,
+  "comment": 377,
+  "code": 649},
+"Scheme" :{
+  "nFiles": 21,
+  "blank": 41,
+  "comment": 24,
+  "code": 637},
+"Julia" :{
+  "nFiles": 1,
+  "blank": 164,
+  "comment": 574,
+  "code": 597},
+"C#" :{
+  "nFiles": 8,
+  "blank": 89,
+  "comment": 107,
+  "code": 570},
+"vim script" :{
+  "nFiles": 16,
+  "blank": 90,
+  "comment": 119,
+  "code": 546},
+"Dockerfile" :{
+  "nFiles": 12,
+  "blank": 121,
+  "comment": 206,
+  "code": 412},
+"Lua" :{
+  "nFiles": 6,
+  "blank": 46,
+  "comment": 21,
+  "code": 342},
+"Jupyter Notebook" :{
+  "nFiles": 3,
+  "blank": 0,
+  "comment": 2434,
+  "code": 319},
+"MSBuild script" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 7,
+  "code": 254},
+"Protocol Buffers" :{
+  "nFiles": 5,
+  "blank": 53,
+  "comment": 72,
+  "code": 233},
+"diff" :{
+  "nFiles": 3,
+  "blank": 16,
+  "comment": 205,
+  "code": 200},
+"Rust" :{
+  "nFiles": 4,
+  "blank": 31,
+  "comment": 21,
+  "code": 140},
+"Mathematica" :{
+  "nFiles": 2,
+  "blank": 23,
+  "comment": 0,
+  "code": 100},
+"MATLAB" :{
+  "nFiles": 11,
+  "blank": 7,
+  "comment": 0,
+  "code": 55},
+"INI" :{
+  "nFiles": 8,
+  "blank": 11,
+  "comment": 0,
+  "code": 50},
+"TOML" :{
+  "nFiles": 3,
+  "blank": 5,
+  "comment": 0,
+  "code": 44},
+"m4" :{
+  "nFiles": 1,
+  "blank": 7,
+  "comment": 0,
+  "code": 24},
+"Visual Studio Solution" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 1,
+  "code": 20},
+"Swift" :{
+  "nFiles": 2,
+  "blank": 6,
+  "comment": 0,
+  "code": 17},
+"D" :{
+  "nFiles": 1,
+  "blank": 2,
+  "comment": 0,
+  "code": 16},
+"NAnt script" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 13},
+"Fortran 95" :{
+  "nFiles": 5,
+  "blank": 15,
+  "comment": 47,
+  "code": 7},
+"Logos" :{
+  "nFiles": 2,
+  "blank": 4,
+  "comment": 0,
+  "code": 2},
+"SUM": {
+  "blank": 3043038,
+  "comment": 12019118,
+  "code": 14554007,
+  "nFiles": 120256} }

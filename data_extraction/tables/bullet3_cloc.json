@@ -1,0 +1,154 @@
+
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.90",
+  "elapsed_seconds"    : 6.71804714202881,
+  "n_files"            : 4269,
+  "n_lines"            : 1901177,
+  "files_per_second"   : 635.452522101652,
+  "lines_per_second"   : 282995.483628871},
+"C++" :{
+  "nFiles": 751,
+  "blank": 49947,
+  "comment": 31752,
+  "code": 750848},
+"C/C++ Header" :{
+  "nFiles": 1426,
+  "blank": 51492,
+  "comment": 65351,
+  "code": 589842},
+"Python" :{
+  "nFiles": 530,
+  "blank": 12614,
+  "comment": 13811,
+  "code": 100794},
+"XML" :{
+  "nFiles": 1231,
+  "blank": 2161,
+  "comment": 1527,
+  "code": 77518},
+"C" :{
+  "nFiles": 67,
+  "blank": 5837,
+  "comment": 4123,
+  "code": 45272},
+"CSV" :{
+  "nFiles": 4,
+  "blank": 0,
+  "comment": 0,
+  "code": 32000},
+"JavaScript" :{
+  "nFiles": 11,
+  "blank": 849,
+  "comment": 1274,
+  "code": 11816},
+"OpenCL" :{
+  "nFiles": 27,
+  "blank": 3018,
+  "comment": 812,
+  "code": 11275},
+"C#" :{
+  "nFiles": 3,
+  "blank": 1514,
+  "comment": 1386,
+  "code": 6017},
+"Lua" :{
+  "nFiles": 86,
+  "blank": 1354,
+  "comment": 336,
+  "code": 5698},
+"CMake" :{
+  "nFiles": 59,
+  "blank": 819,
+  "comment": 253,
+  "code": 4383},
+"JSON" :{
+  "nFiles": 2,
+  "blank": 0,
+  "comment": 0,
+  "code": 4192},
+"HTML" :{
+  "nFiles": 5,
+  "blank": 913,
+  "comment": 14,
+  "code": 4144},
+"Objective-C" :{
+  "nFiles": 1,
+  "blank": 232,
+  "comment": 114,
+  "code": 906},
+"Protocol Buffers" :{
+  "nFiles": 10,
+  "blank": 217,
+  "comment": 282,
+  "code": 679},
+"SVG" :{
+  "nFiles": 2,
+  "blank": 2,
+  "comment": 2,
+  "code": 674},
+"Markdown" :{
+  "nFiles": 7,
+  "blank": 231,
+  "comment": 0,
+  "code": 561},
+"GLSL" :{
+  "nFiles": 15,
+  "blank": 170,
+  "comment": 22,
+  "code": 539},
+"Jupyter Notebook" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 265,
+  "code": 196},
+"TeX" :{
+  "nFiles": 6,
+  "blank": 55,
+  "comment": 48,
+  "code": 186},
+"Bourne Shell" :{
+  "nFiles": 5,
+  "blank": 39,
+  "comment": 28,
+  "code": 160},
+"YAML" :{
+  "nFiles": 4,
+  "blank": 12,
+  "comment": 10,
+  "code": 140},
+"make" :{
+  "nFiles": 3,
+  "blank": 18,
+  "comment": 14,
+  "code": 119},
+"DOS Batch" :{
+  "nFiles": 9,
+  "blank": 72,
+  "comment": 13,
+  "code": 102},
+"MATLAB" :{
+  "nFiles": 1,
+  "blank": 8,
+  "comment": 2,
+  "code": 29},
+"Arduino Sketch" :{
+  "nFiles": 1,
+  "blank": 5,
+  "comment": 4,
+  "code": 27},
+"CSS" :{
+  "nFiles": 1,
+  "blank": 5,
+  "comment": 1,
+  "code": 15},
+"Windows Resource File" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 1,
+  "code": 15},
+"SUM": {
+  "blank": 131585,
+  "comment": 121445,
+  "code": 1648147,
+  "nFiles": 4269} }

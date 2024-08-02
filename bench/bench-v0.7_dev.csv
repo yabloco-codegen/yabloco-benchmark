@@ -1,0 +1,649 @@
+,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0,fname,file,doc,calls_num,dep_num,same_file,same_package,project,stdlib,external_binaries,code_length,pos,last_commit,test_cov_hits,repository,id
+0,0,0,1384,1384,A79990340F72D9B0,b3Transform::getOpenGLMatrix,bullet3/src/Bullet3Common/b3Transform.h,"@brief Fill an array representation
+ @param m A pointer to a 15 element array (12 rotation(row major padded on the right by 1), and 3 translation ",0,4,0,4,0,0,0,7,135,24.09.2018,2.0,bullet3,A79990340F72D9B0
+1,1,1,732,732,5A2430B1966B920C,btMatrix3x3::scaled,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Create a scaled copy of the matrix 
+@param s Scaling vector The elements of the vector will scale each column ",0,3,0,3,0,0,0,10,622,24.09.2018,2.0,bullet3,5A2430B1966B920C
+2,2,2,713,713,57B6B5213401D5A6,b3ConnectPhysicsDirect,bullet3/examples/SharedMemory/PhysicsDirectC_API.cpp,"think more about naming. Directly execute commands without transport (no shared memory, UDP, socket, grpc etc)",1,1,0,1,0,0,0,8,8,24.09.2018,1.0,bullet3,57B6B5213401D5A6
+3,3,3,1784,1784,D7D6D2BED080D675,b3Transform::setIdentity,bullet3/src/Bullet3Common/b3Transform.h,@brief Set this transformation to the identity ,1,2,0,2,0,0,0,4,166,17.04.2013,2.0,bullet3,D7D6D2BED080D675
+4,4,4,7468,7468,8196458ADD2113FD,init_thread_push_handlers,openssl/crypto/initthread.c,"
+ The thread event handler list is a thread specific linked list
+ of callback functions which are invoked in list order by the
+ current thread in case of certain events. (Currently, there is
+ only one type of event, the 'thread stop' event.)
+
+ We also keep a global reference to that linked list, so that we
+ can deregister handlers if necessary before all the threads are
+ stopped.
+ ",1,4,2,2,0,0,0,15,154,14.03.2021,5443.0,openssl,8196458ADD2113FD
+5,5,5,3607,3607,3E5235690BFF5401,put_error,openssl/crypto/err/err_prn.c,auxiliary function for incrementally reporting texts via the error queue ,1,2,0,2,0,0,0,6,50,17.02.2020,3.0,openssl,3E5235690BFF5401
+6,6,6,1531,1531,1AA5FDA0028F60DA,UI_add_user_data,openssl/crypto/ui/ui_lib.c,"
+ The following function is used to store a pointer to user-specific data.
+ Any previous such pointer will be returned and replaced.
+
+ For callback purposes, this function makes a lot more sense than using
+ ex_data, since the latter requires that different parts of OpenSSL or
+ applications share the same ex_data index.
+
+ Note that the UI_OpenSSL() method completely ignores the user data. Other
+ methods may not, however.
+ ",5,2,1,1,0,0,0,11,371,31.05.2017,401.0,openssl,1AA5FDA0028F60DA
+7,7,7,858,858,0F1DE89C91E13050,RC2_ecb_encrypt,openssl/crypto/rc2/rc2_ecb.c,"-
+ RC2 as implemented frm a posting from
+ Newsgroups: sci.crypt
+ Subject: Specification for Ron Rivests Cipher No.2
+ Message-ID: <4fk39f$f70@net.auckland.ac.nz>
+ Date: 11 Feb 1996 06:45:03 GMT",1,2,0,2,0,0,0,18,28,22.01.2015,674.0,openssl,0F1DE89C91E13050
+8,8,8,503,503,085A22C5EF48BDEC,add_cipher_smcap,openssl/crypto/pkcs7/pk7_smime.c,Check to see if a cipher exists and if so add S/MIME capabilities ,1,1,0,1,0,0,0,5,103,22.01.2015,198.0,openssl,085A22C5EF48BDEC
+9,9,9,5792,5792,64AACB68BC8F2223,ssl_log_secret,openssl/ssl/ssl_lib.c,"
+ ssl_log_secret logs |secret| to the SSL_CTX associated with |ssl|, if
+ logging is available. It returns one on success and zero on failure. It tags
+ the entry with |label|.
+ ",3,1,1,0,0,0,0,11,6761,28.07.2022,26514.0,openssl,64AACB68BC8F2223
+10,10,10,10985,10985,BB6A57FF41E84DEB,ossl_statem_server_post_process_message,openssl/ssl/statem/statem_srvr.c,"
+ Perform any further processing required following the receipt of a message
+ from the client
+ ",0,2,2,0,0,0,0,17,1312,28.07.2022,7670.0,openssl,BB6A57FF41E84DEB
+11,11,11,5135,5135,58EA96A6C532E020,tls1_check_ec_tmp_key,openssl/ssl/t1_lib.c,"
+ tls1_check_ec_tmp_key - Check EC temporary key compatibility
+ @s: SSL connection
+ @cid: Cipher ID we're considering using
+
+ Checks that the kECDHE cipher suite we're considering using
+ is compatible with the client extensions.
+
+ Returns 0 when the cipher can't be used or 1 when it can.
+ ",1,2,2,0,0,0,0,15,1302,28.07.2022,3133.0,openssl,58EA96A6C532E020
+12,12,12,10879,10879,B961343500627246,namemap_name2num,openssl/crypto/core_namemap.c,"This function is not thread safe, the namemap must be locked ",3,1,1,0,0,0,0,10,173,21.05.2022,13640380.0,openssl,B961343500627246
+13,13,13,6809,6809,766C95F57161F5D4,X509_OBJECT_retrieve_by_subject,openssl/crypto/x509/x509_lu.c,Assumes h is locked for read if applicable ,2,1,1,0,0,0,0,9,570,04.05.2022,8554.0,openssl,766C95F57161F5D4
+14,14,14,5794,5794,64B9E0512FE568AE,ossl_stored_namemap_new,openssl/crypto/core_namemap.c,OSSL_LIB_CTX_METHOD functions for a namemap stored in a library context ,1,1,1,0,0,0,0,8,64,01.04.2022,6992.0,openssl,64B9E0512FE568AE
+15,15,15,10445,10445,B2A98E0062EA74DA,provider_deactivate_free,openssl/crypto/provider_core.c,"
+ provider_deactivate_free() is a wrapper around ossl_provider_deactivate()
+ and ossl_provider_free(), called as needed.
+ Since this is only called when the provider store is being emptied, we
+ don't need to care about any lock.
+ ",0,2,2,0,0,0,0,5,234,12.11.2021,8224.0,openssl,B2A98E0062EA74DA
+16,16,16,3363,3363,39F9D058144C6DF2,EVP_RAND_enable_locking,openssl/crypto/evp/evp_rand.c,Enable locking of the underlying DRBG/RAND if available ,0,2,2,0,0,0,0,6,94,24.05.2021,2470.0,openssl,39F9D058144C6DF2
+17,17,17,14169,14169,F23AD3434CDFEB3C,ossl_provider_teardown,openssl/crypto/provider_core.c,Thin wrappers around calls to the provider ,1,2,2,0,0,0,0,8,1612,11.05.2021,8224.0,openssl,F23AD3434CDFEB3C
+18,18,18,11249,11249,BFDF20D91775F74B,X509_check_issued,openssl/crypto/x509/v3_purp.c,"-
+ Various checks to see if one certificate potentially issued the second.
+ This can be used to prune a set of possible issuer certificates which
+ have been looked up using some simple method such as by subject name.
+ These are:
+ 1. issuer_name(subject) == subject_name(issuer)
+ 2. If akid(subject) exists, it matches the respective issuer fields.
+ 3. subject signature algorithm == issuer public key algorithm
+ 4. If key_usage(issuer) exists, it allows for signing subject.
+ Note that this does not include actually checking the signature.
+ Returns 0 for OK, or positive for reason for mismatch
+ where reason codes match those for X509_verify_cert().",2,2,2,0,0,0,0,7,953,18.03.2021,279.0,openssl,BFDF20D91775F74B
+19,19,19,933,933,1084B22D097E9800,ASN1_TIME_to_generalizedtime,openssl/crypto/asn1/a_time.c,Convert an ASN1_TIME structure to GeneralizedTime ,1,1,1,0,0,0,0,18,358,18.03.2021,13.0,openssl,1084B22D097E9800
+20,20,20,1316,1316,16DC44CE7E409D88,check_ssl_ca,openssl/crypto/x509/v3_purp.c,Check SSL CA: common checks for SSL client and server. ,2,1,1,0,0,0,0,8,702,27.02.2021,2284.0,openssl,16DC44CE7E409D88
+21,21,21,835,835,0EA59B2058606695,CRYPTO_alloc_ex_data,openssl/crypto/ex_data.c,Allocate a single item in the CRYPTO_EX_DATA variable ,1,2,2,0,0,0,0,11,423,02.02.2021,1.0,openssl,0EA59B2058606695
+22,22,22,14882,14882,FE8160CA4F01038E,X509V3_EXT_add_nconf,openssl/crypto/x509/v3_conf.c,"
+ Add extensions to a certificate. Just check in case cert == NULL.
+ Note that on error new elements may remain added to cert if cert != NULL.
+ ",3,1,1,0,0,0,0,7,359,16.01.2021,142.0,openssl,FE8160CA4F01038E
+23,23,23,8385,8385,90AC186FC8707E8C,tls1_get_group_id,openssl/ssl/t1_lib.c,Return group id of a key ,2,2,2,0,0,0,0,7,1235,08.12.2020,439.0,openssl,90AC186FC8707E8C
+24,24,24,2761,2761,2F74170F1ADC4BB1,PEM_ASN1_read_bio,openssl/crypto/pem/pem_oth.c,Handle 'other' PEMs: not private keys ,1,1,1,0,0,0,0,16,20,13.11.2020,15491.0,openssl,2F74170F1ADC4BB1
+25,25,25,2805,2805,30695E638BD183A5,X509V3_EXT_i2d,openssl/crypto/x509/v3_conf.c,"Given an internal structure, nid and critical flag create an extension ",5,1,1,0,0,0,0,9,194,13.11.2020,126.0,openssl,30695E638BD183A5
+26,26,26,12393,12393,D360C4E1652BB4A6,PKCS12_SAFEBAG_create0_pkcs8,openssl/crypto/pkcs12/p12_sbag.c,Turn PKCS8 object into a shrouded keybag ,1,2,0,1,1,0,0,12,224,05.10.2022,90.0,openssl,D360C4E1652BB4A6
+27,27,27,6986,6986,795AD7F4BAA222A2,RECORD_LAYER_processed_read_pending,openssl/ssl/record/rec_layer_s3.c,Checks if we have decrypted unread record data pending ,6,2,1,0,1,0,0,4,103,18.08.2022,9273.0,openssl,795AD7F4BAA222A2
+28,28,28,7611,7611,84034C048DF9777C,ssl3_free_digest_list,openssl/ssl/s3_enc.c,"
+ Free digest list. Also frees handshake buffer since they are always freed
+ together.
+ ",3,2,0,0,2,0,0,6,239,28.07.2022,70932.0,openssl,84034C048DF9777C
+29,29,29,1127,1127,13C266DE63C3F9E9,statem_do_write,openssl/ssl/statem/statem.c,"
+ Send a previously constructed message to the peer.
+ ",1,4,1,2,1,0,0,13,745,28.07.2022,52406.0,openssl,13C266DE63C3F9E9
+30,30,30,4971,4971,55EF764577AA3F81,ct_extract_tls_extension_scts,openssl/ssl/ssl_lib.c,"
+ Look for data collected during ServerHello and parse if found.
+ Returns the number of SCTs extracted.
+ ",1,2,1,0,1,0,0,14,6099,28.07.2022,15.0,openssl,55EF764577AA3F81
+31,31,31,7572,7572,835D4E331A2C078A,ssl_srp_calc_a_param_intern,openssl/ssl/tls_srp.c,"
+ The public API SRP_Calc_A_param() is deprecated so we use
+ ssl_srp_calc_a_param_intern() internally.
+ ",2,3,0,0,3,0,0,14,447,28.07.2022,14.0,openssl,835D4E331A2C078A
+32,32,32,5226,5226,5AC0B268432E4829,check_sig_alg_match,openssl/crypto/x509/v3_purp.c,Check that issuer public key algorithm matches subject signature algorithm ,2,2,0,0,2,0,0,13,370,13.07.2022,9552.0,openssl,5AC0B268432E4829
+33,33,33,5182,5182,59EEC53F18C83F9F,verify_cb_cert,openssl/crypto/x509/x509_vfy.c,"-
+ Inform the verify callback of an error.
+ The error code is set to |err| if |err| is not X509_V_OK, else
+ |ctx->error| is left unchanged (under the assumption it is set elsewhere).
+ The error depth is |depth| if >= 0, else it defaults to |ctx->error_depth|.
+ The error cert is |x| if not NULL, else the cert in |ctx->chain| at |depth|.
+
+ Returns 0 to abort verification with an error, non-zero to continue.",5,2,1,0,1,0,0,10,160,13.07.2022,6487.0,openssl,59EEC53F18C83F9F
+34,34,34,480,480,080121037167433E,evp_generic_fetch_from_prov,openssl/crypto/evp/evp_fetch.c,"
+ evp_generic_fetch_from_prov() is special, and only returns methods from
+ the given provider.
+ This is meant to be used when one method needs to fetch an associated
+ method.
+ ",5,3,2,0,1,0,0,18,391,06.05.2022,41801.0,openssl,080121037167433E
+35,35,35,399,399,067D7821F061F79C,evp_md_ctx_free_algctx,openssl/crypto/evp/digest.c,"just free the algctx if set, returns 0 on inconsistent state of ctx ",2,2,1,0,1,0,0,12,144,02.05.2022,1095974.0,openssl,067D7821F061F79C
+36,36,36,827,827,0E0F5A239960CEDE,X509_check_trust,openssl/crypto/x509/x509_trust.c,"Returns X509_TRUST_TRUSTED, X509_TRUST_REJECTED, or X509_TRUST_UNTRUSTED ",3,6,5,0,1,0,0,14,66,21.02.2022,5694.0,openssl,0E0F5A239960CEDE
+37,37,37,158,158,0296697ED058E50C,ssl_tsan_lock,openssl/ssl/ssl_local.h,Some helper routines to support TSAN operations safely ,3,1,0,0,1,0,0,7,2964,19.01.2022,27887.0,openssl,0296697ED058E50C
+38,38,38,11745,11745,C873C20DED99AD1B,truststore_set_host_etc,openssl/apps/cmp.c,set expected hostname/IP addr and clears the email addr in the given ts ,0,2,0,0,2,0,0,14,738,30.12.2021,229.0,openssl,C873C20DED99AD1B
+39,39,39,3592,3592,3E0661CD08888497,ossl_rsa_check_public_exponent,openssl/crypto/rsa/rsa_sp800_56b_check.c,"
+ Check exponent is odd.
+ For FIPS also check the bit length is in the range [17..256]
+ ",5,3,0,0,3,0,0,11,225,13.08.2021,21.0,openssl,3E0661CD08888497
+40,40,40,6163,6163,6B3482636823F203,ossl_property_find_property,openssl/crypto/property/property_query.c,Get a property from a property list ,3,1,0,0,1,0,0,12,23,05.06.2021,616796.0,openssl,6B3482636823F203
+41,41,41,11737,11737,C859DAC293B69361,evp_keymgmt_newdata,openssl/crypto/evp/keymgmt_meth.c,"
+ KEYMGMT provider interface functions
+ ",0,4,2,1,1,0,0,12,347,01.06.2021,4351.0,openssl,C859DAC293B69361
+42,42,42,5383,5383,5D5496474FD7D9A3,EVP_CIPHER_set_asn1_iv,openssl/crypto/evp/evp_lib.c,These are used by EVP_CIPHER methods ,1,3,2,0,1,0,0,13,65,01.06.2021,103.0,openssl,5D5496474FD7D9A3
+43,43,43,6178,6178,6B772C01C0143470,ossl_time_from_time_t,openssl/include/internal/time.h,Convert time_t to OSSL_TIME ,3,0,0,0,0,0,0,8,135,13.09.2022,17477.0,openssl,6B772C01C0143470
+44,44,44,6212,6212,6BE6D0761B0001F7,ossl_quic_pkt_type_to_enc_level,openssl/include/internal/quic_wire_pkt.h,"
+ Determine encryption level from packet type. Returns QUIC_ENC_LEVEL_NUM if
+ the packet is not of a type which is encrypted.
+ ",4,0,0,0,0,0,0,15,34,02.09.2022,8.0,openssl,6BE6D0761B0001F7
+45,45,45,12771,12771,D9D6CBD6987440D9,ossl_qtx_set_msg_callback,openssl/ssl/quic/quic_record_tx.c,Setters for the msg_callback and the msg_callback_arg ,1,0,0,0,0,0,0,5,1067,02.09.2022,5.0,openssl,D9D6CBD6987440D9
+46,46,46,13270,13270,E2A7657EDAD64F66,ackm_ack_eliciting_bytes_in_flight,openssl/ssl/quic/quic_ackm.c,Return number of ACK-eliciting bytes in flight across all PN spaces. ,3,0,0,0,0,0,0,9,645,24.08.2022,20.0,openssl,E2A7657EDAD64F66
+47,47,47,3287,3287,389B39BCC6D0431B,get_tx_history,openssl/ssl/quic/quic_ackm.c,"
+ Get TX history for a given packet number space. Must not have been
+ discarded.
+ ",6,0,0,0,0,0,0,5,616,24.08.2022,15.0,openssl,389B39BCC6D0431B
+48,48,48,12469,12469,D4ABA2871610D131,RECORD_LAYER_is_sslv2_record,openssl/ssl/record/rec_layer_s3.c,"
+ Returns true if the current rrec was sent in SSLv2 backwards compatible
+ format and false otherwise.
+ ",3,0,0,0,0,0,0,5,1118,18.08.2022,83552.0,openssl,D4ABA2871610D131
+49,49,49,6045,6045,68F2618C67ADDC60,PACKET_peek_net_8,openssl/include/internal/packet.h,"
+ Peek ahead at 8 bytes in network order from |pkt| and store the value in
+ |*data|
+ ",1,0,0,0,0,0,0,16,235,29.07.2022,1.0,openssl,68F2618C67ADDC60
+50,50,50,4858,4858,53B0E3F8D4E7F8A8,ssl_get_algorithm2,openssl/ssl/s3_lib.c,"
+ If we are using default SHA1+MD5 algorithms switch to new SHA256 PRF and
+ handshake macs if required.
+
+ If PSK and using SHA384 for TLS < 1.2 switch to default.
+ ",2,0,0,0,0,0,0,16,4614,28.07.2022,99927.0,openssl,53B0E3F8D4E7F8A8
+51,51,51,11218,11218,BF5908A7C9CDE832,init_read_state_machine,openssl/ssl/statem/statem.c,"
+ Initialise the MSG_FLOW_READING sub-state machine
+ ",1,0,0,0,0,0,0,5,534,28.07.2022,22008.0,openssl,BF5908A7C9CDE832
+52,52,52,5947,5947,673B2E809C5CDB48,statem_flush,openssl/ssl/statem/statem.c,Flush the write BIO ,3,0,0,0,0,0,0,9,960,28.07.2022,21736.0,openssl,673B2E809C5CDB48
+53,53,53,3386,3386,3A6ABB40AC8BA0DA,final_psk,openssl/ssl/statem/extensions.c,"
+ If clients offer ""pre_shared_key"" without a ""psk_key_exchange_modes""
+ extension, servers MUST abort the handshake.
+ ",0,0,0,0,0,0,0,10,1776,28.07.2022,7100.0,openssl,3A6ABB40AC8BA0DA
+54,54,54,14252,14252,F411E29C767BECDE,SSL_get0_alpn_selected,openssl/ssl/ssl_lib.c,"
+ SSL_get0_alpn_selected gets the selected ALPN protocol (if any) from |ssl|.
+ On return it sets |*data| to point to |*len| bytes of protocol name
+ (not including the leading length-prefix byte). If the server didn't
+ respond with a negotiated protocol then |*len| will be zero.
+ ",4,0,0,0,0,0,0,17,3736,28.07.2022,5520.0,openssl,F411E29C767BECDE
+55,55,55,5093,5093,585E0B2F335FCB18,ssl_get_ciphers_by_id,openssl/ssl/ssl_lib.c,"return a STACK of the ciphers available for the SSL and in order of
+algorithm id ",1,0,0,0,0,0,0,10,3265,28.07.2022,4825.0,openssl,585E0B2F335FCB18
+56,56,56,2686,2686,2E2AD4FE3CABB84F,dtls1_set_message_header_int,openssl/ssl/statem/statem_dtls.c,"don't actually do the writing, wait till the MTU has been retrieved ",3,0,0,0,0,0,0,12,1260,28.07.2022,3674.0,openssl,2E2AD4FE3CABB84F
+57,57,57,13458,13458,E5E43BF599180D42,tls1_set_cert_validity,openssl/ssl/t1_lib.c,Set validity of certificates in an SSL structure ,1,0,0,0,0,0,0,11,3337,28.07.2022,2576.0,openssl,E5E43BF599180D42
+58,58,58,2565,2565,2C353B1B9927E8F2,ossl_statem_fatal,openssl/ssl/statem/statem.c,"
+ Error reporting building block that's used instead of ERR_set_error().
+ In addition to what ERR_set_error() does, this puts the state machine
+ into an error state and sends an alert if appropriate.
+ This is a permanent error for the current connection.
+ ",0,0,0,0,0,0,0,10,161,28.07.2022,1678.0,openssl,2C353B1B9927E8F2
+59,59,59,12881,12881,DBD86B38462F0B6E,cert_req_allowed,openssl/ssl/statem/statem_clnt.c,"
+ Is a CertificateRequest message allowed at the moment or not?
+
+  Return values are:
+  1: Yes
+  0: No
+ ",1,0,0,0,0,0,0,9,53,28.07.2022,651.0,openssl,DBD86B38462F0B6E
+60,60,60,614,614,18F823DDB88DACA3,helpEntryCompare,redis/src/redis-cli.c,Comparator for sorting help table entries. ,0,1,0,0,0,1,0,4,676,05.02.2022,10823.0,redis,18F823DDB88DACA3
+61,61,61,5095,5095,CA3241019D6A2AC6,setOOMScoreAdj,redis/src/server.c,"This function will configure the current process's oom_score_adj according
+to user specified configuration. This is currently implemented on Linux
+only.
+
+A process_class value of -1 implies OOM_CONFIG_MASTER or OOM_CONFIG_REPLICA,
+depending on current role.",5,7,0,0,0,7,0,62,2224,07.12.2021,394.0,redis,CA3241019D6A2AC6
+62,62,62,4024,4024,9CAB57F2C678CC27,checkForSentinelMode,redis/src/server.c,"Returns 1 if there is --sentinel among the arguments or if
+executable name contains ""redis-sentinel"". ",1,1,0,0,0,1,0,6,6540,25.10.2021,239.0,redis,9CAB57F2C678CC27
+63,63,63,4188,4188,A3790464BB3A1DE5,lpEncodeString,redis/src/listpack.c,"Encode the string element pointed by 's' of size 'len' in the target
+buffer 's'. The function should be called with 'buf' having always enough
+space for encoding the string. This is done by calling lpEncodeGetType()
+before calling this function. ",1,1,0,0,0,1,0,16,403,10.08.2021,497122.0,redis,A3790464BB3A1DE5
+64,64,64,2092,2092,518B3F9589B510A2,dictStringKeyCompare,redis/src/latency.c,Dictionary type for latency events. ,0,1,0,0,0,1,0,3,40,05.08.2021,1504.0,redis,518B3F9589B510A2
+65,65,65,2973,2973,73558A510E86455E,readArgFromStdin,redis/src/cli_common.c,Create an sds from stdin ,3,3,0,0,0,3,0,15,210,03.08.2021,9.0,redis,73558A510E86455E
+66,66,66,4360,4360,AABF3D5917D0BAD9,sdssubstr,redis/src/sds.c,"Changes the input string to be a subset of the original.
+It does not release the free space in the string, so a call to
+sdsRemoveFreeSpace may be wise after. ",0,1,0,0,0,1,0,10,753,22.06.2021,1382597.0,redis,AABF3D5917D0BAD9
+67,67,67,6210,6210,F6EE40830E673C40,debugDelay,redis/src/debug.c,"Positive input is sleep time in microseconds. Negative input is fractions
+of microseconds, i.e. -10 means 100 nanoseconds. ",4,2,0,0,0,2,0,5,2493,10.06.2021,695.0,redis,F6EE40830E673C40
+68,68,68,790,790,201313DC79693F1C,killRDBChild,redis/src/rdb.c,"Kill the RDB saving child using SIGUSR1 (so that the parent will know
+the child did not exit for an error, but because we wanted), and performs
+the cleanup needed. ",6,1,0,0,0,1,0,8,3526,24.03.2021,3.0,redis,201313DC79693F1C
+69,69,69,466,466,13C2708A60C9C59D,getSafeInfoString,redis/src/server.c,"Returns a sanitized version of s that contains no unsafe info string chars.
+If no unsafe characters are found, simply returns s. Caller needs to
+free tmp if it is non-null on return.",4,1,0,0,0,1,0,9,5344,15.02.2021,1767.0,redis,13C2708A60C9C59D
+70,70,70,4770,4770,BB4BDBD9502D2A4D,closeChildInfoPipe,redis/src/childinfo.c,Close the pipes opened with openChildInfoPipe(). ,3,1,0,0,0,1,0,10,56,07.01.2021,94.0,redis,BB4BDBD9502D2A4D
+72,72,72,6102,6102,F23708556075ACB6,decodeTimeoutKey,redis/src/timeout.c,"Given a key encoded with encodeTimeoutKey(), resolve the fields and write
+the timeout into *toptr and the client pointer into *cptr. ",1,1,0,0,0,1,0,4,106,30.03.2020,717.0,redis,F23708556075ACB6
+73,73,73,1975,1975,4CD8B37C69690313,string2ull,redis/src/util.c,"Helper function to convert a string to an unsigned long long value.
+The function attempts to use the faster string2ll() function inside
+Redis: if it fails, strtoull() is used instead. The function returns
+1 if the conversion happened successfully or 0 if the number is
+invalid or out of range. ",4,2,0,0,0,2,0,13,507,04.11.2019,25158.0,redis,4CD8B37C69690313
+74,74,74,587,587,1821FF2A91407189,ACLGetCommandCategoryFlagByName,redis/src/acl.c,"Given the category name the command returns the corresponding flag, or
+zero if there is no match. ",6,1,0,0,0,1,0,7,276,23.01.2019,141.0,redis,1821FF2A91407189
+75,75,75,1366,1366,3563D89C5A9D17A1,hllTau,redis/src/hyperloglog.c,"Helper function tau as defined in
+""New cardinality estimation algorithms for HyperLogLog sketches""
+Otmar Ertl, arXiv:1702.01284 ",1,2,0,0,0,2,0,12,1000,10.03.2018,1.0,redis,3563D89C5A9D17A1
+76,76,76,1102,1102,2B3861D777D3FC5D,raxSetData,redis/src/rax.c,"Internal API. May be used by the node callback in order to access rax nodes
+in a low level way, so this function is exported as well. ",5,1,0,0,0,1,0,10,221,08.04.2017,116881.0,redis,2B3861D777D3FC5D
+77,77,77,2677,2677,67A3A530D257210A,sdscat_orempty,redis/src/redis-cli.c,"Concatenate a string to an sds string, but if it's empty substitute double quote marks. ",2,0,0,0,0,0,0,5,488,30.03.2023,4713.0,redis,67A3A530D257210A
+78,78,78,5639,5639,DF800E8BAB250A06,validateClientAttr,redis/src/networking.c,Check validity of an attribute that's gonna be shown in CLIENT LIST. ,2,0,0,0,0,0,0,11,2898,22.03.2023,44.0,redis,DF800E8BAB250A06
+79,79,79,5176,5176,CD6E0D6E1FCFF2A2,createSparklineSequence,redis/src/sparkline.c,Create a new sequence. ,1,0,0,0,0,0,0,8,57,09.03.2023,2.0,redis,CD6E0D6E1FCFF2A2
+80,80,80,1718,1718,424701B6CC52FE5B,createEntryNoValue,redis/src/dict.c,Creates an entry without a value field. ,2,0,0,0,0,0,0,5,147,20.01.2023,858988.0,redis,424701B6CC52FE5B
+81,81,81,1880,1880,4950C4DE54F4D880,moduleBlockedClientMayTimeout,redis/src/module.c,"Check if the specified client can be safely timed out using
+moduleBlockedClientTimedOut().",1,0,0,0,0,0,0,6,8409,02.01.2023,10.0,redis,4950C4DE54F4D880
+82,82,82,1483,1483,39E2BDF04C6E6EBC,listLinkNodeTail,redis/src/adlist.c,"
+ Add a node that has already been allocated to the tail of list
+ ",2,0,0,0,0,0,0,11,138,23.11.2022,241241.0,redis,39E2BDF04C6E6EBC
+83,83,83,2968,2968,7333D6FF5B75F84F,quicklistNodeExceedsLimit,redis/src/quicklist.c,"Check if the limit of the quicklist node has been reached to determine if
+insertions, merges or other operations that would increase the size of
+the node can be performed.
+Return 1 if exceeds the limit, otherwise 0. ",0,0,0,0,0,0,0,15,486,16.11.2022,937347.0,redis,7333D6FF5B75F84F
+84,84,84,3419,3419,85CE7CBF41BB674B,listUnlinkNode,redis/src/adlist.c,"
+ Remove the specified node from the list without freeing it.
+ ",6,0,0,0,0,0,0,14,194,15.09.2022,1611577.0,redis,85CE7CBF41BB674B
+85,85,85,5518,5518,DAC846D86D57B653,listInitNode,redis/src/adlist.c,"Initializes the node's value and sets its pointers
+so that it is initially not a member of any list.",1,0,0,0,0,0,0,4,415,15.09.2022,1914.0,redis,DAC846D86D57B653
+86,86,86,1899,1899,4A091D8359A37ACD,connectionByType,redis/src/connection.c,Lookup a connection type by type name ,7,0,0,0,0,0,0,15,73,22.08.2022,514.0,redis,4A091D8359A37ACD
+87,87,87,203,203,084B33CE56C75811,initClientMultiState,redis/src/multi.c,Client state initialization for MULTI/EXEC ,2,0,0,0,0,0,0,7,35,04.07.2022,2051.0,redis,084B33CE56C75811
+88,88,88,1656,1656,402CC5AE533513FC,time_independent_strcmp,redis/src/acl.c,"Return zero if strings are the same, non-zero if they are not.
+The comparison is performed in a way that prevents an attacker to obtain
+information about the nature of the strings just monitoring the execution
+time of the function. Note: The two strings must be the same length.",1,0,0,0,0,0,0,6,212,03.06.2022,62.0,redis,402CC5AE533513FC
+89,89,89,2203,2203,55D65676B394F3C1,rioCheckType,redis/src/rio.c,Check the type of rio. ,1,0,0,0,0,0,0,11,463,31.05.2022,101725.0,redis,55D65676B394F3C1
+90,90,90,647,647,1A6F9C0A0491704C,configEnumGetValue,redis/src/config.c,Get enum value from name. If there is no match INT_MIN is returned. ,1,0,0,0,0,0,0,14,300,26.04.2022,1683.0,redis,1A6F9C0A0491704C
+91,91,91,3929,3929,98D2F795D5F16FB1,evictPolicyToString,redis/src/config.c,Used for INFO generation. ,1,0,0,0,0,0,0,6,341,26.04.2022,978.0,redis,98D2F795D5F16FB1
+92,92,92,3121,3121,796C3626409C307D,checkGoodReplicasStatus,redis/src/replication.c,return true if status of good replicas is OK. otherwise false ,4,0,0,0,0,0,0,5,3460,22.03.2022,1943064.0,redis,796C3626409C307D
+93,93,93,1163,1163,2D811BC1E7F03FC3,doesCommandHaveChannelsWithFlags,redis/src/db.c,"Returns 1 if the command may access any channels matched by the flags
+argument. ",1,0,0,0,0,0,0,12,2158,22.02.2022,488.0,redis,2D811BC1E7F03FC3
+94,94,94,6103,6103,F2549D259A2512EA,connectionTypeTcp,redis/src/connection.c,Fast path to get TCP connection type ,2,1,1,0,0,0,0,10,91,03.05.2023,60234.0,redis,F2549D259A2512EA
+95,95,95,2723,2723,695AF0DED9EE3A04,monotonicInit,redis/src/monotonic.c,"Call once at startup to initialize the monotonic clock.  Though this only
+needs to be called once, it may be called additional times without impact.
+Returns a printable string indicating the type of clock initialized.
+(The returned string is static and doesn't need to be freed.)  ",2,1,1,0,0,0,0,12,155,03.05.2023,500.0,redis,695AF0DED9EE3A04
+96,96,96,63,63,026C47756BB7DA91,connectionTypeTls,redis/src/connection.c,Fast path to get TLS connection type ,7,1,1,0,0,0,0,12,104,03.05.2023,8.0,redis,026C47756BB7DA91
+97,97,97,106,106,040112254A9AAEC0,clearMatchedArgs,redis/src/redis-cli.c,Recursively zeros the matched* fields of all arguments. ,5,2,2,0,0,0,0,10,1055,30.03.2023,2435.0,redis,040112254A9AAEC0
+98,98,98,864,864,22B5B55D92293AD9,getHintForInput,redis/src/redis-cli.c,Returns the command-line hint string for a given partial input. ,3,3,2,0,0,1,0,15,1480,30.03.2023,207.0,redis,22B5B55D92293AD9
+99,99,99,5874,5874,E888523FFA248031,matchOneOptionalArg,redis/src/redis-cli.c,"Tries to match the next words of the input against
+any one of a consecutive set of optional arguments.",2,2,2,0,0,0,0,14,1357,30.03.2023,129.0,redis,E888523FFA248031
+100,100,100,3085,3085,77B7CF012F26FC12,validateClientName,redis/src/networking.c,Returns C_OK if the name is valid. Returns C_ERR & sets `err` (when provided) otherwise. ,2,1,1,0,0,0,0,11,2912,22.03.2023,44.0,redis,77B7CF012F26FC12
+101,101,101,350,350,0E9A789668A53CE2,clientSetNameOrReply,redis/src/networking.c,"This function implements CLIENT SETNAME, including replying to the
+user with an error if the charset is wrong (in that case C_ERR is
+returned). If the function succeeded C_OK is returned, and it's up
+to the caller to send a reply if needed.
+
+Setting an empty string as name has the effect of unsetting the
+currently set name: the client will remain unnamed.
+
+This function is also used to implement the HELLO SETNAME option. ",1,2,2,0,0,0,0,7,2953,16.03.2023,35.0,redis,0E9A789668A53CE2
+102,102,102,3092,3092,7811C8884B563602,shiftReplicationId,redis/src/replication.c,"Use the current replication ID / offset as secondary replication
+ID, and change the current one in order to start a new history.
+This should be used when an instance is switched from slave to master
+so that it can serve PSYNC requests performed using the master
+replication ID. ",1,2,1,0,0,1,0,12,1714,19.02.2023,11.0,redis,7811C8884B563602
+103,103,103,4768,4768,BB490E9E69BFC0B5,dictGetDoubleValPtr,redis/src/dict.c,Returns a mutable reference to the value as a double within the entry. ,1,1,1,0,0,0,0,3,881,20.01.2023,536.0,redis,BB490E9E69BFC0B5
+104,104,104,972,972,2696F7DF3E54828F,removeClientFromTimeoutTable,redis/src/timeout.c,"Remove the client from the table when it is unblocked for reasons
+different than timing out. ",1,1,1,0,0,0,0,7,126,02.01.2023,251.0,redis,2696F7DF3E54828F
+105,105,105,3225,3225,7DDA13DF00B86D3F,lpEstimateBytesRepeatedInteger,redis/src/listpack.c,Returns the size of a listpack consisting of an integer repeated 'rep' times. ,0,1,1,0,0,0,0,6,1225,06.12.2022,2744.0,redis,7DDA13DF00B86D3F
+106,106,106,1895,1895,49E6844B7439AE2E,listTypeTryConversionRaw,redis/src/t_list.c,"Check if the list needs to be converted to appropriate encoding due to
+growing, shrinking or other cases.
+
+'lct' can be one of the following values:
+LIST_CONV_AUTO      - Used after we built a new list, and we want to let the
+                      function decide on the best encoding for that list.
+LIST_CONV_GROWING   - Used before or right after adding elements to the list,
+                      in which case we are likely to only consider converting
+                      from listpack to quicklist.
+                      'argv' is only used in this case to calculate the size
+                      of a number of objects that will be added to list.
+LIST_CONV_SHRINKING - Used after removing an element from the list, in which case we
+                      wanna consider converting from quicklist to listpack. When we
+                      know we're shrinking, we use a lower (more strict) threshold in
+                      order to avoid repeated conversions on every list change. ",1,2,2,0,0,0,0,13,131,16.11.2022,212751.0,redis,49E6844B7439AE2E
+107,107,107,1558,1558,3CD11432283D300C,intsetMax,redis/src/intset.c,Return the largest member. ,0,1,1,0,0,0,0,3,269,09.11.2022,2519.0,redis,3CD11432283D300C
+108,108,108,2187,2187,556B33663FF5B29A,isPausedActionsWithUpdate,redis/src/networking.c,Returns bitmask of paused actions ,6,1,1,0,0,0,0,4,4123,27.10.2022,1277801.0,redis,556B33663FF5B29A
+109,109,109,2275,2275,58FAA4A5536CFA44,unpauseActions,redis/src/networking.c,Unpause actions and queue them for reprocessing. ,4,1,1,0,0,0,0,4,4111,27.10.2022,8.0,redis,58FAA4A5536CFA44
+110,110,110,3441,3441,865AFFB178D4D19E,addReplyErrorSdsSafe,redis/src/networking.c,"See addReplyErrorLength for expectations from the input string. 
+As a side effect the SDS string is freed. ",1,1,1,0,0,0,0,3,636,22.09.2022,16.0,redis,865AFFB178D4D19E
+111,111,111,4238,4238,A534AD3943BEE446,closeChildUnusedResourceAfterFork,redis/src/server.c,"After fork, the child process will inherit the resources
+of the parent process, e.g. fd(socket or flock) etc.
+should close the resources not used by the child process, so that if the
+parent restarts it can bind/lock despite the child possibly still running. ",1,3,1,1,0,1,0,9,6364,23.11.2023,121.0,redis,A534AD3943BEE446
+112,112,112,960,960,2659E043CA08EABE,dumpCommand,redis/src/cluster.c,"DUMP keyname
+DUMP is actually not used by Redis Cluster but it is the obvious
+complement of RESTORE and can be useful for different applications. ",0,3,1,2,0,0,0,16,178,22.11.2023,46.0,redis,2659E043CA08EABE
+113,113,113,2038,2038,4FCE073EC6D45595,shouldReturnTlsInfo,redis/src/cluster.c,"When a cluster command is called, we need to decide whether to return TLS info or
+non-TLS info by the client's connection type. However if the command is called by
+a Lua script or RM_call, there is no connection in the fake client, so we use
+server.current_client here to get the real client if available. And if it is not
+available (modules may call commands without a real client), we return the default
+info, which is determined by server.tls_cluster. ",3,1,0,1,0,0,0,6,811,22.11.2023,8.0,redis,4FCE073EC6D45595
+114,114,114,6227,6227,F7D925166975E65A,activeExpireCycleTryExpire,redis/src/expire.c,"Helper function for the activeExpireCycle() function.
+This function will try to expire the key that is stored in the hash table
+entry 'de' of the 'expires' hash table of a Redis database.
+
+If the key is found to be expired, it is removed from the database and
+1 is returned. Otherwise no operation is performed and 0 is returned.
+
+When a key is expired, server.stat_expiredkeys is incremented.
+
+The parameter 'now' is the current time in milliseconds as is passed
+to the function to avoid too many gettimeofday() syscalls. ",2,8,0,8,0,0,0,13,58,08.11.2023,1856.0,redis,F7D925166975E65A
+115,115,115,6254,6254,F8EF173BE5A4D124,infoCommand,redis/src/server.c,INFO [<section> [<section> ...]] ,0,6,2,4,0,0,0,13,6073,28.09.2023,1173.0,redis,F8EF173BE5A4D124
+116,116,116,3496,3496,881481995F73C0AF,ACLAddCommandCategory,redis/src/acl.c,"Implements the ability to add to the list of ACL categories at runtime. Since each ACL category
+also requires a bit in the acl_categories flag, there is a limit to the number that can be added.
+The new ACL categories occupy the remaining bits of acl_categories flag, other than the bits
+occupied by the default ACL command categories.
+
+The optional `flag` argument allows the assignment of the `acl_categories` flag bit to the ACL category.
+When adding a new category, except for the default ACL command categories, this arguments should be `0`
+to allow the function to assign the next available `acl_categories` flag bit to the new ACL category.
+
+returns 1 -> Added, 0 -> Failed (out of space)
+
+This function is present here to gain access to the ACLCommandCategories array and add a new ACL category.",2,1,0,1,0,0,0,6,108,30.08.2023,5019.0,redis,881481995F73C0AF
+117,117,117,3513,3513,88B151FABE76CA99,ACLInit,redis/src/acl.c,Initialization of the ACL subsystem. ,1,4,2,2,0,0,0,7,1442,30.08.2023,239.0,redis,88B151FABE76CA99
+118,118,118,33,33,014124F47DB5581A,getObjectTypeByName,redis/src/db.c,Helper function to get type from a string in scan commands ,1,2,0,1,0,1,0,12,932,27.06.2023,981.0,redis,014124F47DB5581A
+119,119,119,4482,4482,AFF7B2B879CFD2A7,afterCommand,redis/src/server.c,"This is called after a command in call, we can do some maintenance job in it. ",3,3,1,2,0,0,0,13,3776,20.06.2023,3493373.0,redis,AFF7B2B879CFD2A7
+120,120,120,3275,3275,7FEDB3EB5B9407B4,rejectCommand,redis/src/server.c,"Used when a command that is ready for execution needs to be rejected, due to
+various pre-execution checks. it returns the appropriate error to the client.
+If there's a transaction is flags it as dirty, and if the command is EXEC,
+it aborts the transaction.
+The duration is reset, since we reject the command, and it did not record.
+Note: 'reply' is expected to end with \r\n ",1,3,0,3,0,0,0,10,3739,11.06.2023,28146.0,redis,7FEDB3EB5B9407B4
+121,121,121,3560,3560,8A7A0291C7211807,connTypeInitialize,redis/src/connection.c,Initialize the redis connection framework ,1,3,0,3,0,0,0,11,60,03.05.2023,239.0,redis,8A7A0291C7211807
+122,122,122,3857,3857,95C722DA9D130EA1,initConfigValues,redis/src/config.c,"Initialize configs to their default values and create and populate the 
+runtime configuration dictionary. ",1,1,0,1,0,0,0,16,3303,03.05.2023,239.0,redis,95C722DA9D130EA1
+123,123,123,1394,1394,3693A3382908456F,InitServerLast,redis/src/server.c,"Some steps in server initialization need to be done last (after modules
+are loaded).
+Specifically, creation of threads due to a race bug in ld.so, in which
+Thread Local Storage initialization collides with dlopen call.
+see: https://sourceware.org/bugzilla/show_bug.cgi?id=19329 ",1,3,0,3,0,0,0,5,2861,03.05.2023,234.0,redis,3693A3382908456F
+124,124,124,5608,5608,DE8299A8F5F546FA,functionsInit,redis/src/functions.c,"Initialize engine data structures.
+Should be called once on server initialization ",1,3,1,2,0,0,0,11,1118,03.05.2023,234.0,redis,DE8299A8F5F546FA
+125,125,125,4735,4735,B9F2845E4E98A147,connTypeOfReplication,redis/src/replication.c,--------------------------- Utility functions ---------------------------- ,1,2,0,2,0,0,0,6,58,03.05.2023,83.0,redis,B9F2845E4E98A147
+126,126,126,5030,5030,C76394C0BC8D8C8D,replicationAttachToNewMaster,redis/src/replication.c,"If we know we got an entirely different data set from our master
+we have no way to incrementally feed our replicas after that.
+We want our replicas to resync with us as well, if we have any sub-replicas.
+This is useful on readSyncBulkPayload in places where we just finished transferring db. ",1,3,2,1,0,0,0,8,1857,03.05.2023,34.0,redis,C76394C0BC8D8C8D
+127,127,127,1143,1143,2CC82D2DAAA61601,getTempIncrAofName,redis/src/aof.c,Get temp INCR type AOF name. ,3,2,0,2,0,0,0,3,467,03.05.2023,11.0,redis,2CC82D2DAAA61601
+128,128,128,68401,68401,813C1FF4A3DBC47C,llvm::BasicBlock::setBasicBlockBits,llvm-project/llvm/include/llvm/IR/BasicBlock.h,Reinterpret our subclass bits and store them back into Value.,3,1,0,0,0,1,0,4,747,19.02.2020,17923733.0,llvm,813C1FF4A3DBC47C
+129,129,129,61005,61005,733651DCC7761155,llvm::object::ObjectFile::createObjectFile,llvm-project/llvm/lib/Object/ObjectFile.cpp,"@returns Pointer to ObjectFile subclass to handle this type of object.
+@param ObjectPath The path to the object file. ObjectPath.isObject must
+       return true.
+Create ObjectFile from path.",7,1,0,0,0,1,0,15,208,10.02.2020,45995.0,llvm,733651DCC7761155
+130,130,130,35024,35024,42078C401EC9E780,llvm::crc32,llvm-project/llvm/lib/Support/CRC.cpp,"Compute the running CRC-32 of Data, with CRC being the previous value of the
+checksum.",3,1,0,0,0,1,0,10,87,05.02.2020,8752.0,llvm,42078C401EC9E780
+131,131,131,24576,24576,2E23C46DE272DFDF,llvm::TGLexer::prepLexMacroName,llvm-project/llvm/lib/TableGen/TGLexer.cpp,"Lex name of the macro after either #ifdef or #define.  We could have used
+LexIdentifier(), but it has special handling of ""include"" word, which
+could result in awkward diagnostic errors.  Consider:
+----
+#ifdef include
+class ...
+----
+LexIdentifier() will engage LexInclude(), which will complain about
+missing file with name ""class"".  Instead, prepLexMacroName() will treat
+""include"" as a normal macro name.
+
+On entry, CurPtr points to the end of a preprocessing directive word.
+The method allows for whitespaces between the preprocessing directive
+and the macro name.  The allowed whitespaces are ' ' and '\t'.
+
+If the first non-whitespace symbol after the preprocessing directive
+is a valid start symbol for an identifier (i.e. [a-zA-Z_]), then
+the method updates TokStart to the position of the first non-whitespace
+symbol, sets CurPtr to the position of the macro name's last symbol,
+and returns a string reference to the macro name.  Otherwise,
+TokStart is set to the first non-whitespace symbol after the preprocessing
+directive, and the method returns an empty string reference.
+
+In all cases, TokStart may be used to point to the word following
+the preprocessing directive.",1,2,0,0,0,2,0,15,909,27.11.2018,628.0,llvm,2E23C46DE272DFDF
+132,132,132,74180,74180,8BC411EC3EEBD2B2,llvm::RuntimeDyldCOFFX86_64::getImageBase,llvm-project/llvm/lib/ExecutionEngine/RuntimeDyld/Targets/RuntimeDyldCOFFX86_64.h,Fake an __ImageBase pointer by returning the section with the lowest adress,1,1,0,0,0,1,0,13,35,23.10.2018,5.0,llvm,8BC411EC3EEBD2B2
+133,133,133,7609,7609,0E3B81407BEAAA5F,llvm::exegesis::randomGenerator,llvm-project/llvm/tools/llvm-exegesis/lib/SnippetGenerator.cpp,"A global Random Number Generator to randomize configurations.
+FIXME: Move random number generation into an object and make it seedable for
+unit tests.",2,1,0,0,0,1,0,4,180,01.10.2018,1859601.0,llvm,0E3B81407BEAAA5F
+134,134,134,11360,11360,1567B8020D9F46D3,llvm::InterleavedAccessInfo::isStrided,llvm-project/llvm/lib/Analysis/VectorUtils.cpp,Returns true if \p Stride is allowed in an interleaved group.,2,1,0,0,0,1,0,3,1034,12.09.2018,34906.0,llvm,1567B8020D9F46D3
+135,135,135,48398,48398,5B5B2FAC93533A91,llvm::msgpack::Writer::write,llvm-project/llvm/lib/BinaryFormat/MsgPackWriter.cpp,"Write a floating point number to the output stream.
+
+The output will be in the smallest possible \em float format.",2,3,0,0,0,3,0,11,90,23.08.2018,47503.0,llvm,5B5B2FAC93533A91
+136,136,136,109600,109600,CF594883B132BD36,llvm::TarWriter::create,llvm-project/llvm/lib/Support/TarWriter.cpp,Creates a TarWriter instance and returns it.,4,1,0,0,0,1,0,8,169,07.06.2018,10.0,llvm,CF594883B132BD36
+137,137,137,124133,124133,EAF1815280564D4E,getClearedMemory,llvm-project/llvm/lib/Support/APInt.cpp,"A utility function for allocating memory, checking for allocation failures,
+and ensuring the contents are zeroed.",3,1,0,0,0,1,0,4,36,23.03.2018,11967159.0,llvm,EAF1815280564D4E
+138,138,138,43308,43308,51C9C6F8A1F750AB,llvm::MemSDNode::getRawSubclassData,llvm-project/llvm/include/llvm/CodeGen/SelectionDAGNodes.h,"Return the SubclassData value, without HasDebugValue. This contains an
+encoding of the volatile flag, as well as bits used by subclasses. This
+function should only be used to compute a FoldingSetNodeID value.
+The HasDebugValue bit is masked out because CSE map needs to match
+nodes with debug info with nodes without debug info. Same is about
+isDivergent bit.",4,1,0,0,0,1,0,11,1321,14.03.2018,8171416.0,llvm,51C9C6F8A1F750AB
+139,139,139,98085,98085,B99A35A7540F55B3,llvm::InterferenceCache::reinitPhysRegEntries,llvm-project/llvm/lib/CodeGen/InterferenceCache.cpp,"Initializes PhysRegEntries (instead of a SmallVector, PhysRegEntries is a
+buffer of size NumPhysRegs to speed up alloc/clear for targets with large
+reg files). Calloced memory is used for good form, and quites tools like
+Valgrind too, but zero initialized memory is not required by the algorithm:
+this is because PhysRegEntries works like a SparseSet and its entries are
+only valid when there is a corresponding CacheEntries assignment. There is
+also support for when pass managers are reused for targets with different
+numbers of PhysRegs: in this case PhysRegEntries is freed and reinitialized.",1,1,0,0,0,1,0,6,42,20.02.2018,617252.0,llvm,B99A35A7540F55B3
+140,140,140,5856,5856,0AE63BE74459CB64,llvm::PressureDiffs::init,llvm-project/llvm/lib/CodeGen/RegisterPressure.cpp,Initialize an array of N PressureDiffs.,1,2,0,0,0,2,0,9,645,20.02.2018,297140.0,llvm,0AE63BE74459CB64
+141,141,141,3478,3478,0676B12B39566C56,getFullUnrollBoostingFactor,llvm-project/llvm/lib/Transforms/Scalar/LoopUnrollPass.cpp,"Computes the boosting factor for complete unrolling.
+If fully unrolling the loop would save a lot of RolledDynamicCost, it would
+be beneficial to fully unroll the loop even if unrolledcost is large. We
+use (RolledDynamicCost / UnrolledCost) to model the unroll benefits to adjust
+the unroll threshold.",1,1,0,0,0,1,0,10,758,19.10.2017,58.0,llvm,0676B12B39566C56
+142,142,142,108795,108795,CDE393951EE455C1,llvm::bfi_detail::BlockMass::operator+=,llvm-project/llvm/include/llvm/Analysis/BlockFrequencyInfoImpl.h,"Add another mass.
+
+Adds another mass, saturating at \a isFull() rather than overflowing.",1,1,0,0,0,1,0,4,115,22.07.2017,1460149.0,llvm,CDE393951EE455C1
+143,143,143,26877,26877,3280BE92FC1B191E,llvm::LLVMContextImpl::getOrInsertSyncScopeID,llvm-project/llvm/lib/IR/LLVMContextImpl.cpp,"getOrInsertSyncScopeID - Maps synchronization scope name to
+synchronization scope ID.  Every synchronization scope registered with
+LLVMContext has unique ID except pre-defined ones.",2,1,0,0,0,1,0,5,228,12.07.2017,284879.0,llvm,3280BE92FC1B191E
+144,144,144,121301,121301,E5A41DEBCBAF52E8,llvm::calculateCountScale,llvm-project/llvm/include/llvm/Transforms/Instrumentation.h,"Calculate what to divide by to scale counts.
+
+Given the maximum count, calculate a divisor that will scale all the
+weights to strictly less than std::numeric_limits<uint32_t>::max().",2,1,0,0,0,1,0,4,162,18.01.2017,251.0,llvm,E5A41DEBCBAF52E8
+145,145,145,114358,114358,D85B1FEC2C0BE752,llvm::X86FrameLowering::canSimplifyCallFramePseudos,llvm-project/llvm/lib/Target/X86/X86FrameLowering.cpp,"canSimplifyCallFramePseudos - If there is a reserved call frame, the
+call frame pseudos can be simplified.  Having a FP, as in the default
+implementation, is not sufficient here since we can't always use it.
+Use a more nuanced condition.",0,4,2,2,0,0,0,6,72,24.11.2023,172465.0,llvm,D85B1FEC2C0BE752
+146,146,146,75762,75762,8EEA8CD084F935EF,llvm::AArch64Subtarget::isSVEAvailable,llvm-project/llvm/lib/Target/AArch64/AArch64Subtarget.cpp,"Returns true if the target has SVE and can use the full range of SVE
+instructions, for example because it knows the function is known not to be
+in streaming-SVE mode or when the target has FEAT_FA64 enabled.",3,2,1,1,0,0,0,3,517,20.11.2023,28289.0,llvm,8EEA8CD084F935EF
+147,147,147,115526,115526,DA96867D7BFDD7FB,simplifyRecipes,llvm-project/llvm/lib/Transforms/Vectorize/VPlanTransforms.cpp,Try to simplify the recipes in \p Plan.,1,1,0,1,0,0,0,9,901,15.11.2023,6975.0,llvm,DA96867D7BFDD7FB
+148,148,148,31883,31883,3BFD5EF870B6D188,llvm::Value::eraseMetadata,llvm-project/llvm/lib/IR/Metadata.cpp,"Erase all metadata attachments with the given kind.
+
+\returns true if any metadata was removed.",3,4,2,2,0,0,0,10,1530,01.11.2023,67864.0,llvm,3BFD5EF870B6D188
+149,149,149,91624,91624,AD514BC44CC86418,llvm::sampleprof::FunctionSamples::getFuncName,llvm-project/llvm/include/llvm/ProfileData/SampleProf.h,"Translate \p Func into its original name.
+When profile doesn't use MD5, \p Func needs no translation.
+When profile uses MD5, \p Func in current FunctionSamples
+is actually GUID of the original function name. getFuncName will
+translate \p Func in current FunctionSamples into its original name
+by looking up in the function map GUIDToFuncNameMap.
+If the original name doesn't exist in the map, return empty StringRef.",1,2,0,2,0,0,0,6,1136,18.10.2023,146.0,llvm,AD514BC44CC86418
+150,150,150,18115,18115,224370FD8AC6E5EB,llvm::remarks::RemarkCounter::print,llvm-project/llvm/tools/llvm-remarkutil/RemarkCounter.cpp,"Print a CSV table consisting of an index which is specified by \p
+`Group` and can be a function name, source file name or function name
+with the full source path and a counts column corresponding to the count
+of each individual remark at th index.",0,1,0,1,0,0,0,13,239,14.10.2023,19.0,llvm,224370FD8AC6E5EB
+151,151,151,87787,87787,A5FDAF9570360861,llvm::remarks::Filters::filterRemark,llvm-project/llvm/tools/llvm-remarkutil/RemarkCounter.cpp,Returns true if \p Remark satisfies all the provided filters.,2,1,0,1,0,0,0,13,127,12.10.2023,146.0,llvm,A5FDAF9570360861
+152,152,152,132393,132393,FA36FB594E426367,llvm::DwarfDebug::emitAccelDebugNames,llvm-project/llvm/lib/CodeGen/AsmPrinter/DwarfDebug.cpp,Emit DWARF v5 accelerator table.,1,1,0,1,0,0,0,6,2399,05.10.2023,247.0,llvm,FA36FB594E426367
+153,153,153,29182,29182,36F5E3FCF2A24355,llvm::VPBuilder::setInsertPoint,llvm-project/llvm/lib/Transforms/Vectorize/LoopVectorizationPlanner.h,"This specifies that created instructions should be inserted at the
+specified point.",1,1,0,1,0,0,0,3,127,25.09.2023,17217.0,llvm,36F5E3FCF2A24355
+154,154,154,26058,26058,30E4844E5E075ADB,llvm::DwarfCompileUnit::constructVariableDIE,llvm-project/llvm/lib/CodeGen/AsmPrinter/DwarfCompileUnit.cpp,Construct a DIE for the given DbgVariable.,1,3,1,2,0,0,0,15,746,21.09.2023,4596.0,llvm,30E4844E5E075ADB
+155,155,155,8486,8486,0FF02AB82B10E9CA,llvm::TargetLoweringBase::optimizeFMulOrFDivAsShiftAddBitcast,llvm-project/llvm/include/llvm/CodeGen/TargetLowering.h,"Return true if its desirable to perform the following transform:
+(fmul C, (uitofp Pow2))
+    -> (bitcast_to_FP (add (bitcast_to_INT C), Log2(Pow2) << mantissa))
+(fdiv C, (uitofp Pow2))
+    -> (bitcast_to_FP (sub (bitcast_to_INT C), Log2(Pow2) << mantissa))
+
+This is only queried after we have verified the transform will be bitwise
+equals.
+
+SDNode *N      : The FDiv/FMul node we want to transform.
+SDValue FPConst: The Float constant operand in `N`.
+SDValue IntPow2: The Integer power of 2 operand in `N`.",0,1,0,1,0,0,0,4,836,20.09.2023,563.0,llvm,0FF02AB82B10E9CA
+156,156,156,46367,46367,577DE3AB6BE6D44B,llvm::Module::setLargeDataThreshold,llvm-project/llvm/lib/IR/Module.cpp,"Set the code model (tiny, small, kernel, medium or large)",1,3,1,2,0,0,0,5,632,20.09.2023,5.0,llvm,577DE3AB6BE6D44B
+157,157,157,70950,70950,85D6348E8AB963AF,llvm::PPCInstrInfo::getMachineCombinerPatterns,llvm-project/llvm/lib/Target/PowerPC/PPCInstrInfo.cpp,"Return true when there is potentially a faster code sequence
+for an instruction chain ending in <Root>. All potential patterns are
+output in the <Pattern> array.",0,2,1,1,0,0,0,13,740,15.09.2023,485557.0,llvm,85D6348E8AB963AF
+158,158,158,124056,124056,EAC9A637DDC9ECBA,llvm::RAGreedy::calculateRegionSplitCost,llvm-project/llvm/lib/CodeGen/RegAllocGreedy.cpp,Calculate cost of region splitting.,2,3,2,1,0,0,0,16,1173,15.09.2023,20663.0,llvm,EAC9A637DDC9ECBA
+159,159,159,83894,83894,9EDC69342C15DBA1,llvm::phys_regs_and_masks,llvm-project/llvm/include/llvm/CodeGen/LiveRegUnits.h,"Returns an iterator range over all physical register and mask operands for
+\p MI and bundled instructions. This also skips any debug operands.",0,4,0,4,0,0,0,9,164,07.09.2023,16714924.0,llvm,9EDC69342C15DBA1
+160,160,160,25569,25569,2FF8F3C1E45F41F3,llvm::LazyValueInfoWrapperPass::runOnFunction,llvm-project/llvm/lib/Analysis/LazyValueInfo.cpp,"===----------------------------------------------------------------------===//
+                            LazyValueInfo Impl
+===----------------------------------------------------------------------===//",0,3,2,1,0,0,0,8,1634,04.09.2023,90013.0,llvm,2FF8F3C1E45F41F3
+161,161,161,126052,126052,EE8104AEB59ED0D1,llvm::LoopVectorizationPlanner::getDecisionAndClampRange,llvm-project/llvm/lib/Transforms/Vectorize/LoopVectorize.cpp,"Test a \p Predicate on a \p Range of VF's. Return the value of applying
+\p Predicate on Range.Start, possibly decreasing Range.End such that the
+returned value holds for the entire \p Range.",7,1,0,1,0,0,0,12,7967,23.08.2023,170606.0,llvm,EE8104AEB59ED0D1
+162,162,162,104245,104245,C525E31CD703850B,llvm::LoopBase::hasDedicatedExits,llvm-project/llvm/include/llvm/Support/GenericLoopInfoImpl.h,"Return true if no exit block for the loop has a predecessor that is
+outside the loop.",0,1,1,0,0,0,0,12,111,19.01.2024,89288.0,llvm,C525E31CD703850B
+163,163,163,93926,93926,B1D72FE4DD2F5F62,llvm::LoopBase::isLoopLatch,llvm-project/llvm/include/llvm/Support/GenericLoopInfo.h,"Returns true if \p BB is a loop-latch.
+A latch block is a block that contains a branch back to the header.
+This function is useful when there are multiple latches in a loop
+because \fn getLoopLatch will return nullptr in that case.",1,2,2,0,0,0,0,4,241,18.01.2024,13328.0,llvm,B1D72FE4DD2F5F62
+164,164,164,32040,32040,3C49D09146946D28,llvm::PassBuilder::parsePassPipeline,llvm-project/llvm/lib/Passes/PassBuilder.cpp,"Parse a textual MIR pipeline into the provided \c MachineFunctionPass
+manager.
+The format of the textual machine pipeline is a comma separated list of
+machine pass names:
+
+  machine-funciton-pass,machine-module-pass,...
+
+There is no need to specify the pass nesting, and this function
+currently cannot handle the pass nesting.",1,1,1,0,0,0,0,12,2074,13.01.2024,20697.0,llvm,3C49D09146946D28
+165,165,165,124765,124765,EC22EEAA709447AA,llvm::dsymutil::DwarfLinkerForBinary::AddressManager::getRelocValue,llvm-project/llvm/tools/dsymutil/DwarfLinkerForBinary.cpp,\returns value for the specified \p Reloc.,1,1,1,0,0,0,0,6,1033,09.01.2024,2071.0,llvm,EC22EEAA709447AA
+166,166,166,117552,117552,DE54F70F34019F12,LiveDebugValues::InstrRefBasedLDV::process,llvm-project/llvm/lib/CodeGen/LiveDebugValues/InstrRefBasedImpl.cpp,Observe a single instruction while stepping through a block.,1,6,6,0,0,0,0,17,2242,14.12.2023,45892.0,llvm,DE54F70F34019F12
+167,167,167,36539,36539,44F71A432306FF08,LiveDebugValues::InstrRefBasedLDV::resolveDbgPHIs,llvm-project/llvm/lib/CodeGen/LiveDebugValues/InstrRefBasedImpl.cpp,"Determine the machine value number referred to by (potentially several)
+DBG_PHI instructions. Block duplication and tail folding can duplicate
+DBG_PHIs, shifting the position where values in registers merge, and
+forming another mini-ssa problem to solve.
+\p Here the position of a DBG_INSTR_REF seeking a machine value number
+\p InstrNum Debug instruction number defined by DBG_PHI instructions.
+\returns The machine value number at position Here, or std::nullopt.",1,1,1,0,0,0,0,13,4072,14.12.2023,196.0,llvm,44F71A432306FF08
+168,168,168,21539,21539,288640B118B688F7,llvm::AMDGPU::VOPD::InstInfo::getInvalidCompOperandIndex,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,"Check VOPD operands constraints.
+Return the index of an invalid component operand, if any.
+If \p SkipSrc is set to true then constraints for source operands are not
+checked.",1,1,1,0,0,0,0,18,673,12.12.2023,25837.0,llvm,288640B118B688F7
+169,169,169,46904,46904,5892E3A274AECA2B,llvm::object::COFFObjectFile::isDebugSection,llvm-project/llvm/lib/Object/COFFObjectFile.cpp,"The .debug sections are the only debug sections for COFF
+(\see MCObjectFileInfo.cpp).",0,1,1,0,0,0,0,9,331,12.12.2023,377.0,llvm,5892E3A274AECA2B
+170,170,170,79738,79738,96E0EB2BD8F09726,llvm::AMDGPU::getNumFlatOffsetBits,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,"For pre-GFX12 FLAT instructions the offset must be positive;
+MSB is ignored and forced to zero.
+
+\return The number of bits available for the signed offset field in flat
+instructions. Note that some forms of the instruction disallow negative
+offsets.",2,2,2,0,0,0,0,7,2900,06.12.2023,158848.0,llvm,96E0EB2BD8F09726
+171,171,171,95542,95542,B4D7348CB319EEBD,llvm::AMDGPU::getSMRDEncodedLiteralOffset32,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,"\return The encoding that can be used for a 32-bit literal offset in an SMRD
+instruction. This is only useful on CI.s",0,3,3,0,0,0,0,8,2890,06.12.2023,366.0,llvm,B4D7348CB319EEBD
+172,172,172,45880,45880,568F500B8CBCAAA8,llvm::slpvectorizer::BoUpSLP::isAliased,llvm-project/llvm/lib/Transforms/Vectorize/SLPVectorizer.cpp,"Checks if two instructions may access the same memory.
+
+\p Loc1 is the location of \p Inst1. It is passed explicitly because it
+is invariant in the calling loop.",1,1,1,0,0,0,0,14,2985,28.11.2023,2760917.0,llvm,568F500B8CBCAAA8
+173,173,173,69549,69549,834D24BE9F51DF94,llvm::SelectionDAGBuilder::resolveOrClearDbgInfo,llvm-project/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp,"Evict any dangling debug information, attempting to salvage it first.",1,1,1,0,0,0,0,6,1688,21.11.2023,684007.0,llvm,834D24BE9F51DF94
+174,174,174,100008,100008,BD1A0AB241279074,llvm::SelectionDAGBuilder::addDanglingDebugInfo,llvm-project/llvm/lib/CodeGen/SelectionDAG/SelectionDAGBuilder.cpp,Register a dbg_value which relies on a Value which we have not yet seen.,1,1,1,0,0,0,0,15,1375,21.11.2023,81.0,llvm,BD1A0AB241279074
+175,175,175,27788,27788,343D4A3D7A0A0D2B,llvm::AMDGPU::isModuleEntryFunctionCC,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,"These functions are considered entrypoints into the current module, i.e. they
+are allowed to be called from outside the current module. This is different
+from isEntryFunctionCC, which is only true for functions that are entered by
+the hardware. Module entry points include all entry functions but also
+include functions that can be called from other functions inside or outside
+the current module. Module entry functions are allowed to allocate LDS.",2,2,2,0,0,0,0,7,2098,20.11.2023,114350.0,llvm,343D4A3D7A0A0D2B
+176,176,176,36137,36137,443080CFC2749492,llvm::InstrProfSymtab::create,llvm-project/llvm/lib/ProfileData/InstrProf.cpp,"\c NameStrings is a string composed of one of more sub-strings
+ encoded in the format described in \c collectPGOFuncNameStrings.
+This method is a wrapper to \c readPGOFuncNameStrings method.",3,1,1,0,0,0,0,4,514,09.11.2023,4085.0,llvm,443080CFC2749492
+177,177,177,88608,88608,A77CA30685B4183F,llvm::BasicBlock::insertInto,llvm-project/llvm/lib/IR/BasicBlock.cpp,"Insert unlinked basic block into a function.
+
+Inserts an unlinked basic block into \c Parent.  If \c InsertBefore is
+provided, inserts before that basic block, otherwise inserts at the end.
+
+\pre \a getParent() is \c nullptr.",3,1,1,0,0,0,0,10,238,08.11.2023,1802309.0,llvm,A77CA30685B4183F
+178,178,178,30169,30169,38DFD770E1410BD8,llvm::TruncInstCombine::getReducedOperand,llvm-project/llvm/lib/Transforms/AggressiveInstCombine/TruncInstCombine.cpp,"Given a \p V value and a \p SclTy scalar type return the generated reduced
+value of \p V based on the type \p SclTy.
+
+\param V value to be reduced.
+\param SclTy scalar version of new type to reduce to.
+\return the new reduced value.",1,1,1,0,0,0,0,12,366,01.11.2023,829.0,llvm,38DFD770E1410BD8
+179,179,179,64265,64265,799533E168FE6008,llvm::SDNodeInfo::ApplyTypeConstraints,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.h,"ApplyTypeConstraints - Given a node in a pattern, apply the type
+constraints for this node to the operands of the node.  This returns
+true if it makes a change, false otherwise.  If a type contradiction is
+found, an error is flagged.",1,0,0,0,0,0,0,6,1253,09.02.2024,62987.0,llvm,799533E168FE6008
+180,180,180,79770,79770,96F2B4A1D325F4F2,llvm::CodeGenRegister::getSuperRegs,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,"Get the list of super-registers in topological order, small to large.
+This is valid after computeSubRegs visits all registers during RegBank
+construction.",1,0,0,0,0,0,0,3,205,09.02.2024,6058.0,llvm,96F2B4A1D325F4F2
+181,181,181,52616,52616,6356E9FD7BE1AA0E,llvm::CodeGenRegisterClass::getSuperRegClasses,llvm-project/llvm/utils/TableGen/CodeGenRegisters.cpp,"getSuperRegClasses - Returns a bit vector of all register classes
+containing only SubIdx super-registers of this class.",3,0,0,0,0,0,0,7,1131,09.02.2024,5001.0,llvm,6356E9FD7BE1AA0E
+182,182,182,71845,71845,8775A85E8E33FD3B,llvm::CodeGenInstruction::HasOneImplicitDefWithKnownVT,llvm-project/llvm/utils/TableGen/CodeGenInstruction.cpp,"HasOneImplicitDefWithKnownVT - If the instruction has at least one
+implicit def and it has a known VT, return the VT, otherwise return
+MVT::Other.",1,0,0,0,0,0,0,13,516,09.02.2024,212.0,llvm,8775A85E8E33FD3B
+183,183,183,29657,29657,37E7ED8377645531,llvm::CGIOperandList::OperandInfo::getTiedRegister,llvm-project/llvm/utils/TableGen/CodeGenInstruction.h,"getTiedOperand - If this operand is tied to another one, return the
+other operand number.  Otherwise, return -1.",2,0,0,0,0,0,0,7,130,09.02.2024,68.0,llvm,37E7ED8377645531
+184,184,184,25375,25375,2F9D68DB5EE04E17,llvm::CodeGenRegBank::getRegUnitSetWeight,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,Get the sum of unit weights.,2,0,0,0,0,0,0,5,775,09.02.2024,64.0,llvm,2F9D68DB5EE04E17
+185,185,185,71207,71207,864AC83693AFEF46,findRegUnitSet,llvm-project/llvm/utils/TableGen/CodeGenRegisters.cpp,"Find a set in UniqueSets with the same elements as Set.
+Return an iterator into UniqueSets.",1,0,0,0,0,0,0,5,1898,09.02.2024,44.0,llvm,864AC83693AFEF46
+186,186,186,116167,116167,DBC884D18397918D,llvm::MachineModuleAnalysis::run,llvm-project/llvm/lib/CodeGen/MachineModuleInfo.cpp,Run the analysis pass and produce machine module information.,0,0,0,0,0,0,0,6,240,07.02.2024,1.0,llvm,DBC884D18397918D
+187,187,187,50788,50788,5FC7404A6A5F148C,llvm::Function::getImportGUIDs,llvm-project/llvm/lib/IR/Function.cpp,"Returns the set of GUIDs that needs to be imported to the function for
+sample PGO, to enable the same inlines as the profiled optimized binary.",0,0,0,0,0,0,0,10,1975,06.02.2024,3596.0,llvm,5FC7404A6A5F148C
+188,188,188,124556,124556,EBC26C6D27A412EE,llvm::AMDGPU::getHostcallImplicitArgPosition,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,\returns The offset of the hostcall pointer argument from implicitarg_ptr,1,0,0,0,0,0,0,9,220,05.02.2024,73725.0,llvm,EBC26C6D27A412EE
+189,189,189,109311,109311,CECBB89FB3B6DBCB,llvm::vputils::onlyFirstLaneUsed,llvm-project/llvm/lib/Transforms/Vectorize/VPlan.cpp,Returns true if only the first lane of \p Def is used.,0,0,0,0,0,0,0,3,1400,03.02.2024,10708.0,llvm,CECBB89FB3B6DBCB
+190,190,190,25154,25154,2F3271FCC47444DF,llvm::VPWidenPointerInductionRecipe::onlyScalarsGenerated,llvm-project/llvm/lib/Transforms/Vectorize/VPlanRecipes.cpp,Returns true if only scalar values will be generated.,1,0,0,0,0,0,0,3,1673,03.02.2024,680.0,llvm,2F3271FCC47444DF
+191,191,191,97984,97984,B96E02E2C651678A,llvm::BasicAAResult::isValueEqualInPotentialCycles,llvm-project/llvm/lib/Analysis/BasicAliasAnalysis.cpp,"Check whether two Values can be considered equivalent.
+
+If the values may come from different cycle iterations, this will also
+check that the values are not part of cycle. We have to do this because we
+are looking through phi nodes, that is we say
+noalias(V, phi(VA, VB)) if noalias(V, VA) and noalias(V, VB).",3,0,0,0,0,0,0,16,1773,31.01.2024,3843414.0,llvm,B96E02E2C651678A
+192,192,192,34436,34436,40F3BAD62D99D9CD,llvm::VPlanTransforms::removeRedundantExpandSCEVRecipes,llvm-project/llvm/lib/Transforms/Vectorize/VPlanTransforms.cpp,"Remove redundant EpxandSCEVRecipes in \p Plan's entry block by replacing
+them with already existing recipes expanding the same SCEV expression.",1,0,0,0,0,0,0,15,563,31.01.2024,6975.0,llvm,40F3BAD62D99D9CD
+193,193,193,93813,93813,B197311668ACA607,llvm::gsym::GsymCreator::copyFile,llvm-project/llvm/lib/DebugInfo/GSYM/GsymCreator.cpp,"Copy a file from \a SrcGC into this object.
+
+Copy a file from \a SrcGC by file index into this GSYM creator. Files
+consist of two string table entries, one for the directory and one for the
+filename, this function will copy any needed strings ensure the file is
+uniqued within this object. If a file already exists in this GSYM creator
+the uniqued index will be returned, else the stirngs will be copied and
+the new file index will be returned.
+
+\param SrcGC The source gsym creator to copy from.
+\param FileIdx The 1 based file table index within \a SrcGC to copy. A
+file index of zero will always return zero as the zero is a reserved file
+index that means no file.
+\returns The new file index of the file within this object.",2,0,0,0,0,0,0,15,51,30.01.2024,80.0,llvm,B197311668ACA607
+194,194,194,110669,110669,D17499D65A129E0B,llvm::lookupUnfoldTable,llvm-project/llvm/lib/Target/X86/X86InstrFoldTables.cpp,Look up the memory unfolding table entry for this instruction.,3,0,0,0,0,0,0,7,230,29.01.2024,5310.0,llvm,D17499D65A129E0B
+196,196,196,9493,9493,11CF802B6E1FEA80,llvm::CodeGenRegisterClass::getBaseClassOrder,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,Get ordering value among register base classes.,2,2,0,0,2,0,0,4,480,09.02.2024,97.0,llvm,11CF802B6E1FEA80
+197,197,197,115853,115853,DB34FAB80512F610,llvm::SequenceToOffsetTable::emit,llvm-project/llvm/utils/TableGen/SequenceToOffsetTable.h,"emit - Print out the table as the body of an array initializer.
+Use the Print function to print elements.",1,3,2,0,1,0,0,14,156,09.02.2024,73.0,llvm,DB34FAB80512F610
+198,198,198,27715,27715,3418D59268E862F5,getResultPatternCost,llvm-project/llvm/utils/TableGen/DAGISelEmitter.cpp,"Compute the number of instructions for this pattern.
+This is a temporary hack.  We should really include the instruction
+latencies in this calculation.",3,8,2,5,1,0,0,16,44,09.02.2024,73.0,llvm,3418D59268E862F5
+199,199,199,81422,81422,9A2E48BEB1816B58,llvm::CodeGenDAGPatterns::ParseNodeTransforms,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,"ParseNodeTransforms - Parse all SDNodeXForm instances into the SDNodeXForms
+map, and emit them to the file as functions.",1,1,0,0,1,0,0,12,3212,09.02.2024,53.0,llvm,9A2E48BEB1816B58
+200,200,200,58102,58102,6DA6946E3776AFC5,llvm::CodeGenTarget::getAsmWriter,llvm-project/llvm/utils/TableGen/CodeGenTarget.cpp,getAsmWriter - Return the AssemblyWriter definition for this target.,0,1,0,0,1,0,0,6,366,09.02.2024,31.0,llvm,6DA6946E3776AFC5
+201,201,201,92596,92596,AF481135AA787977,llvm::CodeGenTarget::getAsmParserVariantCount,llvm-project/llvm/utils/TableGen/CodeGenTarget.cpp,"getAsmParserVariantCount - Return the AssemblyParserVariant definition
+available for this target.",4,1,0,0,1,0,0,4,358,09.02.2024,15.0,llvm,AF481135AA787977
+202,202,202,5844,5844,0AE20485D000DDFA,llvm::CodeGenSchedModels::collectProcItinRW,llvm-project/llvm/utils/TableGen/CodeGenSchedule.cpp,Gather the read/write types for each itinerary class.,1,1,0,0,1,0,0,14,1208,09.02.2024,12.0,llvm,0AE20485D000DDFA
+203,203,203,131748,131748,F91191B1CD7849A7,llvm::createGenericSchedLive,llvm-project/llvm/lib/CodeGen/MachineScheduler.cpp,"Create the standard converging machine scheduler. This will be used as the
+default scheduler if the target does not set a default.
+Adds default DAG mutations.",6,3,1,0,2,0,0,16,3798,07.02.2024,384040.0,llvm,F91191B1CD7849A7
+204,204,204,9436,9436,11B9FCF02AADD2C8,llvm::IRMover::move,llvm-project/llvm/lib/Linker/IRMover.cpp,"Move in the provide values in \p ValuesToLink from \p Src.
+
+- \p AddLazyFor is a call back that the IRMover will call when a global
+  value is referenced by one of the ValuesToLink (transitively) but was
+  not present in ValuesToLink. The GlobalValue and a ValueAdder callback
+  are passed as an argument, and the callback is expected to be called
+  if the GlobalValue needs to be added to the \p ValuesToLink and linked.
+  Pass nullptr if there's no work to be done in such cases.
+- \p IsPerformingImport is true when this IR link is to perform ThinLTO
+  function importing from Src.",1,4,1,0,3,0,0,11,1775,07.02.2024,1167.0,llvm,11B9FCF02AADD2C8
+205,205,205,81463,81463,9A413984532757A3,llvm::createGenericSchedPostRA,llvm-project/llvm/lib/CodeGen/MachineScheduler.cpp,Create a generic scheduler with no vreg liveness or DAG mutation passes.,2,2,0,0,2,0,0,10,3961,07.02.2024,814.0,llvm,9A413984532757A3
+206,206,206,91379,91379,ACDD0E6DCC6643D2,isLegalToCombineMinNumMaxNum,llvm-project/llvm/lib/CodeGen/SelectionDAG/DAGCombiner.cpp,"FIXME: This should be checking for no signed zeros on individual operands, as
+well as no nans.",2,4,0,1,3,0,0,9,11168,06.02.2024,68932.0,llvm,ACDD0E6DCC6643D2
+207,207,207,123422,123422,E99913249AC3763E,llvm::MachineRegisterInfo::createVirtualRegister,llvm-project/llvm/lib/CodeGen/MachineRegisterInfo.cpp,"Create and return a new virtual register in the function with the
+specified register attributes(register class or bank and low level type).",1,3,2,0,1,0,0,7,170,05.02.2024,6428559.0,llvm,E99913249AC3763E
+208,208,208,116587,116587,DC9561F6B40E4B29,llvm::computeKnownFPClass,llvm-project/llvm/include/llvm/Analysis/ValueTracking.h,Wrapper to account for known fast math flags at the use instruction.,2,1,0,0,1,0,0,16,505,05.02.2024,6323.0,llvm,DC9561F6B40E4B29
+209,209,209,127924,127924,F2056CE3210A9F37,llvm::X86InstrInfo::isStoreToStackSlotPostFE,llvm-project/llvm/lib/Target/X86/X86InstrInfo.cpp,"isStoreToStackSlotPostFE - Check for post-frame ptr elimination
+stack locations as well.  This uses a heuristic so it isn't
+reliable for correctness.",0,4,1,0,3,0,0,17,738,02.02.2024,1742366.0,llvm,F2056CE3210A9F37
+210,210,210,32323,32323,3CD351F41497543C,llvm::AsmPrinter::shouldEmitLabelForBasicBlock,llvm-project/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp,This method decides whether the specified basic block requires a label.,1,8,1,0,7,0,0,15,4084,02.02.2024,776966.0,llvm,3CD351F41497543C
+211,211,211,116515,116515,DC68EFE2B13CB482,llvm::SparcInstrInfo::isLoadFromStackSlot,llvm-project/llvm/lib/Target/Sparc/SparcInstrInfo.cpp,"isLoadFromStackSlot - If the specified machine instruction is a direct
+load from a stack slot, return the virtual or physical register number of
+the destination along with the FrameIndex of the loaded stack slot.  If
+not, return 0.  This predicate must return 0 if the instruction has
+any side effects other than loading from the stack slot.",0,5,0,0,5,0,0,12,51,02.02.2024,6342.0,llvm,DC68EFE2B13CB482
+212,212,212,382,382,00C0C87D5EF25F13,llvm::cl::Option::setArgStr,llvm-project/llvm/lib/Support/CommandLine.cpp,"-------------------------------------------------------------------------===
+ Accessor functions set by OptionModifiers",1,3,1,0,2,0,0,7,422,01.02.2024,272866550.0,llvm,00C0C87D5EF25F13

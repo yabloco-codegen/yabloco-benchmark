@@ -1,0 +1,134 @@
+
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.90",
+  "elapsed_seconds"    : 1.10610389709473,
+  "n_files"            : 1497,
+  "n_lines"            : 428396,
+  "files_per_second"   : 1353.39908297222,
+  "lines_per_second"   : 387301.7725778},
+"C" :{
+  "nFiles": 421,
+  "blank": 28122,
+  "comment": 42304,
+  "code": 172713},
+"Tcl/Tk" :{
+  "nFiles": 210,
+  "blank": 7996,
+  "comment": 4407,
+  "code": 45654},
+"C/C++ Header" :{
+  "nFiles": 279,
+  "blank": 5132,
+  "comment": 10950,
+  "code": 27884},
+"JSON" :{
+  "nFiles": 392,
+  "blank": 2,
+  "comment": 0,
+  "code": 23656},
+"Bourne Shell" :{
+  "nFiles": 72,
+  "blank": 3129,
+  "comment": 1620,
+  "code": 17195},
+"Windows Module Definition" :{
+  "nFiles": 1,
+  "blank": 2036,
+  "comment": 0,
+  "code": 8871},
+"HTML" :{
+  "nFiles": 5,
+  "blank": 2928,
+  "comment": 12,
+  "code": 6718},
+"m4" :{
+  "nFiles": 2,
+  "blank": 401,
+  "comment": 165,
+  "code": 3054},
+"Markdown" :{
+  "nFiles": 22,
+  "blank": 885,
+  "comment": 0,
+  "code": 2635},
+"YAML" :{
+  "nFiles": 18,
+  "blank": 133,
+  "comment": 96,
+  "code": 2237},
+"XML" :{
+  "nFiles": 7,
+  "blank": 0,
+  "comment": 0,
+  "code": 1646},
+"make" :{
+  "nFiles": 12,
+  "blank": 297,
+  "comment": 138,
+  "code": 1150},
+"Python" :{
+  "nFiles": 7,
+  "blank": 295,
+  "comment": 240,
+  "code": 1068},
+"Ruby" :{
+  "nFiles": 9,
+  "blank": 73,
+  "comment": 91,
+  "code": 651},
+"C++" :{
+  "nFiles": 7,
+  "blank": 84,
+  "comment": 28,
+  "code": 402},
+"Lua" :{
+  "nFiles": 20,
+  "blank": 69,
+  "comment": 71,
+  "code": 385},
+"CMake" :{
+  "nFiles": 4,
+  "blank": 64,
+  "comment": 5,
+  "code": 258},
+"Bourne Again Shell" :{
+  "nFiles": 1,
+  "blank": 16,
+  "comment": 4,
+  "code": 123},
+"Visual Studio Solution" :{
+  "nFiles": 2,
+  "blank": 2,
+  "comment": 2,
+  "code": 122},
+"CSS" :{
+  "nFiles": 2,
+  "blank": 16,
+  "comment": 0,
+  "code": 91},
+"JavaScript" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 0,
+  "code": 30},
+"DOS Batch" :{
+  "nFiles": 1,
+  "blank": 2,
+  "comment": 0,
+  "code": 26},
+"XSLT" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 10},
+"SVG" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 1},
+"SUM": {
+  "blank": 51683,
+  "comment": 60133,
+  "code": 316580,
+  "nFiles": 1497} }

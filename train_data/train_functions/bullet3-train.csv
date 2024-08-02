@@ -1,0 +1,340 @@
+,Unnamed: 0.1,Unnamed: 0,name,path,doc,calls_num,dep_num,same_file,same_package,project,stdlib,external_binaries,code_length,pos,last_commit,file,fname
+0,765,5F39896411667613,btMultiBody::calcAccelerationDeltasMultiDof,bullet3/src/BulletDynamics/Featherstone/btMultiBody.h,"calcAccelerationDeltasMultiDof
+input: force vector (in same format as jacobian, i.e.:
+                     3 torque values, 3 force values, num_links joint torque values)
+output: 3 omegadot values, 3 vdot values, num_links q_double_dot values
+(existing contents of output array are replaced)
+calcAccelerationDeltasMultiDof must have been called first.",1,0,0,0,0,0,0,2,424,22.05.2019,bullet3/src/BulletDynamics/Featherstone/btMultiBody.h,btMultiBody::calcAccelerationDeltasMultiDof
+1,1747,D2EFECBDF8177450,b3Quaternion::operator/,bullet3/src/Bullet3Common/b3Quaternion.h,"@brief Return an inversely scaled versionof this quaternion
+ @param s The inverse scale factor ",1,1,1,0,0,0,0,4,398,29.04.2013,bullet3/src/Bullet3Common/b3Quaternion.h,b3Quaternion::operator/
+2,2046,F8BA86DCBA3C918F,b3Matrix3x3::operator[],bullet3/src/Bullet3Common/b3Matrix3x3.h,"@brief Get a mutable reference to a row of the matrix as a vector 
+@param i Row number 0 indexed ",1,0,0,0,0,0,0,4,143,24.09.2018,bullet3/src/Bullet3Common/b3Matrix3x3.h,b3Matrix3x3::operator[]
+3,1010,7B70D6D87D917DED,btDeformableBackwardEulerObjective::project,bullet3/src/BulletSoftBody/btDeformableBackwardEulerObjective.h,update the projections and project the residual,0,1,0,1,0,0,0,4,94,18.06.2020,bullet3/src/BulletSoftBody/btDeformableBackwardEulerObjective.h,btDeformableBackwardEulerObjective::project
+4,967,76A9B8A9519F5B86,operator==,bullet3/src/Bullet3Common/b3Transform.h,@brief Test if two transforms have all elements equal ,0,4,2,2,0,0,0,4,237,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,operator==
+5,780,61275C4E52A4EE29,btReducedDeformableNodeRigidContactConstraint::getDeltaVb,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,get velocity change of the node in contat,0,2,0,1,1,0,0,4,505,08.03.2022,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,btReducedDeformableNodeRigidContactConstraint::getDeltaVb
+6,1961,ED4DB9B986882A65,btDeformableLinearElasticityForce::firstPiolaDifferential,bullet3/src/BulletSoftBody/btDeformableLinearElasticityForce.h,"Let P be the first piola stress.
+This function calculates the dP = dP/dF * dF",1,5,0,0,5,0,0,4,401,20.06.2020,bullet3/src/BulletSoftBody/btDeformableLinearElasticityForce.h,btDeformableLinearElasticityForce::firstPiolaDifferential
+7,2017,F593877D7F4FEEB2,btConvexPointCloudShape::setLocalScaling,bullet3/src/BulletCollision/CollisionShapes/btConvexPointCloudShape.cpp,in case we receive negative scaling,0,0,0,0,0,0,0,4,21,19.02.2009,bullet3/src/BulletCollision/CollisionShapes/btConvexPointCloudShape.cpp,btConvexPointCloudShape::setLocalScaling
+8,275,233F427D23F3CE0E,b3Transform::setFromOpenGLMatrix,bullet3/src/Bullet3Common/b3Transform.h,"@brief Set from an array 
+ @param m A pointer to a 15 element array (12 rotation(row major padded on the right by 1), and 3 translation ",0,2,0,2,0,0,0,4,127,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,b3Transform::setFromOpenGLMatrix
+9,487,3A8843386D938FA1,btSimpleBroadphase::getBroadphaseAabb,bullet3/src/BulletCollision/BroadphaseCollision/btSimpleBroadphase.h,"getAabb returns the axis aligned bounding box in the 'global' coordinate frame
+will add some transform later",0,1,0,0,1,0,0,4,135,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btSimpleBroadphase.h,btSimpleBroadphase::getBroadphaseAabb
+10,479,399D9D491FEC8A06,b3TypedConstraint::getAppliedImpulse,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3TypedConstraint.h,"getAppliedImpulse is an estimated total applied impulse.
+This feedback could be used to determine breaking constraints or playing sounds.",0,0,0,0,0,0,0,4,286,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3TypedConstraint.h,b3TypedConstraint::getAppliedImpulse
+11,377,2F135E16A467FCCD,b3Transform::inverse,bullet3/src/Bullet3Common/b3Transform.h,@brief Return the inverse of this transform ,0,3,0,3,0,0,0,4,182,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,b3Transform::inverse
+12,1194,90F9C873BEFFD086,stbtt_ScaleForMappingEmToPixels,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"computes a scale factor to produce a font whose ""height"" is 'pixels' tall.
+Height is measured as the distance from the highest ascender to the lowest
+descender; in other words, it's equivalent to calling stbtt_GetFontVMetrics
+and computing:
+      scale = pixels / (ascent - descent)
+so if you prefer to measure height by the ascent only, use a similar calculation.",1,1,1,0,0,0,0,4,1632,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_ScaleForMappingEmToPixels
+13,1723,D00BDB876494B3F1,btCollisionWorld::rayTestSingle,bullet3/src/BulletCollision/CollisionDispatch/btCollisionWorld.h,"rayTestSingle performs a raycast call and calls the resultCallback. It is used internally by rayTest.
+In a future implementation, we consider moving the ray test as a virtual method in btCollisionShape.
+This allows more customization.",1,0,0,0,0,0,0,4,451,24.09.2018,bullet3/src/BulletCollision/CollisionDispatch/btCollisionWorld.h,btCollisionWorld::rayTestSingle
+14,1638,C5A48AC088FADF9D,b3Transform::getIdentity,bullet3/src/Bullet3Common/b3Transform.h,@brief Return an identity transform ,0,1,0,1,0,0,0,4,197,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,b3Transform::getIdentity
+15,1629,C4B7E98AE28EF800,PolarDecompose,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,"
+ Polar decomposition,
+ ""Computing the Polar Decomposition with Applications"", Nicholas J. Higham, 1986.",0,1,0,0,1,0,0,4,1411,24.09.2018,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,PolarDecompose
+16,1617,C36CAD82FB4FA7E6,btReducedDeformableStaticConstraint::applyImpulse,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,this calls reduced deformable body's applyFullSpaceImpulse,1,1,0,1,0,0,0,4,47,08.03.2022,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,btReducedDeformableStaticConstraint::applyImpulse
+17,2095,FD3CCAB23F93B23C,btMatrix3x3::operator[],bullet3/src/LinearMath/btMatrix3x3.h,"@brief Get a const reference to a row of the matrix as a vector 
+@param i Row number 0 indexed ",8,0,0,0,0,0,0,4,165,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::operator[]
+18,1232,94D989A099B359B2,btQuaternion::getAngle,bullet3/src/LinearMath/btQuaternion.h,"@brief Return the angle [0, 2Pi] of rotation represented by this quaternion ",2,1,0,1,0,0,0,4,468,24.09.2018,bullet3/src/LinearMath/btQuaternion.h,btQuaternion::getAngle
+19,1317,A09DCF5601980992,btTransform::mult,bullet3/src/LinearMath/btTransform.h,"@brief Set the current transform as the value of the product of two transforms
+ @param t1 Transform 1
+ @param t2 Transform 2
+ This = Transform1 * Transform2 ",0,2,0,2,0,0,0,4,77,24.09.2018,bullet3/src/LinearMath/btTransform.h,btTransform::mult
+20,1837,DCC2F6580C6973E4,b3Transform::getRotation,bullet3/src/Bullet3Common/b3Transform.h,@brief Return a quaternion representing the rotation ,4,1,0,1,0,0,0,5,118,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,b3Transform::getRotation
+21,1810,D9955E606B6CD11E,btRigidBody::upcast,bullet3/src/BulletDynamics/Dynamics/btRigidBody.h,"to keep collision detection and dynamics separate we don't store a rigidbody pointer
+but a rigidbody is derived from btCollisionObject, so we can safely perform an upcast",10,1,0,0,1,0,0,5,189,24.09.2018,bullet3/src/BulletDynamics/Dynamics/btRigidBody.h,btRigidBody::upcast
+22,1002,7AB8A049E88F68E1,btDeformableFaceNodeContactConstraint::getVb,bullet3/src/BulletSoftBody/btDeformableContactConstraint.cpp,get the velocity of the object B in the contact,1,4,0,1,3,0,0,5,608,20.06.2020,bullet3/src/BulletSoftBody/btDeformableContactConstraint.cpp,btDeformableFaceNodeContactConstraint::getVb
+23,1004,7AF7A316E6BA289D,b3Transform::operator*=,bullet3/src/Bullet3Common/b3Transform.h,"@brief Multiply this Transform by another(this = this * another) 
+ @param t The other transform ",0,3,0,3,0,0,0,5,174,24.09.2018,bullet3/src/Bullet3Common/b3Transform.h,b3Transform::operator*=
+24,1965,EE1AA52F0628CD4D,stbtt_GetCodepointKernAdvance,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"leftSideBearing is the offset from the current horizontal position to the left edge of the character
+advanceWidth is the offset from the current horizontal position to the next horizontal position
+  these are expressed in unscaled coordinates",0,2,2,0,0,0,0,5,1599,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_GetCodepointKernAdvance
+25,141,114DCD1C9F162711,GivensRotation::operator*,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+     Multiply givens must be for same row and column",0,1,1,0,0,0,0,5,268,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,GivensRotation::operator*
+26,11,01C78D6F9C627403,btSubsimplexConvexCast::calcTimeOfImpact,bullet3/src/BulletCollision/NarrowPhaseCollision/btSubSimplexConvexCast.h,"virtual ~btSubsimplexConvexCast();
+SimsimplexConvexCast calculateTimeOfImpact calculates the time of impact+normal for the linear cast (sweep) between two moving objects.
+Precondition is that objects should not penetration/overlap at the start from the interval. Overlap can be tested using btGjkPairDetector.",1,0,0,0,0,0,0,5,39,24.09.2018,bullet3/src/BulletCollision/NarrowPhaseCollision/btSubSimplexConvexCast.h,btSubsimplexConvexCast::calcTimeOfImpact
+27,127,0F3E9285D46B204D,btTransform::operator*,bullet3/src/LinearMath/btTransform.h,@brief Return the product of this transform and the other ,10,2,1,1,0,0,0,5,230,24.09.2018,bullet3/src/LinearMath/btTransform.h,btTransform::operator*
+28,585,47553EC2C373112E,b3Vector4::setValue,bullet3/src/Bullet3Common/b3Vector3.h,"void getValue(b3Scalar *m) const
+{
+m[0] = m_floats[0];
+m[1] = m_floats[1];
+m[2] =m_floats[2];
+}
+
+@brief Set the values
+@param x Value of x
+@param y Value of y
+@param z Value of z
+@param w Value of w",1,0,0,0,0,0,0,6,1131,24.09.2018,bullet3/src/Bullet3Common/b3Vector3.h,b3Vector4::setValue
+29,517,3ECBE81C1A6DD690,b3SwapVector3Endian,bullet3/src/Bullet3Common/b3Vector3.h,"b3SwapVector3Endian swaps vector endianness, useful for network and cross-platform serialization",0,3,3,0,0,0,0,6,1164,24.09.2018,bullet3/src/Bullet3Common/b3Vector3.h,b3SwapVector3Endian
+30,1477,B318E72280B432D7,btDeformableLagrangianForce::DsFromVelocity,bullet3/src/BulletSoftBody/btDeformableLagrangianForce.h,Calculate the incremental deformable generated from the current velocity,0,2,0,0,2,0,0,6,114,20.06.2020,bullet3/src/BulletSoftBody/btDeformableLagrangianForce.h,btDeformableLagrangianForce::DsFromVelocity
+31,1299,9DDBBE6D970732A3,btSliderConstraint::getAncorInA,bullet3/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp,access for PE Solver,0,0,0,0,0,0,0,6,226,19.02.2009,bullet3/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp,btSliderConstraint::getAncorInA
+32,775,608C72C23A26E051,btVector4::setValue,bullet3/src/LinearMath/btVector3.h,"void getValue(btScalar *m) const 
+{
+m[0] = m_floats[0];
+m[1] = m_floats[1];
+m[2] =m_floats[2];
+}
+
+@brief Set the values 
+@param x Value of x
+@param y Value of y
+@param z Value of z
+@param w Value of w",5,0,0,0,0,0,0,6,1198,24.09.2018,bullet3/src/LinearMath/btVector3.h,btVector4::setValue
+33,1291,9D074453DE26E7D1,stbtt_GetFontBoundingBox,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"ascent is the coordinate above the baseline the font extends; descent
+is the coordinate below the baseline the font extends (i.e. it is typically negative)
+lineGap is the spacing between one row's descent and the next row's ascent...
+so you should advance the vertical position by ""*ascent - *descent + *lineGap""
+  these are expressed in unscaled coordinates, so you must multiply by
+  the scale factor for a given size",0,1,1,0,0,0,0,6,1618,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_GetFontBoundingBox
+34,100,0BA4291265E8D6F6,btMatrix3x3::adjoint,bullet3/src/LinearMath/btMatrix3x3.h,@brief Return the adjoint of the matrix ,0,1,1,0,0,0,0,6,1084,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::adjoint
+35,1067,819BAABB885E46AB,btDeformableLagrangianForce::Ds,bullet3/src/BulletSoftBody/btDeformableLagrangianForce.h,Calculate the incremental deformable generated from the input dx,4,1,0,0,1,0,0,6,105,20.06.2020,bullet3/src/BulletSoftBody/btDeformableLagrangianForce.h,btDeformableLagrangianForce::Ds
+36,1164,8DA44AEFCCCA6082,sth_begin_draw,bullet3/examples/OpenGLWindow/fontstash.cpp,"void sth_add_glyph(struct sth_stash* stash, int idx, unsigned int uid, const char* s,
+                short size, short base, int x, int y, int w, int h,
+                float xoffset, float yoffset, float xadvance);
+		  ",0,1,1,0,0,0,0,6,580,16.04.2015,bullet3/examples/OpenGLWindow/fontstash.cpp,sth_begin_draw
+37,1919,E783B1DDA681A186,btGearConstraint::getParam,bullet3/src/BulletDynamics/ConstraintSolver/btGearConstraint.h,return the local value of parameter,0,0,0,0,0,0,0,6,83,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btGearConstraint.h,btGearConstraint::getParam
+38,399,31561AB646E098D4,btJacobianEntry::getNonDiagonal,bullet3/src/BulletDynamics/ConstraintSolver/btJacobianEntry.h,for two constraints on the same rigidbody (for example vehicle friction),0,1,0,0,1,0,0,6,107,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btJacobianEntry.h,btJacobianEntry::getNonDiagonal
+39,1918,E73A02E645C80653,flipSign,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief Helper function of 3X3 SVD for flipping signs due to flipping signs of sigma
+ ",1,1,0,1,0,0,0,6,645,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,flipSign
+40,1230,949A5F3C4A4BCAC0,btAlignedObjectArray::clear,bullet3/src/LinearMath/btAlignedObjectArray.h,"clear the array, deallocated memory. Generally it is better to use array.resize(0), to reduce performance overhead of run-time memory (de)allocations.",2,4,4,0,0,0,0,7,176,24.09.2018,bullet3/src/LinearMath/btAlignedObjectArray.h,btAlignedObjectArray::clear
+41,397,3116460A019D354B,b3SolverBody::internalApplyImpulse,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3SolverBody.h,"Optimization for the iterative solver: avoid calculating constant terms involving inertia, normal, relative position",4,3,0,0,3,0,0,7,239,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3SolverBody.h,b3SolverBody::internalApplyImpulse
+42,1304,9EA8BBFC45D2F8E7,btScaledBvhTriangleMeshShape::serialize,bullet3/src/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h,fills the dataBuffer and returns the struct name (and 0 on failure),0,2,0,1,1,0,0,7,77,24.09.2018,bullet3/src/BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h,btScaledBvhTriangleMeshShape::serialize
+43,215,19DA9BDF8F1A8055,b3Matrix3x3::setValue,bullet3/src/Bullet3Common/b3Matrix3x3.h,"@brief Set the values of the matrix explicitly (row major)
+@param xx Top left
+@param xy Top Middle
+@param xz Top Right
+@param yx Middle Left
+@param yy Middle Middle
+@param yz Middle Right
+@param zx Bottom Left
+@param zy Bottom Middle
+@param zz Bottom Right",7,1,0,1,0,0,0,7,190,24.09.2018,bullet3/src/Bullet3Common/b3Matrix3x3.h,b3Matrix3x3::setValue
+44,960,7575561473B6E9EB,btMultiBody::fillConstraintJacobianMultiDof,bullet3/src/BulletDynamics/Featherstone/btMultiBody.h,"a more general version of fillContactJacobianMultiDof which does not assume..
+.. that the constraint in question is contact or, to be more precise, constrains linear velocity only",1,0,0,0,0,0,0,7,514,22.05.2019,bullet3/src/BulletDynamics/Featherstone/btMultiBody.h,btMultiBody::fillConstraintJacobianMultiDof
+45,1136,8AEE6CD49120A158,btSolverBody::applyImpulse,bullet3/src/BulletDynamics/ConstraintSolver/btSolverBody.h,"Optimization for the iterative solver: avoid calculating constant terms involving inertia, normal, relative position",0,3,0,0,3,0,0,7,156,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btSolverBody.h,btSolverBody::applyImpulse
+46,1108,871BD79E661D149B,btAlignedObjectArray::btAlignedObjectArray<T>,bullet3/src/LinearMath/btAlignedObjectArray.h,"Generally it is best to avoid using the copy constructor of an btAlignedObjectArray, and use a (const) reference to the array instead.",0,2,2,0,0,0,0,7,132,24.09.2018,bullet3/src/LinearMath/btAlignedObjectArray.h,btAlignedObjectArray::btAlignedObjectArray<T>
+47,609,4AA28D0446275BA3,btGeneric6DofConstraint::isLimited,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h,"Test limit
+
+- free means upper < lower,
+- locked means upper == lower
+- limited means upper > lower
+- limitIndex: first 3 are linear, next 3 are angular",0,2,2,0,0,0,0,7,513,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h,btGeneric6DofConstraint::isLimited
+48,1424,AC7B967425C1A2E4,b3OpenCLArray::setFromOpenCLBuffer,bullet3/src/Bullet3OpenCL/ParallelPrimitives/b3OpenCLArray.h,"this is an error-prone method with no error checking, be careful!",0,1,1,0,0,0,0,8,50,14.06.2013,bullet3/src/Bullet3OpenCL/ParallelPrimitives/b3OpenCLArray.h,b3OpenCLArray::setFromOpenCLBuffer
+49,1907,E67D4A3217118BF2,GivensRotation::rowRotation,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+     This function does something like
+     c -s  0
+     ( s  c  0 ) A -> A
+     0  0  1
+     It only affects row i and row k of A.
+     ",4,1,0,1,0,0,0,8,209,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,GivensRotation::rowRotation
+50,1843,DE201EE6F0DCDC75,b3Quaternion::nearest,bullet3/src/Bullet3Common/b3Quaternion.h,@todo document this and it's use ,1,0,0,0,0,0,0,8,510,24.09.2018,bullet3/src/Bullet3Common/b3Quaternion.h,b3Quaternion::nearest
+51,876,6B7B28CA9747C87E,GivensRotation::fill,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+     Fill the R with the entries of this rotation
+     ",0,2,0,2,0,0,0,8,183,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,GivensRotation::fill
+52,1595,C147D4F10DA69DDC,TestPointAgainstAabb2,bullet3/src/LinearMath/btAabbUtil2.h,conservative test for overlap between two aabbs,1,3,0,3,0,0,0,8,32,24.09.2018,bullet3/src/LinearMath/btAabbUtil2.h,TestPointAgainstAabb2
+53,12,023C859A045BB328,ConvexDecomposition::Vector3d::NearestPointInPlane,bullet3/Extras/ConvexDecomposition/cd_vector.h,"Given a point and a plane (defined by a coplanar point and a normal), compute the closest point
+in the plane.  (The plane is unbounded.)",0,4,4,0,0,0,0,9,777,24.09.2018,bullet3/Extras/ConvexDecomposition/cd_vector.h,ConvexDecomposition::Vector3d::NearestPointInPlane
+54,961,759A4CFCCF245029,btQuantizedBvh::setInternalNodeAabbMin,bullet3/src/BulletCollision/BroadphaseCollision/btQuantizedBvh.h,"two versions, one for quantized and normal nodes. This allows code-reuse while maintaining readability (no template/macro!)
+this might be refactored into a virtual, it is usually not calculated at run-time",0,1,1,0,0,0,0,10,203,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btQuantizedBvh.h,btQuantizedBvh::setInternalNodeAabbMin
+55,49,059C49831DD9B2EA,stbtt_FindMatchingFont,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"///////////////////////////////////////////////////////////////////////////
+
+Finding the right font...
+
+You should really just solve this offline, keep your own tables
+of what font is what, and don't try to get it out of the .ttf file.
+That's because getting it out of the .ttf file is really hard, because
+the names in the file can appear in many possible encodings, in many
+possible languages, and e.g. if you need a case-insensitive comparison,
+the details of that depend on the encoding & language in a complex way
+(actually underspecified in truetype, but also gigantic).
+
+But you can use the provided functions in two possible ways:
+    stbtt_FindMatchingFont() will use *case-sensitive* comparisons on
+            unicode-encoded names to try to find the font you want;
+            you can run this before calling stbtt_InitFont()
+
+    stbtt_GetFontNameString() lets you get any of the various strings
+            from the file yourself and do your own comparisons on them.
+            You have to have called stbtt_InitFont() first.",0,2,2,0,0,0,0,10,3348,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_FindMatchingFont
+56,1372,A673AFCA54835576,b3Matrix3x3::scaled,bullet3/src/Bullet3Common/b3Matrix3x3.h,"@brief Create a scaled copy of the matrix 
+@param s Scaling vector The elements of the vector will scale each column ",0,3,0,3,0,0,0,10,594,24.09.2018,bullet3/src/Bullet3Common/b3Matrix3x3.h,b3Matrix3x3::scaled
+57,676,528C3651559AC40D,GivensRotation::computeUnconventional,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+     This function computes c and s so that
+     ( c -s ) ( a )  =  ( 0 )
+     s  c     b       ( * )
+     ",2,1,0,1,0,0,0,10,169,30.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,GivensRotation::computeUnconventional
+58,1823,DB585C5B134BAF9A,btDbvt::enumNodes,bullet3/src/BulletCollision/BroadphaseCollision/btDbvt.h,DBVT_IPOLICY must support ICollide policy/interface,2,4,4,0,0,0,0,10,791,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btDbvt.h,btDbvt::enumNodes
+59,1615,C32A56B65076B8F9,btQuaternion::operator-,bullet3/src/LinearMath/btQuaternion.h,"@brief Return the difference between this quaternion and the other 
+ @param q2 The other quaternion ",2,3,0,3,0,0,0,11,525,24.09.2018,bullet3/src/LinearMath/btQuaternion.h,btQuaternion::operator-
+60,816,6505E625CD013A3A,btJacobianEntry::btJacobianEntry,bullet3/src/BulletDynamics/ConstraintSolver/btJacobianEntry.h,angular constraint between two different rigidbodies,0,1,0,0,1,0,0,11,73,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btJacobianEntry.h,btJacobianEntry::btJacobianEntry
+61,1419,ABAD512B1249CC10,btDeformableNeoHookeanForce::addScaledCofactorMatrixDifferential,bullet3/src/BulletSoftBody/btDeformableNeoHookeanForce.h,"Let C(A) be the cofactor of the matrix A
+Let H = the derivative of C(A) with respect to A evaluated at F = A
+This function calculates H*dF",2,2,0,0,2,0,0,11,402,18.06.2020,bullet3/src/BulletSoftBody/btDeformableNeoHookeanForce.h,btDeformableNeoHookeanForce::addScaledCofactorMatrixDifferential
+62,836,66F6F4B49DEEC147,btMatrix3x3::setZero,bullet3/src/LinearMath/btMatrix3x3.h,@brief Set the matrix to the identity ,0,1,1,0,0,0,0,11,337,13.03.2020,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::setZero
+63,1360,A5760B9767A1B301,ConvexDecomposition::CTri::clip,bullet3/Extras/ConvexDecomposition/concavity.cpp,clip this line segment against this triangle.,1,4,0,4,0,0,0,11,153,24.09.2018,bullet3/Extras/ConvexDecomposition/concavity.cpp,ConvexDecomposition::CTri::clip
+64,1794,D881A492E0996DAE,btVector3::absolute,bullet3/src/LinearMath/btVector3.h,@brief Return a vector with the absolute values of each element ,0,1,0,1,0,0,0,12,364,24.09.2018,bullet3/src/LinearMath/btVector3.h,btVector3::absolute
+65,1670,C8EA2E42A11F34F8,findJacobian,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,"Given a multibody link, a contact point and a contact direction, fill in the jacobian data needed to calculate the velocity change given an impulse in the contact direction",2,1,0,0,1,0,0,12,34,20.06.2020,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,findJacobian
+66,1314,A00DCFC94DF976B4,stbtt_GetGlyphHMetrics,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"Gets the bounding box of the visible part of the glyph, in unscaled coordinates",4,2,2,0,0,0,0,13,1553,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_GetGlyphHMetrics
+67,1162,8D9672D1309607DB,btReducedDeformableNodeRigidContactConstraint::applyImpulse,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,this calls reduced deformable body's applyFullSpaceImpulse,0,1,0,1,0,0,0,13,521,08.03.2022,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,btReducedDeformableNodeRigidContactConstraint::applyImpulse
+68,672,52479B338618672B,singularValueDecomposition,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief 2x2 SVD (singular value decomposition) A=USV'
+ \param[in] A Input matrix.
+ \param[out] U Robustly a rotation matrix.
+ \param[out] Sigma Vector of singular values sorted with decreasing magnitude. The second one can be negative.
+ \param[out] V Robustly a rotation matrix.
+ ",0,3,2,0,0,1,0,13,549,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,singularValueDecomposition
+69,747,5C53C7749806994D,btAlignedObjectArray::findLinearSearch2,bullet3/src/LinearMath/btAlignedObjectArray.h,"If the key is not in the array, return -1 instead of 0,
+since 0 also means the first element in the array.",0,1,1,0,0,0,0,14,456,24.09.2018,bullet3/src/LinearMath/btAlignedObjectArray.h,btAlignedObjectArray::findLinearSearch2
+70,1452,B04CBAE30B8EC4F7,ConvexDecomposition::Vector3d::Reflection,bullet3/Extras/ConvexDecomposition/cd_vector.h,Computes the reflection vector between two vectors.,0,4,4,0,0,0,0,14,365,24.09.2018,bullet3/Extras/ConvexDecomposition/cd_vector.h,ConvexDecomposition::Vector3d::Reflection
+71,983,788A6FC71129C2AA,wilkinsonShift,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief compute wilkinsonShift of the block
+ a1     b1
+ b1     a2
+ based on the wilkinsonShift formula
+ mu = c + d - sign (d) \ sqrt (d*d + b*b), where d = (a-c)/2
+ 
+ ",1,3,1,2,0,0,0,14,572,30.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,wilkinsonShift
+72,374,2EB4196A31C03D9B,ConvexDecomposition::Vector3d::Interpolate,bullet3/Extras/ConvexDecomposition/cd_vector.h,"Highly specialized interpolate routine.  Will compute the interpolated position
+shifted forward or backwards along the ray defined between (from) and (to).
+Reason for existance is so that when a bullet collides with a wall, for
+example, you can generate a graphic effect slightly *before* it hit the
+wall so that the effect doesn't sort into the wall itself.",0,1,0,0,0,1,0,14,329,24.09.2018,bullet3/Extras/ConvexDecomposition/cd_vector.h,ConvexDecomposition::Vector3d::Interpolate
+73,80,0929B6205083AF01,b3NormalizeAngle,bullet3/src/Bullet3Common/b3Scalar.h,"returns normalized value in range [-B3_PI, B3_PI]",1,1,1,0,0,0,0,15,638,24.09.2018,bullet3/src/Bullet3Common/b3Scalar.h,b3NormalizeAngle
+74,1226,9429DD23614910E0,btQuaternion::setEulerZYX,bullet3/src/LinearMath/btQuaternion.h,"@brief Set the quaternion using euler angles 
+ @param yaw Angle around Z
+ @param pitch Angle around Y
+ @param roll Angle around X ",0,3,0,3,0,0,0,15,140,24.09.2018,bullet3/src/LinearMath/btQuaternion.h,btQuaternion::setEulerZYX
+75,1229,94833E71D910BDE4,b3Quaternion::getEulerZYX,bullet3/src/Bullet3Common/b3Quaternion.h,"@brief Get the euler angles from this quaternion
+ @param yaw Angle around Z
+ @param pitch Angle around Y
+ @param roll Angle around X ",0,2,0,2,0,0,0,15,160,24.09.2018,bullet3/src/Bullet3Common/b3Quaternion.h,b3Quaternion::getEulerZYX
+76,1106,86785CE3D8173B0B,btMatrix3x3::solve33,bullet3/src/LinearMath/btMatrix3x3.h,"Solve A * x = b, where b is a column vector. This is more efficient
+than computing the inverse in one-shot cases.
+Solve33 is from Box2d, thanks to Erin Catto,",0,4,1,3,0,0,0,16,648,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::solve33
+77,503,3D1B14DD6E53C523,TestTriangleAgainstAabb2,bullet3/src/LinearMath/btAabbUtil2.h,conservative test for overlap between triangle and aabb,0,0,0,0,0,0,0,16,54,24.09.2018,bullet3/src/LinearMath/btAabbUtil2.h,TestTriangleAgainstAabb2
+78,2091,FCFAE0D4CE823F16,b3AlignedObjectArray::resizeNoInitialize,bullet3/src/Bullet3Common/b3AlignedObjectArray.h,"resize changes the number of elements in the array. If the new size is larger, the new elements will be constructed using the optional second argument.
+when the new number of elements is smaller, the destructor will be called, but memory will not be freed, to reduce performance overhead of run-time memory (de)allocations.",0,2,2,0,0,0,0,16,198,24.09.2018,bullet3/src/Bullet3Common/b3AlignedObjectArray.h,b3AlignedObjectArray::resizeNoInitialize
+79,839,67439113A22F716C,enet_host_broadcast,bullet3/examples/ThirdPartyLibs/enet/host.c,"Queues a packet to be sent to all peers associated with the host.
+@param host host on which to broadcast the packet
+@param channelID channel on which to broadcast
+@param packet packet to broadcast",0,2,0,0,2,0,0,16,255,24.09.2018,bullet3/examples/ThirdPartyLibs/enet/host.c,enet_host_broadcast
+80,1278,9B7406BC38871234,b3Vector3::operator/=,bullet3/src/Bullet3Common/b3Vector3.h,"@brief Inversely scale the vector
+ @param s Scale factor to divide by ",5,1,1,0,0,0,0,16,182,24.09.2018,bullet3/src/Bullet3Common/b3Vector3.h,b3Vector3::operator/=
+81,79,090413F398968C5C,btAlignedObjectArray::findBinarySearch,bullet3/src/LinearMath/btAlignedObjectArray.h,"non-recursive binary search, assumes sorted array",0,1,1,0,0,0,0,17,419,24.09.2018,bullet3/src/LinearMath/btAlignedObjectArray.h,btAlignedObjectArray::findBinarySearch
+82,1170,8E469AF90D4ED7B7,b3PgsJacobiSolver::solveContacts,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,"void	solveContacts(int numBodies, b3RigidBodyData* bodies, b3InertiaData* inertias, int numContacts, b3Contact4* contacts);",0,1,1,0,0,0,0,17,150,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,b3PgsJacobiSolver::solveContacts
+83,880,6C2CB43A33437E50,b3ConnectPhysicsUDP,bullet3/examples/SharedMemory/PhysicsClientUDP_C_API.cpp,send physics commands using UDP networking,0,2,0,1,0,1,0,17,8,24.09.2018,bullet3/examples/SharedMemory/PhysicsClientUDP_C_API.cpp,b3ConnectPhysicsUDP
+84,157,12C1406DBDB6AFE1,btMatrix3x3::setEulerZYX,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Set the matrix from euler angles YPR around ZYX axes
+@param eulerX Roll about X axis
+@param eulerY Pitch around Y axis
+@param eulerZ Yaw about Z axis
+
+These angles are used to produce a rotation matrix. The euler
+angles are applied in ZYX order. I.e a vector is first rotated 
+about X then Y and then Z",1,3,1,2,0,0,0,17,303,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::setEulerZYX
+85,403,3192F4BC83203F84,makeUpperBidiag,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief make a 3X3 matrix to upper bidiagonal form
+ original form of H:   x x x
+ x x x
+ x x x
+ after zero chase:
+ x x 0
+ 0 x x
+ 0 0 x
+ ",1,5,3,2,0,0,0,18,342,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,makeUpperBidiag
+86,886,6D441361DCE920BE,b3PgsJacobiSolver::solveGroup,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,b3PgsJacobiSolver Sequentially applies impulses,1,3,3,0,0,0,0,19,170,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,b3PgsJacobiSolver::solveGroup
+87,605,4A5BE8F2815B4C56,stbtt_GetGlyphBitmapBoxSubpixel,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"///////////////////////////////////////////////////////////////////////////
+
+antialiasing software rasterizer",4,1,1,0,0,0,0,19,1648,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_GetGlyphBitmapBoxSubpixel
+88,8,0179FB7096F05816,btSoftBodyCollisionShape::getAabb,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,getAabb returns the axis aligned bounding box in the coordinate frame of the given transform t.,0,4,0,0,4,0,0,19,684,24.09.2018,bullet3/src/BulletSoftBody/btSoftBodyInternals.h,btSoftBodyCollisionShape::getAabb
+89,2041,F81C6543AE6B8960,b3PgsJacobiSolver::resolveSingleConstraintRowLowerLimit,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,Project Gauss Seidel or the equivalent Sequential Impulse,2,6,0,4,2,0,0,20,297,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,b3PgsJacobiSolver::resolveSingleConstraintRowLowerLimit
+90,1620,C393FB481EF419E5,btMatrix3x3::operator+=,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Adds by the target matrix on the right
+@param m matrix to be applied 
+Equivilant to this = this + m ",6,3,1,2,0,0,0,20,907,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::operator+=
+91,943,734FA573887EEBAC,stbtt_GetFontNameString,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"returns 1/0 whether the first string interpreted as utf8 is identical to
+the second string interpreted as big-endian utf16... useful for strings from next func",0,2,2,0,0,0,0,20,3236,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_GetFontNameString
+92,1182,8FD44130C6FCBF80,polarDecomposition,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief 2x2 polar decomposition.
+ \param[in] A matrix.
+ \param[out] R Robustly a rotation matrix.
+ \param[out] S_Sym Symmetric. Whole matrix is stored
+ 
+ Polar guarantees negative sign is on the small magnitude singular value.
+ S is guaranteed to be the closest one to identity.
+ R is guaranteed to be the closest rotation to A.
+ ",2,2,1,1,0,0,0,20,431,30.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,polarDecomposition
+93,912,70EA5578F47797FD,btAxisSweep3Internal::unQuantize,bullet3/src/BulletCollision/BroadphaseCollision/btAxisSweep3Internal.h,unQuantize should be conservative: aabbMin/aabbMax should be larger then 'getAabb' result,0,5,0,0,5,0,0,20,308,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btAxisSweep3Internal.h,btAxisSweep3Internal::unQuantize
+94,1475,B3024EE1EF459572,btMatrix3x3::getEulerYPR,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Get the matrix represented as euler angles around YXZ, roundtrip with setEulerYPR
+@param yaw Yaw around Y axis
+@param pitch Pitch around X axis
+@param roll around Z axis ",0,6,0,6,0,0,0,20,526,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::getEulerYPR
+95,1365,A6107841F8632D7F,btDeformableBackwardEulerObjective::updateId,bullet3/src/BulletSoftBody/btDeformableBackwardEulerObjective.h,reindex all the vertices,0,0,0,0,0,0,0,20,107,18.06.2020,bullet3/src/BulletSoftBody/btDeformableBackwardEulerObjective.h,btDeformableBackwardEulerObjective::updateId
+96,150,12252E556AC21E12,stbtt__tesselate_curve,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,tesselate until threshhold p is happy... @TODO warped to compensate for non-linear stretching,3,3,3,0,0,0,0,21,2471,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt__tesselate_curve
+97,1639,C59D64A1B0E28798,btNearestPointInLineSegment,bullet3/src/BulletCollision/CollisionDispatch/btInternalEdgeUtility.cpp,"Given a point and a line segment (defined by two points), compute the closest point
+in the line.  Cap the point at the endpoints of the line segment.",1,2,0,0,2,0,0,21,429,24.09.2018,bullet3/src/BulletCollision/CollisionDispatch/btInternalEdgeUtility.cpp,btNearestPointInLineSegment
+98,2074,FB288077380D19E7,btGeneric6DofConstraint::calculateTransforms,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,"Calcs global transform of the offsets
+
+Calcs the global transform for the joint offset for body A an B, and also calcs the agle differences between the bodies.
+\sa btGeneric6DofConstraint.getCalculatedTransformA , btGeneric6DofConstraint.getCalculatedTransformB, btGeneric6DofConstraint.calculateAngleInfo",4,5,2,0,3,0,0,22,341,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,btGeneric6DofConstraint::calculateTransforms
+99,343,2B58F8C16C3641C7,b3Quaternion::dot,bullet3/src/Bullet3Common/b3Quaternion.h,"@brief Return the dot product between this quaternion and another
+ @param q The other quaternion ",6,3,0,3,0,0,0,24,316,24.09.2018,bullet3/src/Bullet3Common/b3Quaternion.h,b3Quaternion::dot
+100,2052,F93218C16A66378C,HsiehHash,bullet3/src/BulletSoftBody/btSparseSDF.h,"
+ super hash function by Paul Hsieh",1,0,0,0,0,0,0,24,31,18.06.2020,bullet3/src/BulletSoftBody/btSparseSDF.h,HsiehHash
+101,1459,B1194616CE053120,b3Quaternion::slerp,bullet3/src/Bullet3Common/b3Quaternion.h,"@brief Return the quaternion which is the result of Spherical Linear Interpolation between this and the other quaternion
+ @param q The other quaternion to interpolate with 
+ @param t The ratio between this and q to interpolate.  If t = 0 the result is this, if t=1 the result is q.
+ Slerp interpolates assuming constant velocity.  ",1,9,2,7,0,0,0,26,524,24.09.2018,bullet3/src/Bullet3Common/b3Quaternion.h,b3Quaternion::slerp
+102,1785,D7FFC5CFF52AC354,btAlignedObjectArray::downHeap,bullet3/src/LinearMath/btAlignedObjectArray.h,heap sort from http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Sort/Heap/,0,1,1,0,0,0,0,28,352,24.09.2018,bullet3/src/LinearMath/btAlignedObjectArray.h,btAlignedObjectArray::downHeap
+103,866,69E94259D3AB6611,btGeneric6DofConstraint::calculateAngleInfo,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,calcs the euler angles between the two bodies.,1,4,1,0,3,0,0,28,306,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,btGeneric6DofConstraint::calculateAngleInfo
+104,423,32B58FD6EF1DE863,stbtt_PackBegin,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"///////////////////////////////////////////////////////////////////////////
+
+bitmap baking
+
+This is SUPER-AWESOME (tm Ryan Gordon) packing using stb_rect_pack.h. If
+stb_rect_pack.h isn't available, it uses the BakeFontBitmap strategy.",0,1,1,0,0,0,0,29,2833,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_PackBegin
+105,1882,E381EEADF3E613BA,b3PgsJacobiSolver::b3RandInt2,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,See ODE: adam's all-int straightforward(?) dRandInt (0..n-1),1,1,1,0,0,0,0,30,390,24.09.2018,bullet3/src/Bullet3Dynamics/ConstraintSolver/b3PgsJacobiSolver.cpp,b3PgsJacobiSolver::b3RandInt2
+106,1488,B44392197C6D7E6E,btTriangleInfoMap::deSerialize,bullet3/src/BulletCollision/CollisionShapes/btTriangleInfoMap.h,fills the dataBuffer and returns the struct name (and 0 on failure),0,0,0,0,0,0,0,32,204,24.09.2018,bullet3/src/BulletCollision/CollisionShapes/btTriangleInfoMap.h,btTriangleInfoMap::deSerialize
+107,1793,D87FB10D1FD2EDE4,btVector3::maxDot,bullet3/src/LinearMath/btVector3.h,"@brief returns index of maximum dot product between this and vectors in array[]
+ @param array The other vectors 
+ @param array_count The number of other vectors 
+ @param dotOut The maximum dot product ",2,1,1,0,0,0,0,33,998,24.09.2018,bullet3/src/LinearMath/btVector3.h,btVector3::maxDot
+108,472,395B042ED879A6FF,btSoftBodyRigidBodyCollisionConfiguration::getCollisionAlgorithmCreateFunc,bullet3/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp,"creation of soft-soft and soft-rigid, and otherwise fallback to base class implementation",0,3,0,0,3,0,0,37,94,24.09.2018,bullet3/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp,btSoftBodyRigidBodyCollisionConfiguration::getCollisionAlgorithmCreateFunc
+109,804,63F30FCE711007E0,btMultibodyLink::btMultibodyLink,bullet3/src/BulletDynamics/Featherstone/btMultiBodyLink.h,ctor: set some sensible defaults,0,4,2,0,2,0,0,38,155,16.08.2019,bullet3/src/BulletDynamics/Featherstone/btMultiBodyLink.h,btMultibodyLink::btMultibodyLink
+110,584,472BF8F91DC8BD62,stbtt__handle_clipped_edge,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"the edge passed in here does not cross the vertical line at x or the vertical line at x+1
+(i.e. it has already been clipped to those)",1,0,0,0,0,0,0,38,1984,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt__handle_clipped_edge
+111,726,597529A3501BA981,btVector3::rotate,bullet3/src/LinearMath/btVector3.h,"@brief Return a rotated version of this vector
+ @param wAxis The axis to rotate about 
+ @param angle The angle to rotate by ",0,3,3,0,0,0,0,40,956,24.09.2018,bullet3/src/LinearMath/btVector3.h,btVector3::rotate
+112,647,4E21416054BACED4,btDeformableNeoHookeanForce::addScaledDampingForce,bullet3/src/BulletSoftBody/btDeformableNeoHookeanForce.h,The damping matrix is calculated using the time n state as described in https://www.math.ucla.edu/~jteran/papers/GSSJT15.pdf to allow line search,2,1,0,1,0,0,0,41,98,18.06.2020,bullet3/src/BulletSoftBody/btDeformableNeoHookeanForce.h,btDeformableNeoHookeanForce::addScaledDampingForce
+113,2126,FFEFEAF79BD276E7,btAxisSweep3Internal::sortMaxUp,bullet3/src/BulletCollision/BroadphaseCollision/btAxisSweep3Internal.h,sorting a max edge upwards can only ever *add* overlaps,2,3,2,1,0,0,0,43,909,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btAxisSweep3Internal.h,btAxisSweep3Internal::sortMaxUp
+114,1431,ADB48F5DB72F74AE,stbtt_BakeFontBitmap,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,"///////////////////////////////////////////////////////////////////////////
+
+bitmap baking
+
+This is SUPER-CRAPPY packing to keep source code small",0,6,6,0,0,0,0,44,2682,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt_BakeFontBitmap
+115,604,4A4AD179E3D921E2,btGeneric6DofConstraint::setParam,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,"override the default global value of a parameter (such as ERP or CFM), optionally provide the axis (0..5).
+If no axis is provided, it uses the default axis for this constraint.",0,1,0,0,1,0,0,46,859,24.09.2018,bullet3/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp,btGeneric6DofConstraint::setParam
+116,1575,BE923C59D888B070,btReducedDeformableNodeRigidContactConstraint::getDeltaVa,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,get the velocity change of the rigid body,0,0,0,0,0,0,0,46,457,08.03.2022,bullet3/src/BulletSoftBody/BulletReducedDeformableBody/btReducedDeformableContactConstraint.cpp,btReducedDeformableNodeRigidContactConstraint::getDeltaVa
+117,746,5C529F7C7E2E9489,stbtt__CompareUTF8toUTF16_bigendian_prefix,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,check if a utf8 string contains a prefix which is the utf16 string; if so return length of matching utf8 string,2,0,0,0,0,0,0,47,3180,24.09.2018,bullet3/examples/ThirdPartyLibs/stb_image/stb_truetype.h,stbtt__CompareUTF8toUTF16_bigendian_prefix
+118,1315,A01E05ADC0C4E728,process,bullet3/src/LinearMath/btImplicitQRSVD.h,"
+ \brief Helper function of 3X3 SVD for processing 2X2 SVD
+ ",0,3,2,1,0,0,0,48,592,15.10.2019,bullet3/src/LinearMath/btImplicitQRSVD.h,process
+119,806,6430D26CCA3FB6B9,ConvexDecomposition::Vector3d::Concave,bullet3/Extras/ConvexDecomposition/cd_vector.h,"***************************************
+Check if next edge (b to c) turns inward
+
+   Edge from a to b is already in face
+   Edge from b to c is being considered for addition to face
+***************************************",0,1,0,0,0,1,0,48,570,24.09.2018,bullet3/Extras/ConvexDecomposition/cd_vector.h,ConvexDecomposition::Vector3d::Concave
+120,279,2393E9F681038703,btDbvt::rayTestInternal,bullet3/src/BulletCollision/BroadphaseCollision/btDbvt.h,"rayTestInternal is faster than rayTest, because it uses a persistent stack (to reduce dynamic memory allocations to a minimum) and it uses precomputed signs/rayInverseDirections
+rayTestInternal is used by btDbvtBroadphase to accelerate world ray casts",0,0,0,0,0,0,0,49,1223,24.09.2018,bullet3/src/BulletCollision/BroadphaseCollision/btDbvt.h,btDbvt::rayTestInternal
+121,262,218D48DD02216AAD,TGAImage::unload_rle_data,bullet3/examples/TinyRenderer/tgaimage.cpp,TODO: it is not necessary to break a raw chunk for two equal pixels (for the matter of the resulting size),1,0,0,0,0,0,0,49,246,24.09.2018,bullet3/examples/TinyRenderer/tgaimage.cpp,TGAImage::unload_rle_data
+122,366,2DD482F7F51F037A,b3Matrix3x3::setRotation,bullet3/src/Bullet3Common/b3Matrix3x3.h,"@brief Set the matrix from a quaternion
+@param q The Quaternion to match ",2,6,1,5,0,0,0,67,201,24.09.2018,bullet3/src/Bullet3Common/b3Matrix3x3.h,b3Matrix3x3::setRotation
+123,1045,7F1671D4D693BCD5,operator*,bullet3/src/Bullet3Common/b3Quaternion.h,@brief Return the product of two quaternions ,4,4,1,3,0,0,0,86,562,24.09.2018,bullet3/src/Bullet3Common/b3Quaternion.h,operator*
+124,1048,7F4443C3A387A915,btMatrix3x3::getRotation,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Get the matrix represented as a quaternion 
+@param q The quaternion which will be set ",2,6,0,6,0,0,0,100,420,24.09.2018,bullet3/src/LinearMath/btMatrix3x3.h,btMatrix3x3::getRotation

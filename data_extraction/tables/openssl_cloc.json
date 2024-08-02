@@ -1,0 +1,119 @@
+
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.90",
+  "elapsed_seconds"    : 3.38967418670654,
+  "n_files"            : 2903,
+  "n_lines"            : 1135641,
+  "files_per_second"   : 856.424493948369,
+  "lines_per_second"   : 335029.544861185},
+"C" :{
+  "nFiles": 1554,
+  "blank": 80884,
+  "comment": 77212,
+  "code": 530101},
+"Perl" :{
+  "nFiles": 658,
+  "blank": 35077,
+  "comment": 30013,
+  "code": 225881},
+"C/C++ Header" :{
+  "nFiles": 506,
+  "blank": 9360,
+  "comment": 19728,
+  "code": 65554},
+"Markdown" :{
+  "nFiles": 88,
+  "blank": 11133,
+  "comment": 0,
+  "code": 30979},
+"Assembly" :{
+  "nFiles": 9,
+  "blank": 627,
+  "comment": 1147,
+  "code": 6270},
+"YAML" :{
+  "nFiles": 20,
+  "blank": 149,
+  "comment": 198,
+  "code": 2320},
+"Bourne Shell" :{
+  "nFiles": 27,
+  "blank": 487,
+  "comment": 500,
+  "code": 1954},
+"m4" :{
+  "nFiles": 1,
+  "blank": 505,
+  "comment": 0,
+  "code": 1461},
+"SVG" :{
+  "nFiles": 3,
+  "blank": 0,
+  "comment": 2,
+  "code": 737},
+"IDL" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 643},
+"make" :{
+  "nFiles": 18,
+  "blank": 119,
+  "comment": 94,
+  "code": 391},
+"CSV" :{
+  "nFiles": 5,
+  "blank": 2,
+  "comment": 0,
+  "code": 388},
+"Pascal" :{
+  "nFiles": 2,
+  "blank": 57,
+  "comment": 613,
+  "code": 219},
+"CMake" :{
+  "nFiles": 2,
+  "blank": 23,
+  "comment": 35,
+  "code": 198},
+"Python" :{
+  "nFiles": 2,
+  "blank": 67,
+  "comment": 22,
+  "code": 188},
+"JSON" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 0,
+  "code": 82},
+"Windows Module Definition" :{
+  "nFiles": 1,
+  "blank": 5,
+  "comment": 0,
+  "code": 48},
+"Bourne Again Shell" :{
+  "nFiles": 1,
+  "blank": 6,
+  "comment": 9,
+  "code": 39},
+"Lisp" :{
+  "nFiles": 2,
+  "blank": 4,
+  "comment": 39,
+  "code": 35},
+"Ruby" :{
+  "nFiles": 1,
+  "blank": 5,
+  "comment": 8,
+  "code": 16},
+"sed" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 6},
+"SUM": {
+  "blank": 138511,
+  "comment": 129620,
+  "code": 867510,
+  "nFiles": 2903} }
