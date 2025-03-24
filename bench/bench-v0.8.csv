@@ -1,0 +1,3101 @@
+Unnamed: 0,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,fname,file,doc,calls_num,dep_num,same_file,same_package,project,stdlib,external_binaries,code_length,pos,last_commit,test_cov_hits,repository,id,code
+79D9B4DB619F85EB,0,0,992,992,btSolverBody::internalApplyImpulse,bullet3/src/BulletDynamics/ConstraintSolver/btSolverBody.h,"Optimization for the iterative solver: avoid calculating constant terms involving inertia, normal, relative position",1,3,0,0,3,0,0,7,243,24.09.2018,2249400.0,bullet3,79D9B4DB619F85EB,"	SIMD_FORCE_INLINE void internalApplyImpulse(const btVector3& linearComponent, const btVector3& angularComponent, const btScalar impulseMagnitude)
+	{
+		if (m_originalBody)
+		{
+			m_deltaLinearVelocity += linearComponent * impulseMagnitude * m_linearFactor;
+			m_deltaAngularVelocity += angularComponent * (impulseMagnitude * m_angularFactor);
+		}
+	}
+"
+C74CEE60AF732A54,1,1,1653,1653,btVector3::operator*=,bullet3/src/LinearMath/btVector3.h,"@brief Elementwise multiply this vector by the other 
+ @param v The other vector ",1,0,0,0,0,0,0,12,546,24.09.2018,363779.0,bullet3,C74CEE60AF732A54,"	SIMD_FORCE_INLINE btVector3& operator*=(const btVector3& v)
+	{
+		m_floats[0] *= v.m_floats[0];
+		m_floats[1] *= v.m_floats[1];
+		m_floats[2] *= v.m_floats[2];
+		return *this;
+	}
+"
+4B732A7D4583F1B9,2,2,618,618,b3Matrix3x3::operator[],bullet3/src/Bullet3Common/b3Matrix3x3.h,"@brief Get a const reference to a row of the matrix as a vector 
+@param i Row number 0 indexed ",4,0,0,0,0,0,0,4,151,24.09.2018,42.0,bullet3,4B732A7D4583F1B9,"	B3_FORCE_INLINE const b3Vector3& operator[](int i) const
+	{
+		b3FullAssert(0 <= i && i < 3);
+		return m_el[i];
+	}
+"
+C334444305D77C87,3,3,1616,1616,b3QuadWord::setValue,bullet3/src/Bullet3Common/b3QuadWord.h,"void getValue(b3Scalar *m) const 
+{
+m[0] = m_floats[0];
+m[1] = m_floats[1];
+m[2] = m_floats[2];
+}
+
+@brief Set the values 
+@param x Value of x
+@param y Value of y
+@param z Value of z
+@param w Value of w",5,0,0,0,0,0,0,6,174,24.09.2018,14.0,bullet3,C334444305D77C87,"	B3_FORCE_INLINE void setValue(const b3Scalar& _x, const b3Scalar& _y, const b3Scalar& _z, const b3Scalar& _w)
+	{
+		m_floats[0] = _x;
+		m_floats[1] = _y;
+		m_floats[2] = _z;
+		m_floats[3] = _w;
+	}
+"
+CF0FB37FEFB6B1E9,4,4,1714,1714,btVector3::operator/=,bullet3/src/LinearMath/btVector3.h,"@brief Inversely scale the vector 
+ @param s Scale factor to divide by ",7,1,1,0,0,0,0,16,209,24.09.2018,270682.0,bullet3,CF0FB37FEFB6B1E9,"	SIMD_FORCE_INLINE btVector3& operator/=(const btScalar& s)
+	{
+		btFullAssert(s != btScalar(0.0));
+
+		return *this *= btScalar(1.0) / s;
+	}
+"
+0C3929BA6041DA4C,5,5,106,106,btHashedOverlappingPairCache::addOverlappingPair,bullet3/src/BulletCollision/BroadphaseCollision/btOverlappingPairCache.h,"Add a pair and return the new pair. If the pair already exists,
+no new pair is created and the old one is returned.",0,2,2,0,0,0,0,6,121,24.09.2018,133372.0,bullet3,0C3929BA6041DA4C,"	virtual btBroadphasePair* addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)
+	{
+		if (!needsBroadphaseCollision(proxy0, proxy1))
+			return 0;
+
+		return internalAddPair(proxy0, proxy1);
+	}
+"
+8F2E01C42FED29A6,6,6,1176,1176,b3AlignedObjectArray::clear,bullet3/src/Bullet3Common/b3AlignedObjectArray.h,"clear the array, deallocated memory. Generally it is better to use array.resize(0), to reduce performance overhead of run-time memory (de)allocations.",2,4,4,0,0,0,0,7,180,24.09.2018,47865.0,bullet3,8F2E01C42FED29A6,"	B3_FORCE_INLINE void clear()
+	{
+		destroy(0, size());
+
+		deallocate();
+
+		init();
+	}
+"
+66E0B8EAE18BD73F,7,7,835,835,btQuaternion::operator/=,bullet3/src/LinearMath/btQuaternion.h,"@brief Inversely scale this quaternion
+ @param s The scale factor ",1,1,1,0,0,0,0,4,435,24.09.2018,8137.0,bullet3,66E0B8EAE18BD73F,"	btQuaternion& operator/=(const btScalar& s)
+	{
+		btAssert(s != btScalar(0.0));
+		return *this *= btScalar(1.0) / s;
+	}
+"
+79C981CD07A529F7,8,8,991,991,b3Matrix3x3::setIdentity,bullet3/src/Bullet3Common/b3Matrix3x3.h,@brief Set the matrix to the identity ,2,1,1,0,0,0,0,11,309,24.09.2018,2.0,bullet3,79C981CD07A529F7,"	void setIdentity()
+	{
+		setValue(b3Scalar(1.0), b3Scalar(0.0), b3Scalar(0.0),
+				 b3Scalar(0.0), b3Scalar(1.0), b3Scalar(0.0),
+				 b3Scalar(0.0), b3Scalar(0.0), b3Scalar(1.0));
+	}
+"
+DC2BD5D0EA380700,9,9,1832,1832,btQuaternion::dot,bullet3/src/LinearMath/btQuaternion.h,"@brief Return the dot product between this quaternion and another
+ @param q The other quaternion ",7,3,0,3,0,0,0,24,337,24.09.2018,425659.0,bullet3,DC2BD5D0EA380700,"	btScalar dot(const btQuaternion& q) const
+	{
+		return m_floats[0] * q.x() +
+			   m_floats[1] * q.y() +
+			   m_floats[2] * q.z() +
+			   m_floats[3] * q.m_floats[3];
+	}
+"
+D6632F6A4CB0E08B,10,10,1773,1773,btMatrix3x3::setRotation,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Set the matrix from a quaternion
+@param q The Quaternion to match ",2,6,1,5,0,0,0,67,215,24.09.2018,417522.0,bullet3,D6632F6A4CB0E08B,"	void setRotation(const btQuaternion& q)
+	{
+		btScalar d = q.length2();
+		btFullAssert(d != btScalar(0.0));
+		btScalar s = btScalar(2.0) / d;
+
+		btScalar xs = q.x() * s, ys = q.y() * s, zs = q.z() * s;
+		btScalar wx = q.w() * xs, wy = q.w() * ys, wz = q.w() * zs;
+		btScalar xx = q.x() * xs, xy = q.x() * ys, xz = q.x() * zs;
+		btScalar yy = q.y() * ys, yz = q.y() * zs, zz = q.z() * zs;
+		setValue(
+			btScalar(1.0) - (yy + zz), xy - wz, xz + wy,
+			xy + wz, btScalar(1.0) - (xx + zz), yz - wx,
+			xz - wy, yz + wx, btScalar(1.0) - (xx + yy));
+	}
+"
+79D5D5A1A2CF7D89,11,11,993,993,operator*,bullet3/src/LinearMath/btQuaternion.h,@brief Return the product of two quaternions ,6,4,0,4,0,0,0,86,632,24.09.2018,311077.0,bullet3,79D5D5A1A2CF7D89,"SIMD_FORCE_INLINE btQuaternion
+operator*(const btQuaternion& q1, const btQuaternion& q2)
+{
+	return btQuaternion(
+		q1.w() * q2.x() + q1.x() * q2.w() + q1.y() * q2.z() - q1.z() * q2.y(),
+		q1.w() * q2.y() + q1.y() * q2.w() + q1.z() * q2.x() - q1.x() * q2.z(),
+		q1.w() * q2.z() + q1.z() * q2.w() + q1.x() * q2.y() - q1.y() * q2.x(),
+		q1.w() * q2.w() - q1.x() * q2.x() - q1.y() * q2.y() - q1.z() * q2.z());
+}
+"
+8490AC97765F1D6C,12,12,1095,1095,btTransform::getRotation,bullet3/src/LinearMath/btTransform.h,@brief Return a quaternion representing the rotation ,4,1,0,1,0,0,0,5,119,24.09.2018,226538.0,bullet3,8490AC97765F1D6C,"	btQuaternion getRotation() const
+	{
+		btQuaternion q;
+		m_basis.getRotation(q);
+		return q;
+	}
+"
+644AC9DDE70BF687,13,13,807,807,btQuaternion::operator*=,bullet3/src/LinearMath/btQuaternion.h,"@brief Multiply this quaternion by q on the right
+ @param q The other quaternion 
+ Equivilant to this = this * q ",1,4,0,4,0,0,0,80,254,24.09.2018,184675.0,bullet3,644AC9DDE70BF687,"	btQuaternion& operator*=(const btQuaternion& q)
+	{
+		setValue(
+			m_floats[3] * q.x() + m_floats[0] * q.m_floats[3] + m_floats[1] * q.z() - m_floats[2] * q.y(),
+			m_floats[3] * q.y() + m_floats[1] * q.m_floats[3] + m_floats[2] * q.x() - m_floats[0] * q.z(),
+			m_floats[3] * q.z() + m_floats[2] * q.m_floats[3] + m_floats[0] * q.y() - m_floats[1] * q.x(),
+			m_floats[3] * q.m_floats[3] - m_floats[0] * q.x() - m_floats[1] * q.y() - m_floats[2] * q.z());
+		return *this;
+	}
+"
+6DB4903CDE3D2E8D,14,14,888,888,btMatrix3x3::inverse,bullet3/src/LinearMath/btMatrix3x3.h,@brief Return the inverse of the matrix ,7,5,1,4,0,0,0,11,1092,24.09.2018,178202.0,bullet3,6DB4903CDE3D2E8D,"SIMD_FORCE_INLINE btMatrix3x3
+btMatrix3x3::inverse() const
+{
+	btVector3 co(cofac(1, 1, 2, 2), cofac(1, 2, 2, 0), cofac(1, 0, 2, 1));
+	btScalar det = (*this)[0].dot(co);
+	//btFullAssert(det != btScalar(0.0));
+	btAssert(det != btScalar(0.0));
+	btScalar s = btScalar(1.0) / det;
+	return btMatrix3x3(co.x() * s, cofac(0, 2, 2, 1) * s, cofac(0, 1, 1, 2) * s,
+					   co.y() * s, cofac(0, 0, 2, 2) * s, cofac(0, 2, 1, 0) * s,
+					   co.z() * s, cofac(0, 1, 2, 0) * s, cofac(0, 0, 1, 1) * s);
+}
+"
+4D92A5C8ECB7C8E0,15,15,638,638,btVector3::safeNorm,bullet3/src/LinearMath/btVector3.h,@brief Return the norm (length) of the vector ,6,2,1,1,0,0,0,7,269,24.09.2018,160352.0,bullet3,4D92A5C8ECB7C8E0,"	SIMD_FORCE_INLINE btScalar safeNorm() const
+	{
+		btScalar d = length2();
+		//workaround for some clang/gcc issue of sqrtf(tiny number) = -INF
+		if (d > SIMD_EPSILON)
+			return btSqrt(d);
+		return btScalar(0);
+	}
+"
+8525E9B5122076A1,16,16,1097,1097,btMatrix3x3::absolute,bullet3/src/LinearMath/btMatrix3x3.h,@brief Return the matrix with all values non negative ,3,4,0,4,0,0,0,19,1027,24.09.2018,46221.0,bullet3,8525E9B5122076A1,"SIMD_FORCE_INLINE btMatrix3x3
+btMatrix3x3::absolute() const
+{
+	return btMatrix3x3(
+		btFabs(m_el[0].x()), btFabs(m_el[0].y()), btFabs(m_el[0].z()),
+		btFabs(m_el[1].x()), btFabs(m_el[1].y()), btFabs(m_el[1].z()),
+		btFabs(m_el[2].x()), btFabs(m_el[2].y()), btFabs(m_el[2].z()));
+}
+"
+B5A502EC16994350,17,17,1503,1503,btQuaternion::setRotation,bullet3/src/LinearMath/btQuaternion.h,"@brief Set the rotation using axis angle notation 
+ @param axis The axis around which to rotate
+ @param angle The magnitude of the rotation in Radians ",1,7,0,7,0,0,0,7,108,24.09.2018,32134.0,bullet3,B5A502EC16994350,"	void setRotation(const btVector3& axis, const btScalar& _angle)
+	{
+		btScalar d = axis.length();
+		btAssert(d != btScalar(0.0));
+		btScalar s = btSin(_angle * btScalar(0.5)) / d;
+		setValue(axis.x() * s, axis.y() * s, axis.z() * s,
+				 btCos(_angle * btScalar(0.5)));
+	}
+"
+2E7884C495DBA639,18,18,371,371,btTransform::inverse,bullet3/src/LinearMath/btTransform.h,@brief Return the inverse of this transform ,2,3,0,3,0,0,0,4,183,24.09.2018,369.0,bullet3,2E7884C495DBA639,"	btTransform inverse() const
+	{
+		btMatrix3x3 inv = m_basis.transpose();
+		return btTransform(inv, inv * -m_origin);
+	}
+"
+CCEAF9ED3AB777D3,19,19,1701,1701,btTransform::getIdentity,bullet3/src/LinearMath/btTransform.h,@brief Return an identity transform ,4,1,0,1,0,0,0,4,198,24.09.2018,66.0,bullet3,CCEAF9ED3AB777D3,"	static const btTransform& getIdentity()
+	{
+		static const btTransform identityTransform(btMatrix3x3::getIdentity());
+		return identityTransform;
+	}
+"
+E3447F956B0DAA2A,20,20,1879,1879,operator==,bullet3/src/LinearMath/btTransform.h,@brief Test if two transforms have all elements equal ,1,4,2,2,0,0,0,4,238,24.09.2018,64.0,bullet3,E3447F956B0DAA2A,"SIMD_FORCE_INLINE bool operator==(const btTransform& t1, const btTransform& t2)
+{
+	return (t1.getBasis() == t2.getBasis() &&
+			t1.getOrigin() == t2.getOrigin());
+}
+"
+638333B760678A25,21,21,798,798,operator==,bullet3/src/LinearMath/btMatrix3x3.h,"@brief Equality operator between two matrices
+It will test all elements are equal.  ",1,1,0,1,0,0,0,21,1366,24.09.2018,64.0,bullet3,638333B760678A25,"SIMD_FORCE_INLINE bool operator==(const btMatrix3x3& m1, const btMatrix3x3& m2)
+{
+	return (m1[0][0] == m2[0][0] && m1[1][0] == m2[1][0] && m1[2][0] == m2[2][0] &&
+			m1[0][1] == m2[0][1] && m1[1][1] == m2[1][1] && m1[2][1] == m2[2][1] &&
+			m1[0][2] == m2[0][2] && m1[1][2] == m2[1][2] && m1[2][2] == m2[2][2]);
+}
+"
+D19B260C1600B5B7,22,22,1736,1736,b3Quaternion::setEulerZYX,bullet3/src/Bullet3Common/b3Quaternion.h,"@brief Set the quaternion using euler angles 
+ @param yaw Angle around Z
+ @param pitch Angle around Y
+ @param roll Angle around X ",0,4,1,3,0,0,0,16,138,24.09.2018,14.0,bullet3,D19B260C1600B5B7,"	void setEulerZYX(const b3Scalar& yawZ, const b3Scalar& pitchY, const b3Scalar& rollX)
+	{
+		b3Scalar halfYaw = b3Scalar(yawZ) * b3Scalar(0.5);
+		b3Scalar halfPitch = b3Scalar(pitchY) * b3Scalar(0.5);
+		b3Scalar halfRoll = b3Scalar(rollX) * b3Scalar(0.5);
+		b3Scalar cosYaw = b3Cos(halfYaw);
+		b3Scalar sinYaw = b3Sin(halfYaw);
+		b3Scalar cosPitch = b3Cos(halfPitch);
+		b3Scalar sinPitch = b3Sin(halfPitch);
+		b3Scalar cosRoll = b3Cos(halfRoll);
+		b3Scalar sinRoll = b3Sin(halfRoll);
+		setValue(sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw,   //x
+				 cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw,   //y
+				 cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw,   //z
+				 cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw);  //formerly yzx
+		normalize();
+	}
+"
+1431A734ED055FA8,23,23,1159,1159,conf_get_string,openssl/apps/cmp.c,get str value for name from a comma-separated hierarchy of config sections ,1,1,0,0,0,1,0,11,2336,25.05.2023,45825.0,openssl,1431A734ED055FA8,"static char *conf_get_string(const CONF *src_conf, const char *groups,
+                             const char *name)
+{
+    char *res = NULL;
+    const char *end = groups + strlen(groups);
+
+    while ((end = prev_item(groups, end)) != NULL) {
+        if ((res = app_conf_try_string(src_conf, opt_item, name)) != NULL)
+            return res;
+    }
+    return res;
+}
+"
+368707342DE88F61,24,24,3168,3168,construct_key_exchange_tbs,openssl/ssl/statem/statem_lib.c,Create a buffer containing data to be signed for server key exchange ,0,1,0,0,0,1,0,17,2762,05.10.2022,4414.0,openssl,368707342DE88F61,"size_t construct_key_exchange_tbs(SSL_CONNECTION *s, unsigned char **ptbs,
+                                  const void *param, size_t paramlen)
+{
+    size_t tbslen = 2 * SSL3_RANDOM_SIZE + paramlen;
+    unsigned char *tbs = OPENSSL_malloc(tbslen);
+
+    if (tbs == NULL) {
+        SSLfatal(s, SSL_AD_INTERNAL_ERROR, ERR_R_CRYPTO_LIB);
+        return 0;
+    }
+    memcpy(tbs, s->s3.client_random, SSL3_RANDOM_SIZE);
+    memcpy(tbs + SSL3_RANDOM_SIZE, s->s3.server_random, SSL3_RANDOM_SIZE);
+
+    memcpy(tbs + SSL3_RANDOM_SIZE * 2, param, paramlen);
+
+    *ptbs = tbs;
+    return tbslen;
+}
+"
+48267A0CCC9D9802,25,25,4197,4197,CRYPTO_ocb128_copy_ctx,openssl/crypto/modes/ocb128.c,"
+ Copy an OCB128_CONTEXT object
+ ",2,1,0,0,0,1,0,14,194,05.10.2022,1442.0,openssl,48267A0CCC9D9802,"int CRYPTO_ocb128_copy_ctx(OCB128_CONTEXT *dest, OCB128_CONTEXT *src,
+                           void *keyenc, void *keydec)
+{
+    memcpy(dest, src, sizeof(OCB128_CONTEXT));
+    if (keyenc)
+        dest->keyenc = keyenc;
+    if (keydec)
+        dest->keydec = keydec;
+    if (src->l) {
+        if ((dest->l = OPENSSL_malloc(src->max_l_index * 16)) == NULL)
+            return 0;
+        memcpy(dest->l, src->l, (src->l_index + 1) * 16);
+    }
+    return 1;
+}
+"
+642B21019158955A,26,26,5761,5761,addr_expand,openssl/crypto/x509/v3_addr.c,"
+ Expand the bitstring form of an address into a raw byte array.
+ At the moment this is coded for simplicity, not speed.
+ ",3,2,0,0,0,2,0,19,103,19.07.2022,36.0,openssl,642B21019158955A,"static int addr_expand(unsigned char *addr,
+                       const ASN1_BIT_STRING *bs,
+                       const int length, const unsigned char fill)
+{
+    if (bs->length < 0 || bs->length > length)
+        return 0;
+    if (bs->length > 0) {
+        memcpy(addr, bs->data, bs->length);
+        if ((bs->flags & 7) != 0) {
+            unsigned char mask = 0xFF >> (8 - (bs->flags & 7));
+
+            if (fill == 0)
+                addr[bs->length - 1] &= ~mask;
+            else
+                addr[bs->length - 1] |= mask;
+        }
+    }
+    memset(addr + bs->length, fill, length - bs->length);
+    return 1;
+}
+"
+AE5043CE422C1C05,27,27,10175,10175,IPAddressFamily_cmp,openssl/crypto/x509/v3_addr.c,"
+ Sort comparison function for a sequence of IPAddressFamily.
+
+ The last paragraph of RFC 3779 2.2.3.3 is slightly ambiguous about
+ the ordering: I can read it as meaning that IPv6 without a SAFI
+ comes before IPv4 with a SAFI, which seems pretty weird.  The
+ examples in appendix B suggest that the author intended the
+ null-SAFI rule to apply only within a single AFI, which is what I
+ would have expected and is what the following code implements.
+ ",1,1,0,0,0,1,0,9,694,19.07.2022,7.0,openssl,AE5043CE422C1C05,"static int IPAddressFamily_cmp(const IPAddressFamily *const *a_,
+                               const IPAddressFamily *const *b_)
+{
+    const ASN1_OCTET_STRING *a = (*a_)->addressFamily;
+    const ASN1_OCTET_STRING *b = (*b_)->addressFamily;
+    int len = ((a->length <= b->length) ? a->length : b->length);
+    int cmp = memcmp(a->data, b->data, len);
+
+    return cmp ? cmp : a->length - b->length;
+}
+"
+CD1542D0AEAA744A,28,28,12009,12009,check_suffix,openssl/engines/e_loader_attic.c,"
+ Check if |str| ends with |suffix| preceded by a space, and if it does,
+ return the index of that space.  If there is no such suffix in |str|,
+ return -1.
+ For |str| == ""FOO BAR"" and |suffix| == ""BAR"", the returned value is 3.
+ ",0,2,0,0,0,2,0,13,134,03.09.2020,181.0,openssl,CD1542D0AEAA744A,"static int check_suffix(const char *str, const char *suffix)
+{
+    int str_len = strlen(str);
+    int suffix_len = strlen(suffix) + 1;
+    const char *p = NULL;
+
+    if (suffix_len >= str_len)
+        return -1;
+    p = str + str_len - suffix_len;
+    if (*p != ' '
+        || strcmp(p + 1, suffix) != 0)
+        return -1;
+    return p - str;
+}
+"
+0EE32A0A9C311AAB,29,29,843,843,check_end,openssl/apps/req.c,Check if the end of a string matches 'end' ,1,2,0,0,0,2,0,11,1429,06.07.2017,1448.0,openssl,0EE32A0A9C311AAB,"static int check_end(const char *str, const char *end)
+{
+    size_t elen, slen;
+    const char *tmp;
+
+    elen = strlen(end);
+    slen = strlen(str);
+    if (elen > slen)
+        return 1;
+    tmp = str + slen - elen;
+    return strcmp(tmp, end);
+}
+"
+620F31E815219213,30,30,5649,5649,ossl_quic_channel_set_msg_callback,openssl/ssl/quic/quic_channel.c,Setters for the msg_callback and msg_callback_arg ,3,3,0,3,0,0,0,10,3606,21.12.2023,5.0,openssl,620F31E815219213,"void ossl_quic_channel_set_msg_callback(QUIC_CHANNEL *ch,
+                                        ossl_msg_cb msg_callback,
+                                        SSL *msg_callback_ssl)
+{
+    ch->msg_callback = msg_callback;
+    ch->msg_callback_ssl = msg_callback_ssl;
+    ossl_qtx_set_msg_callback(ch->qtx, msg_callback, msg_callback_ssl);
+    ossl_quic_tx_packetiser_set_msg_callback(ch->txp, msg_callback,
+                                             msg_callback_ssl);
+    ossl_qrx_set_msg_callback(ch->qrx, msg_callback, msg_callback_ssl);
+}
+"
+755C43F5B3FA4575,31,31,6746,6746,ossl_quic_engine_create_port,openssl/ssl/quic/quic_engine.c,"
+ Create a port which is a child of the engine. args->engine shall be NULL.
+ ",1,1,0,1,0,0,0,14,95,21.12.2023,5.0,openssl,755C43F5B3FA4575,"QUIC_PORT *ossl_quic_engine_create_port(QUIC_ENGINE *qeng,
+                                        const QUIC_PORT_ARGS *args)
+{
+    QUIC_PORT_ARGS largs = *args;
+
+    if (ossl_list_port_num(&qeng->port_list) > 0)
+        /* TODO(QUIC MULTIPORT): We currently support only one port. */
+        return NULL;
+
+    if (largs.engine != NULL)
+        return NULL;
+
+    largs.engine = qeng;
+    return ossl_quic_port_new(&largs);
+}
+"
+13E685EDA19828BF,32,32,1137,1137,has_usable_cert,openssl/ssl/t1_lib.c,"
+ Returns true if |s| has a usable certificate configured for use
+ with signature scheme |sig|.
+ ""Usable"" includes a check for presence as well as applying
+ the signature_algorithm_cert restrictions sent by the peer (if any).
+ Returns false if no usable certificate is found.
+ ",1,2,1,1,0,0,0,10,3608,28.07.2022,21320.0,openssl,13E685EDA19828BF,"static int has_usable_cert(SSL_CONNECTION *s, const SIGALG_LOOKUP *sig, int idx)
+{
+    /* TLS 1.2 callers can override sig->sig_idx, but not TLS 1.3 callers. */
+    if (idx == -1)
+        idx = sig->sig_idx;
+    if (!ssl_has_cert(s, idx))
+        return 0;
+
+    return check_cert_usable(s, sig, s->cert->pkeys[idx].x509,
+                             s->cert->pkeys[idx].privatekey);
+}
+"
+76AA2B71A9EFE21D,33,33,6820,6820,tls13_generate_handshake_secret,openssl/ssl/tls13_enc.c,"
+ Given an input secret |insecret| of length |insecretlen| generate the
+ handshake secret. This requires the early secret to already have been
+ generated. Returns 1 on success  0 on failure.
+ ",2,2,1,1,0,0,0,8,230,28.07.2022,4213.0,openssl,76AA2B71A9EFE21D,"int tls13_generate_handshake_secret(SSL_CONNECTION *s,
+                                    const unsigned char *insecret,
+                                    size_t insecretlen)
+{
+    /* Calls SSLfatal() if required */
+    return tls13_generate_secret(s, ssl_handshake_md(s), s->early_secret,
+                                 insecret, insecretlen,
+                                 (unsigned char *)&s->handshake_secret);
+}
+"
+F51460EBEA5EC73A,34,34,14320,14320,SSL_export_keying_material_early,openssl/ssl/ssl_lib.c,"
+ SSL_export_keying_material_early exports a value derived from the
+ early exporter master secret, as specified in
+ https://tools.ietf.org/html/draft-ietf-tls-tls13-23. It writes
+ |olen| bytes to |out| given a label and optional context. It
+ returns 1 on success and 0 otherwise.
+ ",1,1,0,1,0,0,0,15,3775,28.07.2022,12.0,openssl,F51460EBEA5EC73A,"int SSL_export_keying_material_early(SSL *s, unsigned char *out, size_t olen,
+                                     const char *label, size_t llen,
+                                     const unsigned char *context,
+                                     size_t contextlen)
+{
+    SSL_CONNECTION *sc = SSL_CONNECTION_FROM_SSL(s);
+
+    if (sc == NULL)
+        return -1;
+
+    if (sc->version != TLS1_3_VERSION)
+        return 0;
+
+    return tls13_export_keying_material_early(sc, out, olen, label, llen,
+                                              context, contextlen);
+}
+"
+95D36DAC386C30F9,35,35,8697,8697,ossl_provider_up_ref_parent,openssl/crypto/provider_child.c,"
+ ossl_provider_up_ref_parent() and ossl_provider_free_parent() do
+ nothing in ""self-referencing"" child providers, i.e. when the parent
+ of the child provider is the same as the provider where this child
+ provider was created.
+ This allows the teardown function in the parent provider to be called
+ at the correct moment.
+ For child providers in other providers, the reference count is done to
+ ensure that cross referencing is recorded.  These should be cleared up
+ through that providers teardown, as part of freeing its child libctx.
+ ",2,5,2,3,0,0,0,14,286,05.05.2022,2776.0,openssl,95D36DAC386C30F9,"int ossl_provider_up_ref_parent(OSSL_PROVIDER *prov, int activate)
+{
+    struct child_prov_globals *gbl;
+    const OSSL_CORE_HANDLE *parent_handle;
+
+    gbl = ossl_lib_ctx_get_data(ossl_provider_libctx(prov),
+                                OSSL_LIB_CTX_CHILD_PROVIDER_INDEX);
+    if (gbl == NULL)
+        return 0;
+
+    parent_handle = ossl_provider_get_parent(prov);
+    if (parent_handle == gbl->handle)
+        return 1;
+    return gbl->c_prov_up_ref(parent_handle, activate);
+}
+"
+77A8F931A0C1CD5C,36,36,6876,6876,ossl_ctx_global_properties_free,openssl/crypto/property/property.c,Global properties are stored per library context ,1,1,0,1,0,0,0,8,111,01.04.2022,6833.0,openssl,77A8F931A0C1CD5C,"void ossl_ctx_global_properties_free(void *vglobp)
+{
+    OSSL_GLOBAL_PROPERTIES *globp = vglobp;
+
+    if (globp != NULL) {
+        ossl_property_free(globp->list);
+        OPENSSL_free(globp);
+    }
+}
+"
+D6EC6B1ACE221810,38,38,12616,12616,match_type,openssl/crypto/evp/keymgmt_lib.c,"
+ match_type() checks if two EVP_KEYMGMT are matching key types.  This
+ function assumes that the caller has made all the necessary NULL checks.
+ ",1,2,0,2,0,0,0,5,22,01.06.2021,16.0,openssl,D6EC6B1ACE221810,"static int match_type(const EVP_KEYMGMT *keymgmt1, const EVP_KEYMGMT *keymgmt2)
+{
+    const char *name2 = EVP_KEYMGMT_get0_name(keymgmt2);
+
+    return EVP_KEYMGMT_is_a(keymgmt1, name2);
+}
+"
+A15E1111AA115EBE,39,39,9380,9380,ossl_rsa_sp800_56b_validate_strength,openssl/crypto/rsa/rsa_sp800_56b_gen.c,"
+ Validates the RSA key size based on the target strength.
+ See SP800-56Br1 6.3.1.1 (Steps 1a-1b)
+
+ Params:
+     nbits The key size in bits.
+     strength The target strength in bits. -1 means the target
+              strength is unknown.
+ Returns: 1 if the key size matches the target strength, or 0 otherwise.
+ ",2,1,0,1,0,0,0,15,170,27.05.2021,6.0,openssl,A15E1111AA115EBE,"int ossl_rsa_sp800_56b_validate_strength(int nbits, int strength)
+{
+    int s = (int)ossl_ifc_ffc_compute_security_bits(nbits);
+
+#ifdef FIPS_MODULE
+    if (s < RSA_FIPS1864_MIN_KEYGEN_STRENGTH) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_INVALID_MODULUS);
+        return 0;
+    }
+#endif
+    if (strength != -1 && s != strength) {
+        ERR_raise(ERR_LIB_RSA, RSA_R_INVALID_STRENGTH);
+        return 0;
+    }
+    return 1;
+}
+"
+2EC2B72D1CCAE2A5,40,40,2719,2719,evp_pkey_keygen,openssl/crypto/evp/evp_lib.c,"
+ evp_pkey_keygen() abstracts from the explicit use of B<EVP_PKEY_CTX>
+ while providing a generic way of generating a new asymmetric key pair
+ of algorithm type I<name> (e.g., C<RSA> or C<EC>).
+ The library context I<libctx> and property query I<propq>
+ are used when fetching algorithms from providers.
+ The I<params> specify algorithm-specific parameters
+ such as the RSA modulus size or the name of an EC curve.
+ ",1,3,0,3,0,0,0,13,1200,11.05.2021,6.0,openssl,2EC2B72D1CCAE2A5,"static EVP_PKEY *evp_pkey_keygen(OSSL_LIB_CTX *libctx, const char *name,
+                                 const char *propq, const OSSL_PARAM *params)
+{
+    EVP_PKEY *pkey = NULL;
+    EVP_PKEY_CTX *ctx = EVP_PKEY_CTX_new_from_name(libctx, name, propq);
+
+    if (ctx != NULL
+            && EVP_PKEY_keygen_init(ctx) > 0
+            && EVP_PKEY_CTX_set_params(ctx, params))
+        (void)EVP_PKEY_generate(ctx, &pkey);
+
+    EVP_PKEY_CTX_free(ctx);
+    return pkey;
+}
+"
+08A6FA08CFC72ED6,41,41,522,522,OSSL_STORE_eof,openssl/crypto/store/store_lib.c,"
+ Check if end of data (end of file) is reached
+ Returns 1 on end, 0 otherwise.
+ ",3,3,1,2,0,0,0,11,557,04.05.2021,17260.0,openssl,08A6FA08CFC72ED6,"int OSSL_STORE_eof(OSSL_STORE_CTX *ctx)
+{
+    int ret = 1;
+
+    if (ctx->fetched_loader != NULL)
+        ret = ctx->loader->p_eof(ctx->loader_ctx);
+#ifndef OPENSSL_NO_DEPRECATED_3_0
+    if (ctx->fetched_loader == NULL)
+        ret = ctx->loader->eof(ctx->loader_ctx);
+#endif
+    return ret != 0;
+}
+"
+6563624997F5DB4A,42,42,5839,5839,X509_self_signed,openssl/crypto/x509/x509_vfy.c,"-
+ Return 1 if given cert is considered self-signed, 0 if not, or -1 on error.
+ This actually verifies self-signedness only if requested.
+ It calls ossl_x509v3_cache_extensions()
+ to match issuer and subject names (i.e., the cert being self-issued) and any
+ present authority key identifier to match the subject key identifier, etc.",4,2,0,2,0,0,0,15,98,18.03.2021,14972.0,openssl,6563624997F5DB4A,"int X509_self_signed(X509 *cert, int verify_signature)
+{
+    EVP_PKEY *pkey;
+
+    if ((pkey = X509_get0_pubkey(cert)) == NULL) { /* handles cert == NULL */
+        ERR_raise(ERR_LIB_X509, X509_R_UNABLE_TO_GET_CERTS_PUBLIC_KEY);
+        return -1;
+    }
+    if (!ossl_x509v3_cache_extensions(cert))
+        return -1;
+    if ((cert->ex_flags & EXFLAG_SS) == 0)
+        return 0;
+    if (!verify_signature)
+        return 1;
+    return X509_verify(cert, pkey);
+}
+"
+AC4F3EF59CA94B57,43,43,10052,10052,check_issued,openssl/crypto/x509/x509_vfy.c,Check that the given certificate |x| is issued by the certificate |issuer| ,0,1,0,1,0,0,0,11,407,18.03.2021,6768.0,openssl,AC4F3EF59CA94B57,"static int check_issued(ossl_unused X509_STORE_CTX *ctx, X509 *x, X509 *issuer)
+{
+    int err = ossl_x509_likely_issued(issuer, x);
+
+    if (err == X509_V_OK)
+        return 1;
+    /*
+     * SUBJECT_ISSUER_MISMATCH just means 'x' is clearly not issued by 'issuer'.
+     * Every other error code likely indicates a real error.
+     */
+    return 0;
+}
+"
+9566C87BE346F08A,44,44,8676,8676,ossl_quic_channel_free,openssl/ssl/quic/quic_channel.c,No-op if ch is NULL. ,3,1,1,0,0,0,0,7,440,02.02.2024,5.0,openssl,9566C87BE346F08A,"void ossl_quic_channel_free(QUIC_CHANNEL *ch)
+{
+    if (ch == NULL)
+        return;
+
+    ch_cleanup(ch);
+    OPENSSL_free(ch);
+}
+"
+F0718158305A9415,45,45,14059,14059,free_rcu_thr_data,openssl/crypto/threads_pthread.c,"
+ Called on thread exit to free the pthread key
+ associated with this thread, if any
+ ",0,1,1,0,0,0,0,7,275,01.02.2024,5370.0,openssl,F0718158305A9415,"static void free_rcu_thr_data(void *ptr)
+{
+    struct rcu_thr_data *data =
+                        (struct rcu_thr_data *)CRYPTO_THREAD_get_local(&rcu_thr_key);
+
+    OPENSSL_free(data);
+    CRYPTO_THREAD_set_local(&rcu_thr_key, NULL);
+}
+"
+FBE031EE3DC1FDB6,46,46,14714,14714,provider_conf_params,openssl/crypto/provider_conf.c,"
+ recursively parse the provider configuration section
+ of the config file. 
+ Returns
+ 1 on success
+ 0 on non-fatal error
+ < 0 on fatal errors
+ ",0,1,1,0,0,0,0,17,155,21.12.2023,5647.0,openssl,FBE031EE3DC1FDB6,"static int provider_conf_params(OSSL_PROVIDER *prov,
+                                OSSL_PROVIDER_INFO *provinfo,
+                                const char *name, const char *value,
+                                const CONF *cnf)
+{
+    int rc;
+    STACK_OF(OPENSSL_CSTRING) *visited = sk_OPENSSL_CSTRING_new_null();
+
+    if (visited == NULL)
+        return -1;
+
+    rc = provider_conf_params_internal(prov, provinfo, name,
+                                       value, cnf, visited);
+
+    sk_OPENSSL_CSTRING_free(visited);
+
+    return rc;
+}
+"
+C8EF3908D2059468,47,47,11767,11767,ossl_quic_tx_packetiser_set_initial_token,openssl/ssl/quic/quic_txp.c,"
+ Set the token used in Initial packets. The callback is called when the buffer
+ is no longer needed; for example, when the TXP is freed or when this function
+ is called again with a new buffer. Fails returning 0 if the token is too big
+ to ever be reasonably encapsulated in an outgoing packet based on our current
+ understanding of our PMTU.
+ ",0,3,3,0,0,0,0,18,562,20.10.2023,5.0,openssl,C8EF3908D2059468,"int ossl_quic_tx_packetiser_set_initial_token(OSSL_QUIC_TX_PACKETISER *txp,
+                                              const unsigned char *token,
+                                              size_t token_len,
+                                              ossl_quic_initial_token_free_fn *free_cb,
+                                              void *free_cb_arg)
+{
+    if (!txp_check_token_len(token_len, txp_get_mdpl(txp)))
+        return 0;
+
+    if (txp->initial_token != NULL && txp->initial_token_free_cb != NULL)
+        txp->initial_token_free_cb(txp->initial_token, txp->initial_token_len,
+                                   txp->initial_token_free_cb_arg);
+
+    txp->initial_token              = token;
+    txp->initial_token_len          = token_len;
+    txp->initial_token_free_cb      = free_cb;
+    txp->initial_token_free_cb_arg  = free_cb_arg;
+    return 1;
+}
+"
+5659C3E7C6372047,48,48,4989,4989,evp_pkey_decrypt_alloc,openssl/crypto/evp/asymcipher.c,"decrypt to new buffer of dynamic size, checking any pre-determined size ",2,1,1,0,0,0,0,16,302,30.05.2023,26.0,openssl,5659C3E7C6372047,"int evp_pkey_decrypt_alloc(EVP_PKEY_CTX *ctx, unsigned char **outp,
+                           size_t *outlenp, size_t expected_outlen,
+                           const unsigned char *in, size_t inlen)
+{
+    if (EVP_PKEY_decrypt(ctx, NULL, outlenp, in, inlen) <= 0
+            || (*outp = OPENSSL_malloc(*outlenp)) == NULL)
+        return -1;
+    if (EVP_PKEY_decrypt(ctx, *outp, outlenp, in, inlen) <= 0
+            || *outlenp == 0
+            || (expected_outlen != 0 && *outlenp != expected_outlen)) {
+        ERR_raise(ERR_LIB_EVP, ERR_R_EVP_LIB);
+        OPENSSL_clear_free(*outp, *outlenp);
+        *outp = NULL;
+        return 0;
+    }
+    return 1;
+}
+"
+148903C6EE544163,49,49,1175,1175,tls1_set_peer_legacy_sigalg,openssl/ssl/t1_lib.c,Set peer sigalg based key type ,2,1,1,0,0,0,0,12,1722,24.02.2023,628.0,openssl,148903C6EE544163,"int tls1_set_peer_legacy_sigalg(SSL_CONNECTION *s, const EVP_PKEY *pkey)
+{
+    size_t idx;
+    const SIGALG_LOOKUP *lu;
+
+    if (ssl_cert_lookup_by_pkey(pkey, &idx, SSL_CONNECTION_GET_CTX(s)) == NULL)
+        return 0;
+    lu = tls1_get_legacy_sigalg(s, idx);
+    if (lu == NULL)
+        return 0;
+    s->s3.tmp.peer_sigalg = lu;
+    return 1;
+}
+"
+1544A5B6387D628A,50,50,1215,1215,ossl_qrx_pkt_release,openssl/ssl/quic/quic_record_rx.c,"
+ Decrement the reference count for the given packet and frees it if the
+ reference count drops to zero. No-op if pkt is NULL.
+ ",6,1,1,0,0,0,0,11,1245,13.01.2023,5.0,openssl,1544A5B6387D628A,"void ossl_qrx_pkt_release(OSSL_QRX_PKT *pkt)
+{
+    RXE *rxe;
+
+    if (pkt == NULL)
+        return;
+
+    rxe = (RXE *)pkt;
+    assert(rxe->refcount > 0);
+    if (--rxe->refcount == 0)
+        qrx_recycle_rxe(pkt->qrx, rxe);
+}
+"
+29F9962F61ED6A70,51,51,2408,2408,ossl_quic_stream_map_cleanup,openssl/ssl/quic/quic_stream_map.c,"
+ Any streams still in the map will be released as though
+ ossl_quic_stream_map_release was called on them.
+ ",2,2,2,0,0,0,0,6,125,24.11.2022,5.0,openssl,29F9962F61ED6A70,"void ossl_quic_stream_map_cleanup(QUIC_STREAM_MAP *qsm)
+{
+    ossl_quic_stream_map_visit(qsm, release_each, qsm);
+
+    lh_QUIC_STREAM_free(qsm->map);
+    qsm->map = NULL;
+}
+"
+EE95207F8A1427E3,52,52,13948,13948,check_purpose_ocsp_helper,openssl/crypto/x509/v3_purp.c,"
+ OCSP helper: this is *not* a full OCSP check. It just checks that each CA
+ is valid. Additional checks must be made on the chain.
+ ",0,1,1,0,0,0,0,11,824,18.11.2022,42.0,openssl,EE95207F8A1427E3,"static int check_purpose_ocsp_helper(const X509_PURPOSE *xp, const X509 *x,
+                                     int non_leaf)
+{
+    /*
+     * Must be a valid CA.  Should we really support the ""I don't know"" value
+     * (2)?
+     */
+    if (non_leaf)
+        return check_ca(x);
+    /* Leaf certificate is checked in OCSP_verify() */
+    return 1;
+}
+"
+B3CA49AE50AA5553,53,53,10517,10517,ossl_quic_txpim_free,openssl/ssl/quic/quic_txpim.c,"
+ Frees the TXPIM. All QUIC_TXPIM_PKTs which have been handed out by the TXPIM
+ must be released via a call to ossl_quic_txpim_pkt_release() before calling
+ this function.
+ ",4,1,1,0,0,0,0,8,58,07.11.2022,5.0,openssl,B3CA49AE50AA5553,"void ossl_quic_txpim_free(QUIC_TXPIM *txpim)
+{
+    if (txpim == NULL)
+        return;
+
+    assert(txpim->in_use == 0);
+    free_list(&txpim->free_list);
+    OPENSSL_free(txpim);
+}
+"
+B14FF577E75F4333,54,54,10362,10362,TS_RESP_CTX_add_md,openssl/crypto/ts/ts_rsp_sign.c,"
+ Adds a new acceptable message digest. Note that no message digests are
+ accepted by default. The md argument is shared with the caller.
+ ",1,1,1,0,0,0,0,12,209,05.10.2022,16.0,openssl,B14FF577E75F4333,"int TS_RESP_CTX_add_md(TS_RESP_CTX *ctx, const EVP_MD *md)
+{
+    if (ctx->mds == NULL
+        && (ctx->mds = sk_EVP_MD_new_null()) == NULL)
+        goto err;
+    if (!sk_EVP_MD_push(ctx->mds, md))
+        goto err;
+
+    return 1;
+ err:
+    ERR_raise(ERR_LIB_TS, ERR_R_CRYPTO_LIB);
+    return 0;
+}
+"
+AE5A8AC3C44BCAB7,55,55,10179,10179,compute_growth,openssl/crypto/stack/stack.c,"
+ Calculate the array growth based on the target size.
+
+ The growth factor is a rational number and is defined by a numerator
+ and a denominator.  According to Andrew Koenig in his paper ""Why Are
+ Vectors Efficient?"" from JOOP 11(5) 1998, this factor should be less
+ than the golden ratio (1.618...).
+
+ Considering only the Fibonacci ratios less than the golden ratio, the
+ number of steps from the minimum allocation to integer overflow is:
+      factor  decimal    growths
+       3/2     1.5          51
+       8/5     1.6          45
+      21/13    1.615...     44
+
+ All larger factors have the same number of growths.
+
+ 3/2 and 8/5 have nice power of two shifts, so seem like a good choice.
+ ",1,1,1,0,0,0,0,15,159,16.09.2022,562988.0,openssl,AE5A8AC3C44BCAB7,"static ossl_inline int compute_growth(int target, int current)
+{
+    int err = 0;
+
+    while (current < target) {
+        if (current >= max_nodes)
+            return 0;
+
+        current = safe_muldiv_int(current, 8, 5, &err);
+        if (err != 0)
+            return 0;
+        if (current >= max_nodes)
+            current = max_nodes;
+    }
+    return current;
+}
+"
+EFA75CD487735403,56,56,14010,14010,ossl_qrl_enc_level_set_have_el,openssl/ssl/quic/quic_record_shared.c,"
+ Returns 1 if we have key material for a given encryption level (that is, if
+ we are in the PROVISIONED state), 0 if we do not yet have material (we are in
+ the UNPROVISIONED state) and -1 if the EL is discarded (we are in the
+ DISCARDED state).
+ ",3,1,1,0,0,0,0,16,44,02.09.2022,40.0,openssl,EFA75CD487735403,"int ossl_qrl_enc_level_set_have_el(OSSL_QRL_ENC_LEVEL_SET *els,
+                                  uint32_t enc_level)
+{
+    OSSL_QRL_ENC_LEVEL *el = ossl_qrl_enc_level_set_get(els, enc_level, 0);
+
+    switch (el->state) {
+        case QRL_EL_STATE_UNPROV:
+            return 0;
+        case QRL_EL_STATE_PROV_NORMAL:
+        case QRL_EL_STATE_PROV_UPDATING:
+        case QRL_EL_STATE_PROV_COOLDOWN:
+            return 1;
+        default:
+        case QRL_EL_STATE_DISCARDED:
+            return -1;
+    }
+}
+"
+68294A4C6AA331E0,57,57,6001,6001,ossl_statem_set_renegotiate,openssl/ssl/statem/statem.c,"
+ Set the state machine up ready for a renegotiation handshake
+ ",1,1,1,0,0,0,0,4,138,18.08.2022,70.0,openssl,68294A4C6AA331E0,"void ossl_statem_set_renegotiate(SSL_CONNECTION *s)
+{
+    ossl_statem_set_in_init(s, 1);
+    s->statem.request_state = TLS_ST_SW_HELLO_REQ;
+}
+"
+7910A7A9D34B934F,58,58,6968,6968,SXNET_add_id_asc,openssl/crypto/x509/v3_sxnet.c,Add an id given the zone as an ASCII number ,1,2,1,0,1,0,0,13,120,08.01.2024,6.0,openssl,7910A7A9D34B934F,"int SXNET_add_id_asc(SXNET **psx, const char *zone, const char *user, int userlen)
+{
+    ASN1_INTEGER *izone;
+
+    if ((izone = s2i_ASN1_INTEGER(NULL, zone)) == NULL) {
+        ERR_raise(ERR_LIB_X509V3, X509V3_R_ERROR_CONVERTING_ZONE);
+        return 0;
+    }
+    if (!SXNET_add_id_INTEGER(psx, izone, user, userlen)) {
+        ASN1_INTEGER_free(izone);
+        return 0;
+    }
+    return 1;
+}
+"
+DB2F4F1BBCD12988,59,59,12844,12844,EVP_PKEY_CTX_get_rsa_oaep_md,openssl/crypto/rsa/rsa_lib.c,"
+ This one is currently implemented as an EVP_PKEY_CTX_ctrl() wrapper,
+ simply because that's easier.
+ ",1,2,0,0,2,0,0,8,1055,29.12.2023,5.0,openssl,DB2F4F1BBCD12988,"int EVP_PKEY_CTX_get_rsa_oaep_md(EVP_PKEY_CTX *ctx, const EVP_MD **md)
+{
+    /* If key type not RSA return error */
+    if (!EVP_PKEY_CTX_is_a(ctx, ""RSA""))
+        return -1;
+
+    return EVP_PKEY_CTX_ctrl(ctx, EVP_PKEY_RSA, EVP_PKEY_OP_TYPE_CRYPT,
+                             EVP_PKEY_CTRL_GET_RSA_OAEP_MD, 0, (void *)md);
+}
+"
+6EA04EB8AF1579A0,60,60,6371,6371,ossl_quic_engine_get_time,openssl/ssl/quic/quic_engine.c,Gets the current time. ,1,3,1,1,1,0,0,6,77,21.12.2023,10.0,openssl,6EA04EB8AF1579A0,"OSSL_TIME ossl_quic_engine_get_time(QUIC_ENGINE *qeng)
+{
+    if (qeng->now_cb == NULL)
+        return ossl_time_now();
+
+    return qeng->now_cb(qeng->now_cb_arg);
+}
+"
+88C2FB6CC13F3260,61,61,7921,7921,ossl_quic_gen_rand_conn_id,openssl/ssl/quic/quic_types.c,"
+ Generates a random CID of the given length. libctx may be NULL.
+ Returns 1 on success or 0 on failure.
+ ",2,1,0,0,1,0,0,15,14,21.12.2023,10.0,openssl,88C2FB6CC13F3260,"                               QUIC_CONN_ID *cid)
+{
+    if (len > QUIC_MAX_CONN_ID_LEN)
+        return 0;
+
+    cid->id_len = (unsigned char)len;
+
+    if (RAND_bytes_ex(libctx, cid->id, len, len * 8) != 1) {
+        ERR_raise(ERR_LIB_SSL, ERR_R_RAND_LIB);
+        cid->id_len = 0;
+        return 0;
+    }
+
+    return 1;
+}
+"
+4FD107FA558F51A2,63,63,4634,4634,ossl_quic_srtm_free,openssl/ssl/quic/quic_srtm.c,Frees a SRTM instance. No-op if srtm is NULL. ,4,3,2,0,1,0,0,13,164,23.11.2023,5.0,openssl,4FD107FA558F51A2,"void ossl_quic_srtm_free(QUIC_SRTM *srtm)
+{
+    if (srtm == NULL)
+        return;
+
+    lh_SRTM_ITEM_free(srtm->items_rev);
+    if (srtm->items_fwd != NULL) {
+        lh_SRTM_ITEM_doall(srtm->items_fwd, srtm_free_each);
+        lh_SRTM_ITEM_free(srtm->items_fwd);
+    }
+
+    EVP_CIPHER_CTX_free(srtm->blind_ctx);
+    OPENSSL_free(srtm);
+}
+"
+218D0EC0FABB76A1,64,64,1903,1903,ossl_ctx_global_properties,openssl/crypto/property/property.c,Get the global properties associate with the specified library context ,5,1,0,0,1,0,0,12,126,04.08.2023,43735.0,openssl,218D0EC0FABB76A1,"OSSL_PROPERTY_LIST **ossl_ctx_global_properties(OSSL_LIB_CTX *libctx,
+                                                ossl_unused int loadconfig)
+{
+    OSSL_GLOBAL_PROPERTIES *globp;
+
+#if !defined(FIPS_MODULE) && !defined(OPENSSL_NO_AUTOLOAD_CONFIG)
+    if (loadconfig && !OPENSSL_init_crypto(OPENSSL_INIT_LOAD_CONFIG, NULL))
+        return NULL;
+#endif
+    globp = ossl_lib_ctx_get_data(libctx, OSSL_LIB_CTX_GLOBAL_PROPERTIES);
+
+    return globp != NULL ? &globp->list : NULL;
+}
+"
+BA863A3BCB7C141B,65,65,10946,10946,ossl_ackm_get_pto_duration,openssl/ssl/quic/quic_ackm.c,"
+ Returns the PTO duration as currently calculated. This is a quantity of time.
+ This duration is used in various parts of QUIC besides the ACKM.
+ ",4,6,0,1,5,0,0,14,1696,19.07.2023,5.0,openssl,BA863A3BCB7C141B,"OSSL_TIME ossl_ackm_get_pto_duration(OSSL_ACKM *ackm)
+{
+    OSSL_TIME duration;
+    OSSL_RTT_INFO rtt;
+
+    ossl_statm_get_rtt_info(ackm->statm, &rtt);
+
+    duration = ossl_time_add(rtt.smoothed_rtt,
+                             ossl_time_max(ossl_time_multiply(rtt.rtt_variance, 4),
+                                           ossl_ticks2time(K_GRANULARITY)));
+    if (!ossl_time_is_infinite(ackm->rx_max_ack_delay))
+        duration = ossl_time_add(duration, ackm->rx_max_ack_delay);
+
+    return duration;
+}
+"
+268C244B2DAF749A,66,66,2207,2207,ossl_quic_rstream_new,openssl/ssl/quic/quic_rstream.c,"
+ Create a new instance of QUIC_RSTREAM with pointers to the flow
+ controller and statistics module. They can be NULL for unit testing.
+ If they are non-NULL, the `rxfc` is called when receive stream data
+ is read by application. `statm` is queried for current rtt.
+ `rbuf_size` is the initial size of the ring buffer to be used
+ when ossl_quic_rstream_move_to_rbuf() is called.
+ ",0,3,0,1,2,0,0,18,24,03.07.2023,15.0,openssl,268C244B2DAF749A,"QUIC_RSTREAM *ossl_quic_rstream_new(QUIC_RXFC *rxfc,
+                                    OSSL_STATM *statm, size_t rbuf_size)
+{
+    QUIC_RSTREAM *ret = OPENSSL_zalloc(sizeof(*ret));
+
+    if (ret == NULL)
+        return NULL;
+
+    ring_buf_init(&ret->rbuf);
+    if (!ring_buf_resize(&ret->rbuf, rbuf_size, 0)) {
+        OPENSSL_free(ret);
+        return NULL;
+    }
+
+    ossl_sframe_list_init(&ret->fl);
+    ret->rxfc = rxfc;
+    ret->statm = statm;
+    return ret;
+}
+"
+DA30567D7A096837,67,67,12792,12792,RSA_up_ref,openssl/crypto/rsa/rsa_lib.c,"""up"" the RSA object's reference count ",7,1,0,0,1,0,0,10,184,01.07.2023,48695.0,openssl,DA30567D7A096837,"int RSA_up_ref(RSA *r)
+{
+    int i;
+
+    if (CRYPTO_UP_REF(&r->references, &i) <= 0)
+        return 0;
+
+    REF_PRINT_COUNT(""RSA"", r);
+    REF_ASSERT_ISNT(i < 2);
+    return i > 1 ? 1 : 0;
+}
+"
+9D43EF18D6478D03,68,68,9145,9145,new_loader,openssl/crypto/store/store_meth.c,"
+ OSSL_STORE_LOADER_new() expects the scheme as a constant string,
+ which we currently don't have, so we need an alternative allocator.
+ ",0,1,0,0,1,0,0,13,46,01.07.2023,2230.0,openssl,9D43EF18D6478D03,"static OSSL_STORE_LOADER *new_loader(OSSL_PROVIDER *prov)
+{
+    OSSL_STORE_LOADER *loader;
+
+    if ((loader = OPENSSL_zalloc(sizeof(*loader))) == NULL
+        || !CRYPTO_NEW_REF(&loader->refcnt, 1)) {
+        OPENSSL_free(loader);
+        return NULL;
+    }
+    loader->prov = prov;
+    ossl_provider_up_ref(prov);
+
+    return loader;
+}
+"
+44DA538004568DB5,70,70,3995,3995,bits2int,openssl/crypto/deterministic_nonce.c,"
+ Convert a Bit String to an Integer (See RFC 6979 Section 2.3.2)
+
+ Params:
+     out The returned Integer as a BIGNUM
+     qlen_bits The maximum size of the returned integer in bits. The returned
+        Integer is shifted right if inlen is larger than qlen_bits..
+     in, inlen The input Bit String (in bytes).
+ Returns: 1 if successful, or  0 otherwise.
+ ",0,1,0,0,1,0,0,13,26,30.11.2022,421.0,openssl,44DA538004568DB5,"static int bits2int(BIGNUM *out, int qlen_bits,
+                    const unsigned char *in, size_t inlen)
+{
+    int blen_bits = inlen * 8;
+    int shift;
+
+    if (BN_bin2bn(in, (int)inlen, out) == NULL)
+        return 0;
+
+    shift = blen_bits - qlen_bits;
+    if (shift > 0)
+        return BN_rshift(out, out, shift);
+    return 1;
+}
+"
+769D23EEF3F25E42,71,71,6817,6817,ossl_prop_defn_get,openssl/crypto/property/defn_cache.c,Property definition cache functions ,0,3,1,0,2,0,0,16,66,29.11.2022,1038421.0,openssl,769D23EEF3F25E42,"OSSL_PROPERTY_LIST *ossl_prop_defn_get(OSSL_LIB_CTX *ctx, const char *prop)
+{
+    PROPERTY_DEFN_ELEM elem, *r;
+    LHASH_OF(PROPERTY_DEFN_ELEM) *property_defns;
+
+    property_defns = ossl_lib_ctx_get_data(ctx,
+                                           OSSL_LIB_CTX_PROPERTY_DEFN_INDEX);
+    if (!ossl_assert(property_defns != NULL) || !ossl_lib_ctx_read_lock(ctx))
+        return NULL;
+
+    elem.prop = prop;
+    r = lh_PROPERTY_DEFN_ELEM_retrieve(property_defns, &elem);
+    ossl_lib_ctx_unlock(ctx);
+    if (r == NULL || !ossl_assert(r->defn != NULL))
+        return NULL;
+    return r->defn;
+}
+"
+E6935D22AC352B5A,72,72,13503,13503,ossl_qtx_new,openssl/ssl/quic/quic_record_tx.c,Instantiates a new QTX. ,3,0,0,0,0,0,0,17,112,19.02.2024,5.0,openssl,E6935D22AC352B5A,"OSSL_QTX *ossl_qtx_new(const OSSL_QTX_ARGS *args)
+{
+    OSSL_QTX *qtx;
+
+    if (args->mdpl < QUIC_MIN_INITIAL_DGRAM_LEN)
+        return 0;
+
+    qtx = OPENSSL_zalloc(sizeof(OSSL_QTX));
+    if (qtx == NULL)
+        return 0;
+
+    qtx->libctx             = args->libctx;
+    qtx->propq              = args->propq;
+    qtx->bio                = args->bio;
+    qtx->mdpl               = args->mdpl;
+    qtx->qlog               = args->qlog;
+    return qtx;
+}
+"
+719446CC9497E0DF,73,73,6534,6534,ossl_quic_lcidm_generate_initial,openssl/ssl/quic/quic_lcidm.c,"
+ Create the first LCID for a given opaque pointer. The generated LCID is
+ written to *initial_lcid and associated with the given opaque pointer.
+
+ After this function returns successfully, the caller can for example
+ register the new LCID with a DEMUX.
+
+ May not be called more than once for a given opaque pointer value.
+ ",3,0,0,0,0,0,0,6,388,06.12.2023,5.0,openssl,719446CC9497E0DF,"int ossl_quic_lcidm_generate_initial(QUIC_LCIDM *lcidm,
+                                     void *opaque,
+                                     QUIC_CONN_ID *initial_lcid)
+{
+    return lcidm_generate(lcidm, opaque, LCID_TYPE_INITIAL,
+                          initial_lcid, NULL);
+}
+"
+66E66FBDB4E847D3,74,74,5926,5926,obj_new_nid_unlocked,openssl/crypto/objects/obj_dat.c,"
+ Requires that the ossl_obj_lock be held
+ if TSAN_REQUIRES_LOCKING defined
+ ",2,0,0,0,0,0,0,13,228,18.10.2023,197.0,openssl,66E66FBDB4E847D3,"static int obj_new_nid_unlocked(int num)
+{
+    static TSAN_QUALIFIER int new_nid = NUM_NID;
+    return tsan_add(&new_nid, num);
+}
+"
+EBF660A72E74BE1C,75,75,13812,13812,ossl_quic_rxfc_init_standalone,openssl/ssl/quic/quic_fc.c,"
+ Initialises an RX flow controller which is used by itself and not under a
+ connection-level RX flow controller. This can be used for stream count
+ enforcement as well as CRYPTO buffer enforcement.
+ ",1,0,0,0,0,0,0,12,153,08.08.2023,25.0,openssl,EBF660A72E74BE1C,"int ossl_quic_rxfc_init_standalone(QUIC_RXFC *rxfc,
+                                   uint64_t initial_window_size,
+                                   OSSL_TIME (*now)(void *arg),
+                                   void *now_arg)
+{
+    if (!ossl_quic_rxfc_init(rxfc, NULL,
+                             initial_window_size, initial_window_size,
+                             now, now_arg))
+        return 0;
+
+    rxfc->standalone = 1;
+    return 1;
+}
+"
+DBCCC2264AA08AAB,76,76,12879,12879,ossl_quic_tx_packetiser_set_ack_tx_cb,openssl/ssl/quic/quic_txp.c,"
+ Sets a callback which is called whenever TXP sends an ACK frame. The callee
+ must not modify the ACK frame data. Can be used to snoop on PNs being ACKed.
+ ",1,0,0,0,0,0,0,8,619,16.06.2023,5.0,openssl,DBCCC2264AA08AAB,"void ossl_quic_tx_packetiser_set_ack_tx_cb(OSSL_QUIC_TX_PACKETISER *txp,
+                                           void (*cb)(const OSSL_QUIC_FRAME_ACK *ack,
+                                                      uint32_t pn_space,
+                                                      void *arg),
+                                           void *cb_arg)
+{
+    txp->ack_tx_cb      = cb;
+    txp->ack_tx_cb_arg  = cb_arg;
+}
+"
+4C9907D4F94F29B5,77,77,4459,4459,ossl_quic_channel_set_incoming_stream_auto_reject,openssl/ssl/quic/quic_channel.c,"
+ Configures incoming stream auto-reject. If enabled, incoming streams have
+ both their sending and receiving parts automatically rejected using
+ STOP_SENDING and STREAM_RESET frames. aec is the application error
+ code to be used for those frames.
+ ",1,0,0,0,0,0,0,6,3568,12.05.2023,5.0,openssl,4C9907D4F94F29B5,"void ossl_quic_channel_set_incoming_stream_auto_reject(QUIC_CHANNEL *ch,
+                                                       int enable,
+                                                       uint64_t aec)
+{
+    ch->incoming_stream_auto_reject     = (enable != 0);
+    ch->incoming_stream_auto_reject_aec = aec;
+}
+"
+41D90C0C118C1A88,78,78,3814,3814,ssl_has_cert,openssl/ssl/ssl_local.h,Returns true if certificate and private key for 'idx' are present ,5,0,0,0,0,0,0,11,2439,28.03.2023,39086.0,openssl,41D90C0C118C1A88,"static ossl_inline int ssl_has_cert(const SSL_CONNECTION *s, int idx)
+{
+    if (idx < 0 || idx >= (int)s->ssl_pkey_num)
+        return 0;
+
+    /* If RPK is enabled for this SSL... only require private key */
+    if (ssl_has_cert_type(s, TLSEXT_cert_type_rpk))
+        return s->cert->pkeys[idx].privatekey != NULL;
+
+    return s->cert->pkeys[idx].x509 != NULL
+        && s->cert->pkeys[idx].privatekey != NULL;
+}
+"
+D24E1897A054FB1E,79,79,12320,12320,tls1_lookup_sigalg,openssl/ssl/t1_lib.c,Lookup TLS signature algorithm ,7,0,0,0,0,0,0,16,1584,24.02.2023,870791.0,openssl,D24E1897A054FB1E,"static const SIGALG_LOOKUP *tls1_lookup_sigalg(const SSL_CONNECTION *s,
+                                               uint16_t sigalg)
+{
+    size_t i;
+    const SIGALG_LOOKUP *lu;
+
+    for (i = 0, lu = SSL_CONNECTION_GET_CTX(s)->sigalg_lookup_cache;
+         i < SSL_CONNECTION_GET_CTX(s)->tls12_sigalgs_len;
+         lu++, i++) {
+        if (lu->sigalg == sigalg) {
+            if (!lu->enabled)
+                return NULL;
+            return lu;
+        }
+    }
+    return NULL;
+}
+"
+E255542D4F8240B0,80,80,13252,13252,ossl_quic_demux_set_default_handler,openssl/ssl/quic/quic_demux.c,"
+ Set the default packet handler. This is used for incoming packets which don't
+ match a registered DCID. This is only needed for servers. If a default packet
+ handler is not set, a packet which doesn't match a registered DCID is
+ silently dropped. A default packet handler may be unset by passing NULL.
+
+ The handler is responsible for ensuring that ossl_quic_demux_reinject_urxe or
+ ossl_quic_demux_release_urxe is called on the passed packet at some point in
+ the future, which may or may not be before the handler returns.
+ ",3,0,0,0,0,0,0,6,147,19.01.2023,5.0,openssl,E255542D4F8240B0,"void ossl_quic_demux_set_default_handler(QUIC_DEMUX *demux,
+                                         ossl_quic_demux_cb_fn *cb,
+                                         void *cb_arg)
+{
+    demux->default_cb       = cb;
+    demux->default_cb_arg   = cb_arg;
+}
+"
+290803D9285A97DF,81,81,2351,2351,ossl_sframe_list_destroy,openssl/ssl/quic/quic_sf_list.c,"
+ Destroys the stream frame list fl releasing any data
+ still present inside it.
+ ",1,0,0,0,0,0,0,8,53,14.11.2022,15.0,openssl,290803D9285A97DF,"void ossl_sframe_list_destroy(SFRAME_LIST *fl)
+{
+    STREAM_FRAME *sf, *next_frame;
+
+    for (sf = fl->head; sf != NULL; sf = next_frame) {
+        next_frame = sf->next;
+        stream_frame_free(fl, sf);
+    }
+}
+"
+C3F07A0B34E39E13,82,82,11478,11478,get_compressed_certificate_alg,openssl/ssl/statem/statem_srvr.c,"
+ Used to determine if we should send a CompressedCertificate message
+
+ Returns the algorithm to use, TLSEXT_comp_cert_none means no compression
+ ",1,0,0,0,0,0,0,14,386,18.10.2022,1630.0,openssl,C3F07A0B34E39E13,"static int get_compressed_certificate_alg(SSL_CONNECTION *sc)
+{
+#ifndef OPENSSL_NO_COMP_ALG
+    int *alg = sc->ext.compress_certificate_from_peer;
+
+    if (sc->s3.tmp.cert == NULL)
+        return TLSEXT_comp_cert_none;
+
+    for (; *alg != TLSEXT_comp_cert_none; alg++) {
+        if (sc->s3.tmp.cert->comp_cert[*alg] != NULL)
+            return *alg;
+    }
+#endif
+    return TLSEXT_comp_cert_none;
+}
+"
+F26B5D118AC8365C,83,83,14187,14187,OSSL_STORE_SEARCH_by_name,openssl/crypto/store/store_lib.c,"Search term constructors 
+
+The input is considered to be owned by the caller, and must therefore
+remain present throughout the lifetime of the returned OSSL_STORE_SEARCH",1,0,0,0,0,0,0,10,905,05.10.2022,464.0,openssl,F26B5D118AC8365C,"OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_name(X509_NAME *name)
+{
+    OSSL_STORE_SEARCH *search = OPENSSL_zalloc(sizeof(*search));
+
+    if (search == NULL)
+        return NULL;
+
+    search->search_type = OSSL_STORE_SEARCH_BY_NAME;
+    search->name = name;
+    return search;
+}
+"
+9C5181DDD3BA18D0,84,84,9085,9085,ossl_quic_txfc_init,openssl/ssl/quic/quic_fc.c,"
+ Initialises a TX flow controller. conn_txfc should be non-NULL and point to
+ the connection-level flow controller if the TXFC is for stream-level flow
+ control, and NULL otherwise.
+ ",2,0,0,0,0,0,0,10,23,26.09.2022,5.0,openssl,9C5181DDD3BA18D0,"int ossl_quic_txfc_init(QUIC_TXFC *txfc, QUIC_TXFC *conn_txfc)
+{
+    if (conn_txfc != NULL && conn_txfc->parent != NULL)
+        return 0;
+
+    txfc->swm                   = 0;
+    txfc->cwm                   = 0;
+    txfc->parent                = conn_txfc;
+    txfc->has_become_blocked    = 0;
+    return 1;
+}
+"
+ACC2F8D9A0A4B244,85,85,10079,10079,X509_VERIFY_PARAM_move_peername,openssl/crypto/x509/x509_vpm.c,"
+ Move peername from one param structure to another, freeing any name present
+ at the target.  If the source is a NULL parameter structure, free and zero
+ the target peername.
+ ",1,0,0,0,0,0,0,11,417,16.09.2022,27468.0,openssl,ACC2F8D9A0A4B244,"void X509_VERIFY_PARAM_move_peername(X509_VERIFY_PARAM *to,
+                                     X509_VERIFY_PARAM *from)
+{
+    char *peername = (from != NULL) ? from->peername : NULL;
+
+    if (to->peername != peername) {
+        OPENSSL_free(to->peername);
+        to->peername = peername;
+    }
+    if (from != NULL)
+        from->peername = NULL;
+}
+"
+8DB27DCC9D8540B9,86,86,3633,3633,redisConnectWrapper,redis/src/cli_common.c,This is a wrapper to call redisConnect or redisConnectWithTimeout. ,4,2,0,0,2,0,0,6,429,30.01.2024,47.0,redis,8DB27DCC9D8540B9,"redisContext *redisConnectWrapper(const char *ip, int port, const struct timeval tv) {
+    if (tv.tv_sec == 0 && tv.tv_usec == 0) {
+        return redisConnect(ip, port);
+    } else {
+        return redisConnectWithTimeout(ip, port, tv);
+    }
+}
+"
+9E709D637B4875DE,87,87,4071,4071,dictCheckRehashingCompleted,redis/src/dict.c,This checks if we already rehashed the whole table and if more rehashing is required ,2,4,1,2,1,0,0,12,350,27.01.2024,2656868.0,redis,9E709D637B4875DE,"static int dictCheckRehashingCompleted(dict *d) {
+    if (d->ht_used[0] != 0) return 0;
+    
+    if (d->type->rehashingCompleted) d->type->rehashingCompleted(d);
+    zfree(d->ht_table[0]);
+    /* Copy the new ht onto the old one */
+    d->ht_table[0] = d->ht_table[1];
+    d->ht_used[0] = d->ht_used[1];
+    d->ht_size_exp[0] = d->ht_size_exp[1];
+    _dictReset(d, 1);
+    d->rehashidx = -1;
+    return 1;
+}
+"
+B7AED9E236EBEC25,88,88,4667,4667,rioWriteBulkDouble,redis/src/rio.c,"Write a double value in the format: ""$<count>\r\n<payload>\r\n"" ",0,1,0,0,1,0,0,6,514,15.10.2022,164.0,redis,B7AED9E236EBEC25,"    char dbuf[128];
+    unsigned int dlen;
+    dlen = fpconv_dtoa(d, dbuf);
+    dbuf[dlen] = '\0';
+    return rioWriteBulkString(r,dbuf,dlen);
+}
+"
+917B2B41B044128F,89,89,3732,3732,fillPercentileDistributionLatencies,redis/src/server.c,Fill percentile distribution of latencies. ,1,3,0,2,1,0,0,13,5307,18.07.2022,62.0,redis,917B2B41B044128F,"sds fillPercentileDistributionLatencies(sds info, const char* histogram_name, struct hdr_histogram* histogram) {
+    info = sdscatfmt(info,""latency_percentiles_usec_%s:"",histogram_name);
+    for (int j = 0; j < server.latency_tracking_info_percentiles_len; j++) {
+        char fbuf[128];
+        size_t len = snprintf(fbuf, sizeof(fbuf), ""%f"", server.latency_tracking_info_percentiles[j]);
+        trimDoubleString(fbuf, len);
+        info = sdscatprintf(info,""p%s=%.3f"", fbuf,
+            ((double)hdr_value_at_percentile(histogram,server.latency_tracking_info_percentiles[j]))/1000.0f);
+        if (j != server.latency_tracking_info_percentiles_len-1)
+            info = sdscatlen(info,"","",1);
+        }
+    info = sdscatprintf(info,""\r\n"");
+    return info;
+}
+"
+63BD3C16404EFF44,90,90,2543,2543,luaSetErrorMetatable,redis/src/script_lua.c,"Set a special metatable on the table on the top of the stack.
+The metatable will raise an error if the user tries to fetch
+an un-existing value.
+
+The function assumes the Lua stack have a least enough
+space to push 2 element, its up to the caller to verify
+this before calling this function. ",2,2,0,0,2,0,0,5,1280,27.04.2022,937.0,redis,63BD3C16404EFF44,"void luaSetErrorMetatable(lua_State *lua) {
+    lua_newtable(lua); /* push metatable */
+    lua_pushcfunction(lua, luaProtectedTableError); /* push get error handler */
+    lua_setfield(lua, -2, ""__index"");
+    lua_setmetatable(lua, -2);
+}
+"
+91E59A8BE2E5834C,91,91,3743,3743,luaGetStringSds,redis/src/script_lua.c,"Return sds of the string value located on stack at the given index.
+Return NULL if the value is not a string. ",2,1,0,0,1,0,0,9,1248,14.01.2022,4.0,redis,91E59A8BE2E5834C,"sds luaGetStringSds(lua_State *lua, int index) {
+    if (!lua_isstring(lua, index)) {
+        return NULL;
+    }
+
+    size_t len;
+    const char *str = lua_tolstring(lua, index, &len);
+    sds str_sds = sdsnewlen(str, len);
+    return str_sds;
+}
+"
+C3CB2474A9CFDEB8,92,92,4947,4947,luaCreateArray,redis/src/script_lua.c,"Set an array of Redis String Objects as a Lua array (table) stored into a
+global variable. ",1,2,0,1,1,0,0,8,1502,06.01.2022,36.0,redis,C3CB2474A9CFDEB8,"static void luaCreateArray(lua_State *lua, robj **elev, int elec) {
+    int j;
+
+    lua_newtable(lua);
+    for (j = 0; j < elec; j++) {
+        lua_pushlstring(lua,(char*)elev[j]->ptr,sdslen(elev[j]->ptr));
+        lua_rawseti(lua,-2,j+1);
+    }
+}
+"
+BFD3412F5AA28A38,93,93,4859,4859,updateCommandLatencyHistogram,redis/src/server.c,"This function is called in order to update the total command histogram duration.
+The latency unit is nano-seconds.
+If needed it will allocate the histogram memory and trim the duration to the upper/lower tracking limits",2,1,0,0,1,0,0,8,3358,05.01.2022,3493029.0,redis,BFD3412F5AA28A38,"void updateCommandLatencyHistogram(struct hdr_histogram **latency_histogram, int64_t duration_hist){
+    if (duration_hist < LATENCY_HISTOGRAM_MIN_VALUE)
+        duration_hist=LATENCY_HISTOGRAM_MIN_VALUE;
+    if (duration_hist>LATENCY_HISTOGRAM_MAX_VALUE)
+        duration_hist=LATENCY_HISTOGRAM_MAX_VALUE;
+    if (*latency_histogram==NULL)
+        hdr_init(LATENCY_HISTOGRAM_MIN_VALUE,LATENCY_HISTOGRAM_MAX_VALUE,LATENCY_HISTOGRAM_PRECISION,latency_histogram);
+    hdr_record_value(*latency_histogram,duration_hist);
+}
+"
+8C34082F9371FB54,94,94,3605,3605,luaLoadLib,redis/src/script_lua.c,"---------------------------------------------------------------------------
+Lua engine initialization and reset.
+------------------------------------------------------------------------- ",1,2,0,0,2,0,0,4,1218,02.12.2021,4221.0,redis,8C34082F9371FB54,"static void luaLoadLib(lua_State *lua, const char *libname, lua_CFunction luafunc) {
+  lua_pushcfunction(lua, luafunc);
+  lua_pushstring(lua, libname);
+  lua_call(lua, 1, 0);
+}
+"
+49B52B607F6CE286,95,95,1888,1888,luaSaveOnRegistry,redis/src/script_lua.c,"
+ Save the give pointer on Lua registry, used to save the Lua context and
+ function context so we can retrieve them from lua_State.
+ ",3,4,0,0,4,0,0,8,159,02.12.2021,274.0,redis,49B52B607F6CE286,"void luaSaveOnRegistry(lua_State* lua, const char* name, void* ptr) {
+    lua_pushstring(lua, name);
+    if (ptr) {
+        lua_pushlightuserdata(lua, ptr);
+    } else {
+        lua_pushnil(lua);
+    }
+    lua_settable(lua, LUA_REGISTRYINDEX);
+}
+"
+EE3BEF081FCA3E6A,96,96,6012,6012,scriptingRelease,redis/src/eval.c,"Release resources related to Lua scripting.
+This function is used in order to reset the scripting environment. ",1,3,0,2,1,0,0,7,269,02.12.2021,1.0,redis,EE3BEF081FCA3E6A,"void scriptingRelease(int async) {
+    if (async)
+        freeLuaScriptsAsync(lctx.lua_scripts);
+    else
+        dictRelease(lctx.lua_scripts);
+    lctx.lua_scripts_mem = 0;
+    lua_close(lctx.lua);
+}
+"
+79DA9CB3C0C6D261,97,97,3134,3134,luaEngineCall,redis/src/function_lua.c,"
+ Invole the give function with the given keys and args
+ ",0,5,0,1,4,0,0,22,161,02.12.2021,1.0,redis,79DA9CB3C0C6D261,"static void luaEngineCall(scriptRunCtx *run_ctx,
+                          void *engine_ctx,
+                          void *compiled_function,
+                          robj **keys,
+                          size_t nkeys,
+                          robj **args,
+                          size_t nargs)
+{
+    luaEngineCtx *lua_engine_ctx = engine_ctx;
+    lua_State *lua = lua_engine_ctx->lua;
+    luaFunctionCtx *f_ctx = compiled_function;
+
+    /* Push error handler */
+    lua_pushstring(lua, REGISTRY_ERROR_HANDLER_NAME);
+    lua_gettable(lua, LUA_REGISTRYINDEX);
+
+    lua_rawgeti(lua, LUA_REGISTRYINDEX, f_ctx->lua_function_ref);
+
+    serverAssert(lua_isfunction(lua, -1));
+
+    luaCallFunction(run_ctx, lua, keys, nkeys, args, nargs, 0);
+    lua_pop(lua, 1); /* Pop error handler */
+}
+"
+145F9153FF2001AA,98,98,484,484,ThreadsManager_init,redis/src/threads_mngr.c,Register the process to THREADS_SIGNAL ,1,1,0,0,0,1,0,10,66,24.09.2023,234.0,redis,145F9153FF2001AA,"void ThreadsManager_init(void) {
+    /* Register signal handler */
+    struct sigaction act;
+    sigemptyset(&act.sa_mask);
+    /* Not setting SA_RESTART flag means that If a signal handler is invoked while a
+    system call or library function call is blocked, use the default behavior
+    i.e., the call fails with the error EINTR */
+    act.sa_flags = 0;
+    act.sa_handler = invoke_callback;
+    sigaction(SIGUSR2, &act, NULL);
+}
+"
+0CBA565430D94C57,99,99,290,290,evictionTimeLimitUs,redis/src/evict.c,Algorithm for converting tenacity (0-100) to a time limit.  ,1,1,0,0,0,1,0,15,500,03.05.2023,10.0,redis,0CBA565430D94C57,"static unsigned long evictionTimeLimitUs(void) {
+    serverAssert(server.maxmemory_eviction_tenacity >= 0);
+    serverAssert(server.maxmemory_eviction_tenacity <= 100);
+
+    if (server.maxmemory_eviction_tenacity <= 10) {
+        /* A linear progression from 0..500us */
+        return 50uL * server.maxmemory_eviction_tenacity;
+    }
+
+    if (server.maxmemory_eviction_tenacity < 100) {
+        /* A 15% geometric progression, resulting in a limit of ~2 min at tenacity==99  */
+        return (unsigned long)(500.0 * pow(1.15, server.maxmemory_eviction_tenacity - 10.0));
+    }
+
+    return ULONG_MAX;   /* No limit to eviction time */
+}
+"
+340C2A92AAB661BC,100,100,1331,1331,matchToken,redis/src/redis-cli.c,Tries to match the next word of the input against a token literal. ,1,1,0,0,0,1,0,7,1286,30.03.2023,408.0,redis,340C2A92AAB661BC,"static int matchToken(char **nextword, cliCommandArg *arg) {
+    if (strcasecmp(arg->token, nextword[0]) != 0) {
+        return 0;
+    }
+    arg->matched_token = 1;
+    arg->matched = 1;
+    return 1;
+}
+"
+D1F436E96A24FDB2,101,101,5301,5301,cliRestoreTTY,redis/src/redis-cli.c,Restore terminal if we've changed it. ,1,1,0,0,0,1,0,3,1531,19.03.2023,11.0,redis,D1F436E96A24FDB2,"void cliRestoreTTY(void) {
+    if (orig_termios_saved)
+        tcsetattr(STDIN_FILENO, TCSANOW, &orig_termios);
+}
+"
+F82D2410AAC6480A,102,102,6233,6233,cliPressAnyKeyTTY,redis/src/redis-cli.c,"Put the terminal in ""press any key"" mode ",1,4,0,0,0,4,0,10,1537,19.03.2023,11.0,redis,F82D2410AAC6480A,"static void cliPressAnyKeyTTY(void) {
+    if (!isatty(STDIN_FILENO)) return;
+    if (!orig_termios_saved) {
+        if (tcgetattr(STDIN_FILENO, &orig_termios) == -1) return;
+        atexit(cliRestoreTTY);
+        orig_termios_saved = 1;
+    }
+    struct termios mode = orig_termios;
+    mode.c_lflag &= ~(ECHO | ICANON); /* echoing off, canonical off */
+    tcsetattr(STDIN_FILENO, TCSANOW, &mode);
+}
+"
+9B049E7250A7BADF,103,103,3980,3980,bioPendingJobsOfType,redis/src/bio.c,Return the number of pending jobs of the specified type. ,3,2,0,0,0,2,0,8,303,14.03.2023,4527.0,redis,9B049E7250A7BADF,"unsigned long bioPendingJobsOfType(int type) {
+    unsigned int worker = bio_job_to_worker[type];
+
+    pthread_mutex_lock(&bio_mutex[worker]);
+    unsigned long val = bio_jobs_counter[type];
+    pthread_mutex_unlock(&bio_mutex[worker]);
+
+    return val;
+}
+"
+BADD1866448F8D09,104,104,4754,4754,reclaimFilePageCache,redis/src/util.c,free OS pages backed by file ,0,1,0,0,0,1,0,11,1176,12.02.2023,258.0,redis,BADD1866448F8D09,"int reclaimFilePageCache(int fd, size_t offset, size_t length) {
+    UNUSED(fd);
+    UNUSED(offset);
+    UNUSED(length);
+    return 0;
+}
+"
+5A7030DACAB7E146,105,105,2312,2312,formatAddr,redis/src/connection.h,"Format an IP,port pair into something easy to parse. If IP is IPv6
+(matches for "":""), the ip is surrounded by []. IP and port are just
+separated by colons. This the standard to display addresses within Redis. ",0,2,0,0,0,2,0,3,294,22.08.2022,2578.0,redis,5A7030DACAB7E146,"static inline int formatAddr(char *buf, size_t buf_len, char *ip, int port) {
+    return snprintf(buf, buf_len, strchr(ip,':') ?
+           ""[%s]:%d"" : ""%s:%d"", ip, port);
+}
+"
+E2463C73985C1A58,106,106,5699,5699,genClientAddrString,redis/src/networking.c,"A Redis ""Address String"" is a colon separated ip:port pair.
+For IPv4 it's in the form x.y.z.k:port, example: ""127.0.0.1:1234"".
+For IPv6 addresses we use [] around the IP part, like in ""[::1]:1234"".
+For Unix sockets we use path:0, like in ""/tmp/redis:0"".
+
+An Address String always fits inside a buffer of NET_ADDR_STR_LEN bytes,
+including the null term.
+
+On failure the function still populates 'addr' with the ""?:0"" string in case
+you want to relax error checking or need to display something anyway (see
+anetFdToString implementation for more info). ",2,1,0,0,0,1,0,9,2761,22.08.2022,2378.0,redis,E2463C73985C1A58,"void genClientAddrString(client *client, char *addr,
+                         size_t addr_len, int remote) {
+    if (client->flags & CLIENT_UNIX_SOCKET) {
+        /* Unix socket client. */
+        snprintf(addr,addr_len,""%s:0"",server.unixsocket);
+    } else {
+        /* TCP client. */
+        connFormatAddr(client->conn,addr,addr_len,remote);
+    }
+}
+"
+1F81C060E269517F,107,107,779,779,clusterLockConfig,redis/src/cluster_legacy.c,"Lock the cluster config using flock(), and retain the file descriptor used to
+acquire the lock so that the file will be locked as long as the process is up.
+
+This works because we always update nodes.conf with a new version
+in-place, reopening the file, and writing to it in place (later adjusting
+the length with ftruncate()).
+
+On success C_OK is returned, otherwise an error is logged and
+the function returns C_ERR to signal a lock was not acquired. ",1,5,0,0,0,5,0,46,772,04.07.2022,4.0,redis,1F81C060E269517F,"int clusterLockConfig(char *filename) {
+/* flock() does not exist on Solaris
+ * and a fcntl-based solution won't help, as we constantly re-open that file,
+ * which will release _all_ locks anyway
+ */
+    UNUSED(filename);
+
+    return C_OK;
+}
+"
+2EFBDA204288D7E9,108,108,1208,1208,string2d,redis/src/util.c,"Convert a string into a double. Returns 1 if the string could be parsed
+into a (non-overflowing) double, 0 otherwise. The value will be set to
+the parsed value when appropriate.
+
+Note that this function demands that the string strictly represents
+a double: no spaces or other characters before or after the string
+representing the number are accepted. ",0,1,0,0,0,1,0,12,612,10.05.2022,288120.0,redis,2EFBDA204288D7E9,"int string2d(const char *s, size_t slen, double *dp) {
+    errno = 0;
+    char *eptr;
+    *dp = strtod(s, &eptr);
+    if (slen == 0 ||
+        isspace(((const char*)s)[0]) ||
+        (size_t)(eptr-(char*)s) != slen ||
+        (errno == ERANGE &&
+            (*dp == HUGE_VAL || *dp == -HUGE_VAL || fpclassify(*dp) == FP_ZERO)) ||
+        isnan(*dp))
+        return 0;
+    return 1;
+}
+"
+1B66C0C661BF77ED,109,109,676,676,zzlStrtod,redis/src/t_zset.c,"-----------------------------------------------------------------------------
+ Listpack-backed sorted set API
+----------------------------------------------------------------------------",3,1,0,0,0,1,0,7,786,22.03.2022,274671.0,redis,1B66C0C661BF77ED,"double zzlStrtod(unsigned char *vstr, unsigned int vlen) {
+    char buf[128];
+    if (vlen > sizeof(buf) - 1)
+        vlen = sizeof(buf) - 1;
+    memcpy(buf,vstr,vlen);
+    buf[vlen] = '\0';
+    return strtod(buf,NULL);
+ }
+"
+DAFD43712C86427A,110,110,5522,5522,zslRandomLevel,redis/src/t_zset.c,"Returns a random level for the new skiplist node we are going to create.
+The return value of this function is between 1 and ZSKIPLIST_MAXLEVEL
+(both inclusive), with a powerlaw-alike distribution where higher
+levels are less likely to be returned. ",1,1,0,0,0,1,0,6,126,02.03.2022,117314.0,redis,DAFD43712C86427A,"int zslRandomLevel(void) {
+    static const int threshold = ZSKIPLIST_P*RAND_MAX;
+    int level = 1;
+    while (random() < threshold)
+        level += 1;
+    return (level<ZSKIPLIST_MAXLEVEL) ? level : ZSKIPLIST_MAXLEVEL;
+}
+"
+56885AFA07B9F858,111,111,2221,2221,_addReplyToBuffer,redis/src/networking.c,"Attempts to add the reply to the static buffer in the client struct.
+Returns the length of data that is added to the reply buffer.
+
+Sanitizer suppression: client->buf_usable_size determined by
+zmalloc_usable_size() call. Writing beyond client->buf boundaries confuses
+sanitizer and generates a false positive out-of-bounds error ",0,1,0,0,0,1,0,15,330,22.02.2022,10800979.0,redis,56885AFA07B9F858,"REDIS_NO_SANITIZE(""bounds"")
+size_t _addReplyToBuffer(client *c, const char *s, size_t len) {
+    size_t available = c->buf_usable_size - c->bufpos;
+
+    /* If there already are entries in the reply list, we cannot
+     * add anything more to the static buffer. */
+    if (listLength(c->reply) > 0) return 0;
+
+    size_t reply_len = len > available ? available : len;
+    memcpy(c->buf+c->bufpos,s,reply_len);
+    c->bufpos+=reply_len;
+    /* We update the buffer peak after appending the reply to the buffer */
+    if(c->buf_peak < (size_t)c->bufpos)
+        c->buf_peak = (size_t)c->bufpos;
+    return reply_len;
+}
+"
+F363CFD77CB13669,112,112,6139,6139,kvstoreBuckets,redis/src/kvstore.c,"This method provides the cumulative sum of all the dictionary buckets
+across dictionaries in a database. ",1,0,0,0,0,0,0,6,314,05.02.2024,7031.0,redis,F363CFD77CB13669,"unsigned long kvstoreBuckets(kvstore *kvs) {
+    if (kvs->num_dicts != 1) {
+        return kvs->bucket_count;
+    } else {
+        return kvs->dicts[0]? dictBuckets(kvs->dicts[0]) : 0;
+    }
+}
+"
+C9AD0CB2169AB708,113,113,5084,5084,getTimeZone,redis/src/util.c,"
+ Gets the proper timezone in a more portable fashion
+ i.e timezone variables are linux specific.
+ ",1,0,0,0,0,0,0,10,1030,06.11.2023,239.0,redis,C9AD0CB2169AB708,"long getTimeZone(void) {
+    struct timezone tz;
+
+    gettimeofday(NULL, &tz);
+
+    return tz.tz_minuteswest * 60L;
+}
+"
+2F6791789BCEDFFA,114,114,1220,1220,dictRehashingInfo,redis/src/dict.c,"Provides the old and new ht size for a given dictionary during rehashing. This method
+should only be invoked during initialization/rehashing. ",2,0,0,0,0,0,0,5,1632,27.10.2023,14618.0,redis,2F6791789BCEDFFA,"void dictRehashingInfo(dict *d, unsigned long long *from_size, unsigned long long *to_size) {
+    /* Invalid method usage if rehashing isn't ongoing. */
+    assert(dictIsRehashing(d));
+    *from_size = DICTHT_SIZE(d->ht_size_exp[0]);
+    *to_size = DICTHT_SIZE(d->ht_size_exp[1]);
+}
+"
+252B6857A9882E34,115,115,930,930,dictMemUsage,redis/src/dict.c,"Returns the memory usage in bytes of the dict, excluding the size of the keys
+and values. ",0,0,0,0,0,0,0,3,914,15.10.2023,53208.0,redis,252B6857A9882E34,"size_t dictMemUsage(const dict *d) {
+    return dictSize(d) * sizeof(dictEntry) +
+        dictBuckets(d) * sizeof(dictEntry*);
+}
+"
+744001044C7F2F92,116,116,3000,3000,getAndSetMcontextEip,redis/src/debug.c,Returns the current eip and set it to the given new value (if its not NULL) ,1,0,0,0,0,0,0,88,1173,08.10.2023,3.0,redis,744001044C7F2F92,"static void* getAndSetMcontextEip(ucontext_t *uc, void *eip) {
+#define NOT_SUPPORTED() do {\
+    UNUSED(uc);\
+    UNUSED(eip);\
+    return NULL;\
+} while(0)
+#define GET_SET_RETURN(target_var, new_val) do {\
+    void *old_val = (void*)target_var; \
+    if (new_val) { \
+        void **temp = (void**)&target_var; \
+        *temp = new_val; \
+    } \
+    return old_val; \
+} while(0)
+    GET_SET_RETURN(uc->uc_mcontext->__ss.__srr0, eip);
+    /* OSX ARM64 */
+    void *old_val = (void*)arm_thread_state64_get_pc(uc->uc_mcontext->__ss);
+    if (eip) {
+        arm_thread_state64_set_pc_fptr(uc->uc_mcontext->__ss, eip);
+    }
+    return old_val;
+    NOT_SUPPORTED();
+    NOT_SUPPORTED();
+    NOT_SUPPORTED();
+    NOT_SUPPORTED();
+    NOT_SUPPORTED();
+#undef NOT_SUPPORTED
+}
+"
+3EABC43DB66CDE6D,118,118,1617,1617,totalNumberOfBlockingKeys,redis/src/blocked.c,"sets blocking_keys to the total number of keys which has at least one client blocked on them
+sets blocking_keys_on_nokey to the total number of keys which has at least one client
+blocked on them to be written or deleted ",1,0,0,0,0,0,0,10,733,22.06.2023,994.0,redis,3EABC43DB66CDE6D,"void totalNumberOfBlockingKeys(unsigned long *blocking_keys, unsigned long *bloking_keys_on_nokey) {
+    unsigned long bkeys=0, bkeys_on_nokey=0;
+    for (int j = 0; j < server.dbnum; j++) {
+        bkeys += dictSize(server.db[j].blocking_keys);
+        bkeys_on_nokey += dictSize(server.db[j].blocking_keys_unblock_on_nokey);
+    }
+    if (blocking_keys)
+        *blocking_keys = bkeys;
+    if (bloking_keys_on_nokey)
+        *bloking_keys_on_nokey = bkeys_on_nokey;
+}
+"
+53226269E2E8F8F7,119,119,2134,2134,cmdHasPushAsReply,redis/src/networking.c,"The subscribe / unsubscribe command family has a push as a reply,
+or in other words, it responds with a push (or several of them
+depending on how many arguments it got), and has no reply. ",1,0,0,0,0,0,0,5,388,20.06.2023,246.0,redis,53226269E2E8F8F7,"int cmdHasPushAsReply(struct redisCommand *cmd) {
+    if (!cmd) return 0;
+    return cmd->proc == subscribeCommand  || cmd->proc == unsubscribeCommand ||
+           cmd->proc == psubscribeCommand || cmd->proc == punsubscribeCommand ||
+           cmd->proc == ssubscribeCommand || cmd->proc == sunsubscribeCommand;
+}
+"
+83A7FD4CE5361D05,120,120,3359,3359,connCreateSocket,redis/src/socket.c,"When a connection is created we must know its type already, but the
+underlying socket may or may not exist:
+
+- For accepted connections, it exists as we do not model the listen/accept
+  part; So caller calls connCreateSocket() followed by connAccept().
+- For outgoing connections, the socket is created by the connection module
+  itself; So caller calls connCreateSocket() followed by connConnect(),
+  which registers a connect callback that fires on connected/error state
+  (and after any transport level handshake was done).
+
+NOTE: An earlier version relied on connections being part of other structs
+and not independently allocated. This could lead to further optimizations
+like using container_of(), etc.  However it was discontinued in favor of
+this approach for these reasons:
+
+1. In some cases conns are created/handled outside the context of the
+containing struct, in which case it gets a bit awkward to copy them.
+2. Future implementations may wish to allocate arbitrary data for the
+connection.
+3. The container_of() approach is anyway risky because connections may
+be embedded in different structs, not just client.",1,0,0,0,0,0,0,7,77,28.05.2023,1376.0,redis,83A7FD4CE5361D05,"static connection *connCreateSocket(void) {
+    connection *conn = zcalloc(sizeof(connection));
+    conn->type = &CT_Socket;
+    conn->fd = -1;
+    conn->iovcnt = IOV_MAX;
+
+    return conn;
+}
+"
+C09BE7C7570CD694,121,121,4876,4876,trackInstantaneousMetric,redis/src/server.c,"Add a sample to the instantaneous metric. This function computes the quotient
+of the increment of value and base, which is useful to record operation count
+per second, or the average time consumption of an operation.
+
+current_value - The dividend
+current_base - The divisor",1,0,0,0,0,0,0,11,710,12.05.2023,59794.0,redis,C09BE7C7570CD694,"void trackInstantaneousMetric(int metric, long long current_value, long long current_base, long long factor) {
+    if (server.inst_metric[metric].last_sample_base > 0) {
+        long long base = current_base - server.inst_metric[metric].last_sample_base;
+        long long value = current_value - server.inst_metric[metric].last_sample_value;
+        long long avg = base > 0 ? (value * factor / base) : 0;
+        server.inst_metric[metric].samples[server.inst_metric[metric].idx] = avg;
+        server.inst_metric[metric].idx++;
+        server.inst_metric[metric].idx %= STATS_METRIC_SAMPLES;
+    }
+    server.inst_metric[metric].last_sample_base = current_base;
+    server.inst_metric[metric].last_sample_value = current_value;
+}
+"
+F586455FB012D15B,122,122,6182,6182,monotonicGetType,redis/src/monotonic.c,Return the type of monotonic clock being used. ,1,0,0,0,0,0,0,4,173,03.05.2023,6986425.0,redis,F586455FB012D15B,"    if (getMonotonicUs == getMonotonicUs_posix)
+        return MONOTONIC_CLOCK_POSIX;
+    return MONOTONIC_CLOCK_HW;
+}
+"
+FA12006B2296E11D,123,123,6280,6280,functionsMemoryOverhead,redis/src/functions.c,Return memory overhead of all the engines combine ,1,0,0,0,0,0,0,8,1089,03.05.2023,981.0,redis,FA12006B2296E11D,"unsigned long functionsMemoryOverhead(void) {
+    size_t memory_overhead = dictMemUsage(engines);
+    memory_overhead += dictMemUsage(curr_functions_lib_ctx->functions);
+    memory_overhead += sizeof(functionsLibCtx);
+    memory_overhead += curr_functions_lib_ctx->cache_memory;
+    memory_overhead += engine_cache_memory;
+
+    return memory_overhead;
+}
+"
+C113A3386E49EAAF,124,124,4885,4885,addReplyErrorFormatInternal,redis/src/networking.c,"Internal function used by addReplyErrorFormat, addReplyErrorFormatEx and RM_ReplyWithErrorFormat.
+Refer to afterErrorReply for more information about the flags. ",3,0,0,0,0,0,0,13,643,12.04.2023,381.0,redis,C113A3386E49EAAF,"void addReplyErrorFormatInternal(client *c, int flags, const char *fmt, va_list ap) {
+    va_list cpy;
+    va_copy(cpy,ap);
+    sds s = sdscatvprintf(sdsempty(),fmt,cpy);
+    va_end(cpy);
+    /* Trim any newlines at the end (ones will be added by addReplyErrorLength) */
+    s = sdstrim(s, ""\r\n"");
+    /* Make sure there are no newlines in the middle of the string, otherwise
+     * invalid protocol is emitted. */
+    s = sdsmapchars(s, ""\r\n"", ""  "",  2);
+    addReplyErrorLength(c,s,sdslen(s));
+    afterErrorReply(c,s,sdslen(s),flags);
+    sdsfree(s);
+}
+"
+C15524E7A8A6A858,125,125,4891,4891,ztrycalloc_usable_internal,redis/src/zmalloc.c,"Try allocating memory and zero it, and return NULL if failed.
+'*usable' is set to the usable size if non NULL. ",0,0,0,0,0,0,0,17,189,10.04.2023,97976.0,redis,C15524E7A8A6A858,"static inline void *ztrycalloc_usable_internal(size_t size, size_t *usable) {
+    /* Possible overflow, return NULL, so that the caller can panic or handle a failed allocation. */
+    if (size >= SIZE_MAX/2) return NULL;
+    void *ptr = calloc(1, MALLOC_MIN_SIZE(size)+PREFIX_SIZE);
+    if (ptr == NULL) return NULL;
+
+    *((size_t*)ptr) = size;
+    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
+    if (usable) *usable = size;
+    return (char*)ptr+PREFIX_SIZE;
+}
+"
+1D4A8BB4C20DCE3F,126,126,719,719,cumulativeKeyCountRead,redis/src/kvstore.c,"Returns total (cumulative) number of keys up until given dict-index (inclusive).
+Time complexity is O(log(kvs->num_dicts)). ",1,1,1,0,0,0,0,12,97,11.02.2024,10244.0,redis,1D4A8BB4C20DCE3F,"static unsigned long long cumulativeKeyCountRead(kvstore *kvs, int didx) {
+    if (kvs->num_dicts == 1) {
+        assert(didx == 0);
+        return kvstoreSize(kvs);
+    }
+    int idx = didx + 1;
+    unsigned long long sum = 0;
+    while (idx > 0) {
+        sum += kvs->dict_size_index[idx];
+        idx -= (idx & -idx);
+    }
+    return sum;
+}
+"
+53097E4BA66791C4,127,127,2130,2130,kvstoreGetFairRandomDictIndex,redis/src/kvstore.c,"Returns fair random dict index, probability of each dict being returned is proportional to the number of elements that dictionary holds.
+This function guarantees that it returns a dict-index of a non-empty dict, unless the entire kvstore is empty.
+Time complexity of this function is O(log(kvs->num_dicts)). ",3,2,2,0,0,0,0,3,420,05.02.2024,28085.0,redis,53097E4BA66791C4,"int kvstoreGetFairRandomDictIndex(kvstore *kvs) {
+    unsigned long target = kvstoreSize(kvs) ? (randomULong() % kvstoreSize(kvs)) + 1 : 0;
+    return kvstoreFindDictIndexByKeyIndex(kvs, target);
+}
+"
+4301A1FCF0E2E43E,128,128,1732,1732,kvstoreGetNextNonEmptyDictIndex,redis/src/kvstore.c,"Returns next non-empty dict index strictly after given one, or -1 if provided didx is the last one. ",3,3,3,0,0,0,0,3,515,05.02.2024,10244.0,redis,4301A1FCF0E2E43E,"int kvstoreGetNextNonEmptyDictIndex(kvstore *kvs, int didx) {
+    unsigned long long next_key = cumulativeKeyCountRead(kvs, didx) + 1;
+    return next_key <= kvstoreSize(kvs) ? kvstoreFindDictIndexByKeyIndex(kvs, next_key) : -1;
+}
+"
+BB017E58605FED92,129,129,4762,4762,kvstoreIteratorNextDict,redis/src/kvstore.c,"Returns next dictionary from the iterator, or NULL if iteration is complete. ",2,1,1,0,0,0,0,6,549,05.02.2024,1398.0,redis,BB017E58605FED92,"dict *kvstoreIteratorNextDict(kvstoreIterator *kvs_it) {
+    if (kvs_it->next_didx == -1)
+        return NULL;
+    kvs_it->didx = kvs_it->next_didx;
+    kvs_it->next_didx = kvstoreGetNextNonEmptyDictIndex(kvs_it->kvs, kvs_it->didx);
+    return kvs_it->kvs->dicts[kvs_it->didx];
+}
+"
+8AF415B62FB4C87E,130,130,3575,3575,dictTryExpand,redis/src/dict.c,return DICT_ERR if expand failed due to memory allocation failure ,3,1,1,0,0,0,0,4,283,15.01.2024,958.0,redis,8AF415B62FB4C87E,"int dictTryExpand(dict *d, unsigned long size) {
+    int malloc_failed = 0;
+    _dictExpand(d, size, &malloc_failed);
+    return malloc_failed? DICT_ERR : DICT_OK;
+}
+"
+8146BBD51D425734,131,131,3303,3303,anetKeepAlive,redis/src/anet.c,"Enable TCP keep-alive mechanism to detect dead peers,
+TCP_KEEPIDLE, TCP_KEEPINTVL and TCP_KEEPCNT will be set accordingly. ",0,3,1,0,0,2,0,140,135,08.01.2024,1375.0,redis,8146BBD51D425734,"int anetKeepAlive(char *err, int fd, int interval)
+{
+    int enabled = 1;
+    if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enabled, sizeof(enabled)))
+    {
+        anetSetError(err, ""setsockopt SO_KEEPALIVE: %s"", strerror(errno));
+        return ANET_ERR;
+    }
+
+    int idle;
+    int intvl;
+    int cnt;
+
+    /* There are platforms that are expected to support the full mechanism of TCP keep-alive,
+     * we want the compiler to emit warnings of unused variables if the preprocessor directives
+     * somehow fail, and other than those platforms, just omit these warnings if they happen.
+     */
+
+    /* Fall back to the first implementation of tcp-alive mechanism for older Solaris,
+     * simulate the tcp-alive mechanism on other platforms via `TCP_KEEPALIVE_THRESHOLD` + `TCP_KEEPALIVE_ABORT_THRESHOLD`.
+     */
+    idle *= 1000; // kernel expects milliseconds
+    if (setsockopt(fd, IPPROTO_TCP, TCP_KEEPALIVE_THRESHOLD, &idle, sizeof(idle))) {
+        anetSetError(err, ""setsockopt TCP_KEEPINTVL: %s\n"", strerror(errno));
+        return ANET_ERR;
+    }
+
+    /* Note that the consequent probes will not be sent at equal intervals on Solaris,
+     * but will be sent using the exponential backoff algorithm. */
+    intvl = idle/3;
+    cnt = 3;
+    int time_to_abort = intvl * cnt;
+    if (setsockopt(fd, IPPROTO_TCP, TCP_KEEPALIVE_ABORT_THRESHOLD, &time_to_abort, sizeof(time_to_abort))) {
+        anetSetError(err, ""setsockopt TCP_KEEPCNT: %s\n"", strerror(errno));
+        return ANET_ERR;
+    }
+
+
+
+
+    return ANET_OK;
+}
+"
+0662CB892CF59881,132,132,166,166,raxFind,redis/src/rax.c,"Find a key in the rax: return 1 if the item is found, 0 otherwise.
+If there is an item and 'value' is passed in a non-NULL pointer,
+the value associated with the item is set at that address. ",0,1,1,0,0,0,0,10,913,15.12.2023,153529.0,redis,0662CB892CF59881,"int raxFind(rax *rax, unsigned char *s, size_t len, void **value) {
+    raxNode *h;
+
+    debugf(""### Lookup: %.*s\n"", (int)len, s);
+    int splitpos = 0;
+    size_t i = raxLowWalk(rax,s,len,&h,NULL,&splitpos,NULL);
+    if (i != len || (h->iscompr && splitpos != 0) || !h->iskey)
+        return 0;
+    if (value != NULL) *value = raxGetData(h);
+    return 1;
+}
+"
+8BE29A91E9BFE43F,133,133,3596,3596,sigKillChildHandler,redis/src/server.c,"This is the signal handler for children process. It is currently useful
+in order to track the SIGUSR1, that we send to a child in order to terminate
+it in a clean way, without the parent detecting an error and stop
+accepting writes because of a write error condition. ",0,2,2,0,0,0,0,5,6342,23.11.2023,4.0,redis,8BE29A91E9BFE43F,"static void sigKillChildHandler(int sig) {
+    UNUSED(sig);
+    int level = server.in_fork_child == CHILD_TYPE_MODULE? LL_VERBOSE: LL_WARNING;
+    serverLogRawFromHandler(level, ""Received SIGUSR1 in child, exiting now."");
+    exitFromChild(SERVER_CHILD_NOERROR_RETVAL);
+}
+"
+4E9473BD7ADA756A,134,134,2014,2014,ACLInitCommandCategories,redis/src/acl.c,"Initializes ACLCommandCategories with default ACL categories and allocates space for 
+new ACL categories.",1,1,1,0,0,0,0,5,119,30.08.2023,239.0,redis,4E9473BD7ADA756A,"void ACLInitCommandCategories(void) {
+    ACLCommandCategories = zcalloc(sizeof(struct ACLCategoryItem) * (ACL_MAX_CATEGORIES + 1));
+    for (int j = 0; ACLDefaultCommandCategories[j].flag; j++) {
+        serverAssert(ACLAddCommandCategory(ACLDefaultCommandCategories[j].name, ACLDefaultCommandCategories[j].flag));
+    }
+}
+"
+8A932B490A6BCD6E,135,135,3565,3565,sortROGetKeys,redis/src/db.c,"Helper function to extract keys from the SORT RO command.
+
+SORT <sort-key>
+
+The second argument of SORT is always a key, however an arbitrary number of
+keys may be accessed while doing the sort (the BY and GET args), so the
+key-spec declares incomplete keys which is why we have to provide a concrete
+implementation to fetch the keys.
+
+This command declares incomplete keys, so the flags are correctly set for this function ",0,1,1,0,0,0,0,11,2389,30.08.2023,5.0,redis,8A932B490A6BCD6E,"int sortROGetKeys(struct redisCommand *cmd, robj **argv, int argc, getKeysResult *result) {
+    keyReference *keys;
+    UNUSED(cmd);
+    UNUSED(argv);
+    UNUSED(argc);
+
+    keys = getKeysPrepareResult(result, 1);
+    keys[0].pos = 1; /* <sort-key> is always present. */
+    keys[0].flags = CMD_KEY_RO | CMD_KEY_ACCESS;
+    result->numkeys = 1;
+    return result->numkeys;
+}
+"
+BA9F49D506CE32B7,136,136,4748,4748,deriveAnnouncedPorts,redis/src/cluster_legacy.c,Derives our ports to be announced in the cluster bus. ,3,1,1,0,0,0,0,15,821,26.06.2023,4.0,redis,BA9F49D506CE32B7,"void deriveAnnouncedPorts(int *announced_tcp_port, int *announced_tls_port,
+                          int *announced_cport) {
+    /* Config overriding announced ports. */
+    *announced_tcp_port = server.cluster_announce_port ? 
+                          server.cluster_announce_port : server.port;
+    *announced_tls_port = server.cluster_announce_tls_port ? 
+                          server.cluster_announce_tls_port : server.tls_port;
+    /* Derive cluster bus port. */
+    if (server.cluster_announce_bus_port) {
+        *announced_cport = server.cluster_announce_bus_port;
+    } else if (server.cluster_port) {
+        *announced_cport = server.cluster_port;
+    } else {
+        *announced_cport = defaultClientPort() + CLUSTER_PORT_INCR;
+    }
+}
+"
+D96D35EDDAADBECC,137,137,5485,5485,createStringObjectFromLongLongForValue,redis/src/object.c,"The function avoids returning a shared integer when LFU/LRU info
+are needed, that is, when the object is used as a value in the key
+space(for instance when the INCR command is used), and Redis is
+configured to evict based on LFU/LRU, so we want LFU/LRU values
+specific for each key. ",3,1,1,0,0,0,0,7,179,20.06.2023,46168.0,redis,D96D35EDDAADBECC,"robj *createStringObjectFromLongLongForValue(long long value) {
+    if (server.maxmemory == 0 || !(server.maxmemory_policy & MAXMEMORY_FLAG_NO_SHARED_INTEGERS)) {
+        /* If the maxmemory policy permits, we can still return shared integers */
+        return createStringObjectFromLongLongWithOptions(value, LL2STROBJ_AUTO);
+    } else {
+        return createStringObjectFromLongLongWithOptions(value, LL2STROBJ_NO_SHARED);
+    }
+}
+"
+8B7D3882CF9CBFEC,138,138,3583,3583,LRU_CLOCK,redis/src/evict.c,"This function is used to obtain the current LRU clock.
+If the current resolution is lower than the frequency we refresh the
+LRU clock (as it should be in production servers) we return the
+precomputed value, otherwise we need to resort to a system call. ",6,1,1,0,0,0,0,8,81,24.05.2023,4687815.0,redis,8B7D3882CF9CBFEC,"unsigned int LRU_CLOCK(void) {
+    unsigned int lruclock;
+    if (1000/server.hz <= LRU_CLOCK_RESOLUTION) {
+        lruclock = server.lruclock;
+    } else {
+        lruclock = getLRUClock();
+    }
+    return lruclock;
+}
+"
+CA200194ACEB9F7D,139,139,5092,5092,zsetTypeMaybeConvert,redis/src/t_zset.c,"Check if the existing zset should be converted to another encoding based off the
+the size hint. ",1,1,1,0,0,0,0,6,1253,18.05.2023,72493.0,redis,CA200194ACEB9F7D,"void zsetTypeMaybeConvert(robj *zobj, size_t size_hint) {
+    if (zobj->encoding == OBJ_ENCODING_LISTPACK &&
+        size_hint > server.zset_max_listpack_entries)
+    {
+        zsetConvertAndExpand(zobj, OBJ_ENCODING_SKIPLIST, size_hint);
+    }
+}
+"
+60BC84F411EBEAB3,140,140,2470,2470,kvstoreExpand,redis/src/kvstore.c,"
+ This functions increases size of kvstore to match desired number.
+ It resizes all individual dictionaries, unless skip_cb indicates otherwise.
+
+ Based on the parameter `try_expand`, appropriate dict expand API is invoked.
+ if try_expand is set to 1, `dictTryExpand` is used else `dictExpand`.
+ The return code is either `DICT_OK`/`DICT_ERR` for both the API(s).
+ `DICT_OK` response is for successful expansion. However ,`DICT_ERR` response signifies failure in allocation in
+ `dictTryExpand` call and in case of `dictExpand` call it signifies no expansion was performed.
+ ",1,4,2,2,0,0,0,11,404,15.02.2024,186.0,redis,60BC84F411EBEAB3,"int kvstoreExpand(kvstore *kvs, uint64_t newsize, int try_expand, kvstoreExpandShouldSkipDictIndex *skip_cb) {
+    for (int i = 0; i < kvs->num_dicts; i++) {
+        dict *d = kvstoreGetDict(kvs, i);
+        if (!d || (skip_cb && skip_cb(i)))
+            continue;
+        int result = try_expand ? dictTryExpand(d, newsize) : dictExpand(d, newsize);
+        if (try_expand && result == DICT_ERR)
+            return 0;
+    }
+
+    return 1;
+}
+"
+6B610D8B9F68DAE1,141,141,2770,2770,dictResizeAllowed,redis/src/server.c,"Return 1 if currently we allow dict to expand. Dict may allocate huge
+memory to contain hash buckets when dict expands, that may lead redis
+rejects user's requests or evicts some keys, we can stop dict to expand
+provisionally if used memory will be over maxmemory after dict expands,
+but to guarantee the performance of redis, we still allow dict to expand
+if dict load factor exceeds HASHTABLE_MAX_LOAD_FACTOR. ",0,1,0,1,0,0,0,9,431,08.02.2024,1352.0,redis,6B610D8B9F68DAE1,"int dictResizeAllowed(size_t moreMem, double usedRatio) {
+    /* for debug purposes: dict is not allowed to be resized. */
+    if (!server.dict_resizing) return 0;
+
+    if (usedRatio <= HASHTABLE_MAX_LOAD_FACTOR) {
+        return !overMaxmemoryAfterAlloc(moreMem);
+    } else {
+        return 1;
+    }
+}
+"
+8A27BFF462650406,142,142,3550,3550,dbAddInternal,redis/src/db.c,"Add the key to the DB. It's up to the caller to increment the reference
+counter of the value if needed.
+
+If the update_if_existing argument is false, the program is aborted
+if the key already exists, otherwise, it can fall back to dbOverwrite. ",2,9,2,7,0,0,0,14,193,05.02.2024,2246730.0,redis,8A27BFF462650406,"static void dbAddInternal(redisDb *db, robj *key, robj *val, int update_if_existing) {
+    dictEntry *existing;
+    int slot = getKeySlot(key->ptr);
+    dictEntry *de = kvstoreDictAddRaw(db->keys, slot, key->ptr, &existing);
+    if (update_if_existing && existing) {
+        dbSetValue(db, key, val, 1, existing);
+        return;
+    }
+    serverAssertWithInfo(NULL, key, de != NULL);
+    kvstoreDictSetKey(db->keys, slot, de, sdsdup(key->ptr));
+    initObjectLRUOrLFU(val);
+    kvstoreDictSetVal(db->keys, slot, de, val);
+    signalKeyAsReady(db, key, val->type);
+    notifyKeyspaceEvent(NOTIFY_NEW,""new"",key,db->id);
+}
+"
+051CCB38BF73BF65,143,143,143,143,dbAddRDBLoad,redis/src/db.c,"This is a special version of dbAdd() that is used only when loading
+keys from the RDB file: the key is passed as an SDS string that is
+retained by the function (and not freed by the caller).
+
+Moreover this function will not abort if the key is already busy, to
+give more control to the caller, nor will signal the key as ready
+since it is not useful in this context.
+
+The function returns 1 if the key was added to the database, taking
+ownership of the SDS string, otherwise 0 is returned, and is up to the
+caller to free the SDS string. ",1,3,1,2,0,0,0,7,247,05.02.2024,257433.0,redis,051CCB38BF73BF65,"int dbAddRDBLoad(redisDb *db, sds key, robj *val) {
+    int slot = getKeySlot(key);
+    dictEntry *de = kvstoreDictAddRaw(db->keys, slot, key, NULL);
+    if (de == NULL) return 0;
+    initObjectLRUOrLFU(val);
+    kvstoreDictSetVal(db->keys, slot, de, val);
+    return 1;
+}
+"
+3676B55A0684B8C4,144,144,1388,1388,kvstoreDictRehashingStarted,redis/src/kvstore.c,"Adds dictionary to the rehashing list, which allows us
+to quickly find rehash targets during incremental rehashing.
+
+If there are multiple dicts, updates the bucket count for the given dictionary
+in a DB, bucket count incremented with the new ht size during the rehashing phase.
+If there's one dict, bucket count can be retrieved directly from single dict bucket. ",0,2,0,2,0,0,0,11,181,05.02.2024,9070.0,redis,3676B55A0684B8C4,"static void kvstoreDictRehashingStarted(dict *d) {
+    kvstore *kvs = d->type->userdata;
+    kvstoreDictMetadata *metadata = (kvstoreDictMetadata *)dictMetadata(d);
+    listAddNodeTail(kvs->rehashing, d);
+    metadata->rehashing_node = listLast(kvs->rehashing);
+
+    if (kvs->num_dicts == 1)
+        return;
+    unsigned long long from, to;
+    dictRehashingInfo(d, &from, &to);
+    kvs->bucket_count += to; /* Started rehashing (Add the new ht size) */
+}
+"
+235340703317EEF1,145,145,882,882,kvstoreIteratorRelease,redis/src/kvstore.c,Free the kvs_it returned by kvstoreIteratorInit. ,5,2,0,2,0,0,0,5,541,05.02.2024,797.0,redis,235340703317EEF1,"void kvstoreIteratorRelease(kvstoreIterator *kvs_it) {
+    dictIterator *iter = &kvs_it->di;
+    dictResetIterator(iter);
+
+    zfree(kvs_it);
+}
+"
+B9770C032ED2D79F,146,146,4725,4725,scanDatabaseForReadyKeys,redis/src/db.c,"Helper function for dbSwapDatabases(): scans the list of keys that have
+one or more blocked clients for B[LR]POP or other blocking commands
+and signal the keys as ready if they are of the right type. See the comment
+where the function is used for more info. ",2,6,1,5,0,0,0,12,1503,05.02.2024,22.0,redis,B9770C032ED2D79F,"void scanDatabaseForReadyKeys(redisDb *db) {
+    dictEntry *de;
+    dictIterator *di = dictGetSafeIterator(db->blocking_keys);
+    while((de = dictNext(di)) != NULL) {
+        robj *key = dictGetKey(de);
+        dictEntry *kde = dbFind(db, key->ptr);
+        if (kde) {
+            robj *value = dictGetVal(kde);
+            signalKeyAsReady(db, key, value->type);
+        }
+    }
+    dictReleaseIterator(di);
+}
+"
+D7B3A40224F9F596,147,147,5442,5442,unblockClientOnTimeout,redis/src/blocked.c,"Unblock a client which is currently Blocked on and provided a timeout.
+The implementation will first reply to the blocked client with null response
+or, in case of module blocked client the timeout callback will be used.
+In this case since we might have a command pending
+we want to remove the pending flag to indicate we already responded to the
+command with timeout reply. ",2,3,2,1,0,0,0,8,709,31.01.2024,70.0,redis,D7B3A40224F9F596,"void unblockClientOnTimeout(client *c) {
+    /* The client has been unlocked (in the moduleUnblocked list), return ASAP. */
+    if (c->bstate.btype == BLOCKED_MODULE && isModuleClientUnblocked(c)) return;
+
+    replyToBlockedClientTimedOut(c);
+    if (c->flags & CLIENT_PENDING_COMMAND)
+        c->flags &= ~CLIENT_PENDING_COMMAND;
+    unblockClient(c, 1);
+}
+"
+1D2EBFAEB02EB387,148,148,716,716,slowlogPushEntryIfNeeded,redis/src/slowlog.c,"Push a new entry into the slow log.
+This function will make sure to trim the slow log accordingly to the
+configured max length. ",1,3,1,2,0,0,0,9,123,23.01.2024,3492912.0,redis,1D2EBFAEB02EB387,"void slowlogPushEntryIfNeeded(client *c, robj **argv, int argc, long long duration) {
+    if (server.slowlog_log_slower_than < 0 || server.slowlog_max_len == 0) return; /* Slowlog disabled */
+    if (duration >= server.slowlog_log_slower_than)
+        listAddNodeHead(server.slowlog,
+                        slowlogCreateEntry(c,argv,argc,duration));
+
+    /* Remove old entries if needed. */
+    while (listLength(server.slowlog) > server.slowlog_max_len)
+        listDelNode(server.slowlog,listLast(server.slowlog));
+}
+"
+34E0B83C2E59A0E6,149,149,1351,1351,updateClientMemoryUsage,redis/src/server.c,"
+ This method updates the client memory usage and update the
+ server stats for client type.
+
+ This method is called from the clientsCron to have updated
+ stats for non CLIENT_TYPE_NORMAL/PUBSUB clients to accurately
+ provide information around clients memory usage.
+
+ It is also used in updateClientMemUsageAndBucket to have latest
+ client memory usage information to place it into appropriate client memory
+ usage bucket.
+ ",2,1,0,1,0,0,0,11,880,19.01.2024,15401.0,redis,34E0B83C2E59A0E6,"void updateClientMemoryUsage(client *c) {
+    serverAssert(c->conn);
+    size_t mem = getClientMemoryUsage(c, NULL);
+    int type = getClientType(c);
+    /* Now that we have the memory used by the client, remove the old
+     * value from the old category, and add it back. */
+    server.stat_clients_type_memory[c->last_memory_type] -= c->last_memory_usage;
+    server.stat_clients_type_memory[type] += mem;
+    /* Remember what we added and where, to remove it next time. */
+    c->last_memory_type = type;
+    c->last_memory_usage = mem;
+}
+"
+6F0C31DFFEC181FB,150,150,2856,2856,streamLookupCG,redis/src/t_stream.c,"Lookup the consumer group in the specified stream and returns its
+pointer, otherwise if there is no such group, NULL is returned. ",4,1,0,1,0,0,0,5,2502,15.12.2023,650.0,redis,6F0C31DFFEC181FB,"streamCG *streamLookupCG(stream *s, sds groupname) {
+    if (s->cgroups == NULL) return NULL;
+    void *cg = NULL;
+    raxFind(s->cgroups,(unsigned char*)groupname,sdslen(groupname),&cg);
+    return cg;
+}
+"
+561120EE41B27B2E,151,151,2211,2211,dictRehashMicroseconds,redis/src/dict.c,"Rehash in us+""delta"" microseconds. The value of ""delta"" is larger
+than 0, and is smaller than 1000 in most cases. The exact upper bound
+depends on the running time of dictRehash(d,100).",1,3,1,2,0,0,0,12,414,15.12.2023,501.0,redis,561120EE41B27B2E,"int dictRehashMicroseconds(dict *d, uint64_t us) {
+    if (d->pauserehash > 0) return 0;
+
+    monotime timer;
+    elapsedStart(&timer);
+    int rehashes = 0;
+
+    while(dictRehash(d,100)) {
+        rehashes += 100;
+        if (elapsedUs(timer) >= us) break;
+    }
+    return rehashes;
+}
+"
+1E86D002109F35F0,152,152,758,758,streamCreateCG,redis/src/t_stream.c,"Create a new consumer group in the context of the stream 's', having the
+specified name, last server ID and reads counter. If a consumer group with
+the same name already exists NULL is returned, otherwise the pointer to the
+consumer group is returned. ",3,1,0,1,0,0,0,12,2479,15.12.2023,88.0,redis,1E86D002109F35F0,"streamCG *streamCreateCG(stream *s, char *name, size_t namelen, streamID *id, long long entries_read) {
+    if (s->cgroups == NULL) s->cgroups = raxNew();
+    if (raxFind(s->cgroups,(unsigned char*)name,namelen,NULL))
+        return NULL;
+
+    streamCG *cg = zmalloc(sizeof(*cg));
+    cg->pel = raxNew();
+    cg->consumers = raxNew();
+    cg->last_id = *id;
+    cg->entries_read = entries_read;
+    raxInsert(s->cgroups,(unsigned char*)name,namelen,cg,NULL);
+    return cg;
+}
+"
+5D25DDD74AF87E40,153,153,2394,2394,subscribeCommand,redis/src/pubsub.c,SUBSCRIBE channel [channel ...] ,0,3,2,1,0,0,0,16,538,13.12.2023,14.0,redis,5D25DDD74AF87E40,"void subscribeCommand(client *c) {
+    int j;
+    if ((c->flags & CLIENT_DENY_BLOCKING) && !(c->flags & CLIENT_MULTI)) {
+        /**
+         * A client that has CLIENT_DENY_BLOCKING flag on
+         * expect a reply per command and so can not execute subscribe.
+         *
+         * Notice that we have a special treatment for multi because of
+         * backward compatibility
+         */
+        addReplyError(c, ""SUBSCRIBE isn't allowed for a DENY BLOCKING client"");
+        return;
+    }
+    for (j = 1; j < c->argc; j++)
+        pubsubSubscribeChannel(c,c->argv[j],pubSubType);
+    markClientAsPubSub(c);
+}
+"
+C1BC3BEC28C03F06,154,154,102450,102450,llvm::sampleprof::SampleProfileReaderBinary::readString,llvm-project/llvm/lib/ProfileData/SampleProfReader.cpp,"Read a string from the profile.
+
+If an error occurs during decoding, a diagnostic message is emitted and
+EC is set.
+
+\returns the read value.",1,1,0,0,0,1,0,10,485,25.09.2023,455.0,llvm,C1BC3BEC28C03F06,"ErrorOr<StringRef> SampleProfileReaderBinary::readString() {
+  StringRef Str(reinterpret_cast<const char *>(Data));
+  if (Data + Str.size() + 1 > End) {
+    std::error_code EC = sampleprof_error::truncated;
+    reportError(0, EC.message());
+    return EC;
+  }
+
+  Data += Str.size() + 1;
+  return Str;
+}
+"
+A7AB81C8E4DCDC67,155,155,88708,88708,llvm::itanium_demangle::OutputBuffer::grow,llvm-project/llvm/include/llvm/Demangle/Utility.h,Ensure there are at least N more positions in the buffer.,0,1,0,0,0,1,0,14,38,31.08.2023,136800.0,llvm,A7AB81C8E4DCDC67,"  void grow(size_t N) {
+    size_t Need = N + CurrentPosition;
+    if (Need > BufferCapacity) {
+      // Reduce the number of reallocations, with a bit of hysteresis. The
+      // number here is chosen so the first allocation will more-than-likely not
+      // allocate more than 1K.
+      Need += 1024 - 32;
+      BufferCapacity *= 2;
+      if (BufferCapacity < Need)
+        BufferCapacity = Need;
+      Buffer = static_cast<char *>(std::realloc(Buffer, BufferCapacity));
+      if (Buffer == nullptr)
+        std::abort();
+    }
+  }
+"
+BD2DC0F2F8DD4DEC,156,156,100053,100053,llvm::orc::OrcX86_64_Base::writeTrampolines,llvm-project/llvm/lib/ExecutionEngine/Orc/OrcABISupport.cpp,"Write the requested number of trampolines into the given memory,
+which must be big enough to hold 1 pointer, plus NumTrampolines
+trampolines.",0,1,0,0,0,1,0,16,200,28.03.2023,25.0,llvm,BD2DC0F2F8DD4DEC,"void OrcX86_64_Base::writeTrampolines(char *TrampolineBlockWorkingMem,
+                                      ExecutorAddr TrampolineBlockTargetAddress,
+                                      ExecutorAddr ResolverAddr,
+                                      unsigned NumTrampolines) {
+
+  unsigned OffsetToPtr = NumTrampolines * TrampolineSize;
+
+  memcpy(TrampolineBlockWorkingMem + OffsetToPtr, &ResolverAddr,
+         sizeof(uint64_t));
+
+  uint64_t *Trampolines =
+      reinterpret_cast<uint64_t *>(TrampolineBlockWorkingMem);
+  uint64_t CallIndirPCRel = 0xf1c40000000015ff;
+
+  for (unsigned I = 0; I < NumTrampolines; ++I, OffsetToPtr -= TrampolineSize)
+    Trampolines[I] = CallIndirPCRel | ((OffsetToPtr - 6) << 16);
+}
+"
+04C8813A1EE4450F,157,157,2536,2536,llvm::sampleprof::SampleProfileReader::create,llvm-project/llvm/lib/ProfileData/SampleProfReader.cpp,"Create a sample profile reader appropriate to the file format.
+Create a remapper underlying if RemapFilename is not empty.
+Parameter P specifies the FSDiscriminatorPass.",3,1,0,0,0,1,0,8,1824,01.02.2023,1043.0,llvm,04C8813A1EE4450F,"ErrorOr<std::unique_ptr<SampleProfileReader>>
+SampleProfileReader::create(const std::string Filename, LLVMContext &C,
+                            vfs::FileSystem &FS, FSDiscriminatorPass P,
+                            const std::string RemapFilename) {
+  auto BufferOrError = setupMemoryBuffer(Filename, FS);
+  if (std::error_code EC = BufferOrError.getError())
+    return EC;
+  return create(BufferOrError.get(), C, FS, P, RemapFilename);
+}
+"
+A19320F747B60D76,158,158,85377,85377,llvm::EmitImportsFiles,llvm-project/llvm/lib/Transforms/IPO/FunctionImport.cpp,Emit into \p OutputFilename the files module \p ModulePath will import from.,2,1,0,0,0,1,0,14,1349,08.08.2022,12.0,llvm,A19320F747B60D76,"std::error_code llvm::EmitImportsFiles(
+    StringRef ModulePath, StringRef OutputFilename,
+    const std::map<std::string, GVSummaryMapTy> &ModuleToSummariesForIndex) {
+  std::error_code EC;
+  raw_fd_ostream ImportsOS(OutputFilename, EC, sys::fs::OpenFlags::OF_None);
+  if (EC)
+    return EC;
+  for (const auto &ILI : ModuleToSummariesForIndex)
+    // The ModuleToSummariesForIndex map includes an entry for the current
+    // Module (needed for writing out the index files). We don't want to
+    // include it in the imports file, however, so filter it out.
+    if (ILI.first != ModulePath)
+      ImportsOS << ILI.first << ""\n"";
+  return std::error_code();
+}
+"
+10B1B6E197369BB6,159,159,8867,8867,llvm::ThreadPool::~ThreadPool,llvm-project/llvm/lib/Support/ThreadPool.cpp,Blocking destructor: the pool will wait for all the threads to complete.,0,1,0,0,0,1,0,9,180,04.05.2022,2629.0,llvm,10B1B6E197369BB6,"ThreadPool::~ThreadPool() {
+  {
+    std::unique_lock<std::mutex> LockGuard(QueueLock);
+    EnableFlag = false;
+  }
+  QueueCondition.notify_all();
+  llvm::sys::ScopedReader LockGuard(ThreadsLock);
+  for (auto &Worker : Threads)
+    Worker.join();
+}
+"
+455EF5EE60B536EC,160,160,36760,36760,llvm::getDefaultDebuginfodTimeout,llvm-project/llvm/lib/Debuginfod/Debuginfod.cpp,"Finds a default timeout for debuginfod HTTP requests. Checks
+DEBUGINFOD_TIMEOUT environment variable, default is 90 seconds (90000 ms).",0,1,0,0,0,1,0,8,109,07.12.2021,16.0,llvm,455EF5EE60B536EC,"std::chrono::milliseconds getDefaultDebuginfodTimeout() {
+  long Timeout;
+  const char *DebuginfodTimeoutEnv = std::getenv(""DEBUGINFOD_TIMEOUT"");
+  if (DebuginfodTimeoutEnv &&
+      to_integer(StringRef(DebuginfodTimeoutEnv).trim(), Timeout, 10))
+    return std::chrono::milliseconds(Timeout * 1000);
+
+  return std::chrono::milliseconds(90 * 1000);
+}
+"
+9F07BA675598F8EA,161,161,83979,83979,llvm::itanium_demangle::ParameterPack::initializePackExpansion,llvm-project/llvm/include/llvm/Demangle/ItaniumDemangle.h,"Setup OutputBuffer for a pack expansion, unless we're already expanding
+one.",6,1,0,0,0,1,0,5,1375,22.10.2021,15.0,llvm,9F07BA675598F8EA,"  void initializePackExpansion(OutputBuffer &OB) const {
+    if (OB.CurrentPackMax == std::numeric_limits<unsigned>::max()) {
+      OB.CurrentPackMax = static_cast<unsigned>(Data.size());
+      OB.CurrentPackIndex = 0;
+    }
+  }
+"
+5F93B753CE8A58FE,162,162,50678,50678,llvm::createMIRParserFromFile,llvm-project/llvm/lib/CodeGen/MIRParser/MIRParser.cpp,"This function is the main interface to the MIR serialization format parser.
+
+It reads in a MIR file and returns a MIR parser that can parse the embedded
+LLVM IR module and initialize the machine functions by parsing the machine
+function's state.
+
+\param Filename - The name of the file to parse.
+\param Error - Error result info.
+\param Context - Context which will be used for the parsed LLVM IR module.
+\param ProcessIRFunction - function to run on every IR function or stub
+loaded from the MIR file.",0,1,0,0,0,1,0,11,1104,16.04.2021,5220.0,llvm,5F93B753CE8A58FE,"std::unique_ptr<MIRParser> llvm::createMIRParserFromFile(
+    StringRef Filename, SMDiagnostic &Error, LLVMContext &Context,
+    std::function<void(Function &)> ProcessIRFunction) {
+  auto FileOrErr = MemoryBuffer::getFileOrSTDIN(Filename, /*IsText=*/true);
+  if (std::error_code EC = FileOrErr.getError()) {
+    Error = SMDiagnostic(Filename, SourceMgr::DK_Error,
+                         ""Could not open input file: "" + EC.message());
+    return nullptr;
+  }
+  return createMIRParser(std::move(FileOrErr.get()), Context,
+                         ProcessIRFunction);
+}
+"
+6A6BE28E5DA17399,163,163,56398,56398,llvm::install_out_of_memory_new_handler,llvm-project/llvm/lib/Support/ErrorHandling.cpp,"Installs new handler that causes crash on allocation failure. It is called by
+InitLLVM.",1,1,0,0,0,1,0,5,193,21.08.2020,315577.0,llvm,6A6BE28E5DA17399,"void llvm::install_out_of_memory_new_handler() {
+  std::new_handler old = std::set_new_handler(out_of_memory_new_handler);
+  (void)old;
+  assert((old == nullptr || old == out_of_memory_new_handler) &&
+         ""new-handler already installed"");
+}
+"
+E9A0485F1DBF0175,164,164,123431,123431,llvm::SourceMgr::SrcBuffer::getLineNumber,llvm-project/llvm/lib/Support/SourceMgr.cpp,"Look up a given \p Ptr in the buffer, determining which line it came
+from.",1,1,0,0,0,1,0,10,122,26.04.2020,212606.0,llvm,E9A0485F1DBF0175,"unsigned SourceMgr::SrcBuffer::getLineNumber(const char *Ptr) const {
+  size_t Sz = Buffer->getBufferSize();
+  if (Sz <= std::numeric_limits<uint8_t>::max())
+    return getLineNumberSpecialized<uint8_t>(Ptr);
+  else if (Sz <= std::numeric_limits<uint16_t>::max())
+    return getLineNumberSpecialized<uint16_t>(Ptr);
+  else if (Sz <= std::numeric_limits<uint32_t>::max())
+    return getLineNumberSpecialized<uint32_t>(Ptr);
+  else
+    return getLineNumberSpecialized<uint64_t>(Ptr);
+}
+"
+1635888CFAE50587,165,165,11744,11744,llvm::allocate_buffer,llvm-project/llvm/lib/Support/MemAlloc.cpp,These are out of line to have __cpp_aligned_new not affect ABI.,0,1,0,0,0,1,0,8,14,25.04.2020,905384008.0,llvm,1635888CFAE50587,"LLVM_ATTRIBUTE_RETURNS_NONNULL LLVM_ATTRIBUTE_RETURNS_NOALIAS void *
+llvm::allocate_buffer(size_t Size, size_t Alignment) {
+  return ::operator new(Size
+#ifdef __cpp_aligned_new
+                        ,
+                        std::align_val_t(Alignment)
+#endif
+  );
+}
+"
+1BB1EAA93F31CA22,166,166,14682,14682,LookupNEONLdSt,llvm-project/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp,"LookupNEONLdSt - Search the NEONLdStTable for information about a NEON
+load or store pseudo instruction.",3,1,0,0,0,1,0,14,499,14.04.2020,632.0,llvm,1BB1EAA93F31CA22,"static const NEONLdStTableEntry *LookupNEONLdSt(unsigned Opcode) {
+#ifndef NDEBUG
+  // Make sure the table is sorted.
+  static std::atomic<bool> TableChecked(false);
+  if (!TableChecked.load(std::memory_order_relaxed)) {
+    assert(llvm::is_sorted(NEONLdStTable) && ""NEONLdStTable is not sorted!"");
+    TableChecked.store(true, std::memory_order_relaxed);
+  }
+#endif
+
+  auto I = llvm::lower_bound(NEONLdStTable, Opcode);
+  if (I != std::end(NEONLdStTable) && I->PseudoOpc == Opcode)
+    return I;
+  return nullptr;
+}
+"
+DCC42EFE21BAC90C,167,167,116690,116690,llvm::BasicBlock::getBasicBlockBits,llvm-project/llvm/include/llvm/IR/BasicBlock.h,Safely reinterpret the subclass data bits to a more useful form.,5,1,0,0,0,1,0,7,737,19.02.2020,49234252.0,llvm,DCC42EFE21BAC90C,"  BasicBlockBits getBasicBlockBits() const {
+    static_assert(sizeof(BasicBlockBits) == sizeof(unsigned short),
+                  ""too many bits for Value::SubclassData"");
+    unsigned short ValueData = getSubclassDataFromValue();
+    BasicBlockBits AsBits;
+    memcpy(&AsBits, &ValueData, sizeof(AsBits));
+    return AsBits;
+  }
+"
+65864C55741B0B7A,168,168,53801,53801,combine,llvm-project/llvm/utils/TableGen/RegisterInfoEmitter.cpp,"Try to combine Idx's compose map into Vec if it is compatible.
+Return false if it's not possible.",0,1,0,1,0,0,0,16,669,09.02.2024,5808.0,llvm,65864C55741B0B7A,"static bool combine(const CodeGenSubRegIndex *Idx,
+                    SmallVectorImpl<CodeGenSubRegIndex *> &Vec) {
+  const CodeGenSubRegIndex::CompMap &Map = Idx->getComposites();
+  for (const auto &I : Map) {
+    CodeGenSubRegIndex *&Entry = Vec[I.first->EnumValue - 1];
+    if (Entry && Entry != I.second)
+      return false;
+  }
+
+  // All entries are compatible. Make it so.
+  for (const auto &I : Map) {
+    auto *&Entry = Vec[I.first->EnumValue - 1];
+    assert((!Entry || Entry == I.second) && ""Expected EnumValue to be unique"");
+    Entry = I.second;
+  }
+  return true;
+}
+"
+2203A9ADE06F7F30,169,169,17991,17991,PromoteXForms,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,Promote xform function to be an explicit node wherever set.,2,3,1,2,0,0,0,15,4220,09.02.2024,558.0,llvm,2203A9ADE06F7F30,"static TreePatternNodePtr PromoteXForms(TreePatternNodePtr N) {
+  if (Record *Xform = N->getTransformFn()) {
+    N->setTransformFn(nullptr);
+    std::vector<TreePatternNodePtr> Children;
+    Children.push_back(PromoteXForms(N));
+    return makeIntrusiveRefCnt<TreePatternNode>(Xform, std::move(Children),
+                                                N->getNumTypes());
+  }
+
+  if (!N->isLeaf())
+    for (unsigned i = 0, e = N->getNumChildren(); i != e; ++i) {
+      TreePatternNodePtr Child = N->getChildShared(i);
+      N->setChild(i, PromoteXForms(Child));
+    }
+  return N;
+}
+"
+5EE96E0B69B072FF,170,170,50283,50283,llvm::CodeGenTarget::getRegisterVTs,llvm-project/llvm/utils/TableGen/CodeGenTarget.cpp,"getRegisterVTs - Find the union of all possible SimpleValueTypes for the
+specified physical register.",2,1,0,1,0,0,0,14,442,09.02.2024,25.0,llvm,5EE96E0B69B072FF,"std::vector<ValueTypeByHwMode> CodeGenTarget::getRegisterVTs(Record *R) const {
+  const CodeGenRegister *Reg = getRegBank().getReg(R);
+  std::vector<ValueTypeByHwMode> Result;
+  for (const auto &RC : getRegBank().getRegClasses()) {
+    if (RC.contains(Reg)) {
+      ArrayRef<ValueTypeByHwMode> InVTs = RC.getValueTypes();
+      llvm::append_range(Result, InVTs);
+    }
+  }
+
+  // Remove duplicates.
+  llvm::sort(Result);
+  Result.erase(std::unique(Result.begin(), Result.end()), Result.end());
+  return Result;
+}
+"
+D291EF0201C0B2FA,171,171,111238,111238,llvm::Matcher::unlinkNode,llvm-project/llvm/utils/TableGen/DAGISelMatcher.cpp,"unlinkNode - Unlink the specified node from this chain.  If Other ==
+this, we unlink the next pointer and return it.  Otherwise we unlink
+Other from the list and return this.",1,3,0,3,0,0,0,14,33,09.02.2024,2.0,llvm,D291EF0201C0B2FA,"Matcher *Matcher::unlinkNode(Matcher *Other) {
+  if (this == Other)
+    return takeNext();
+
+  // Scan until we find the predecessor of Other.
+  Matcher *Cur = this;
+  for (; Cur && Cur->getNext() != Other; Cur = Cur->getNext())
+    /*empty*/;
+
+  if (!Cur)
+    return nullptr;
+  Cur->takeNext();
+  Cur->setNext(Other->takeNext());
+  return this;
+}
+"
+135AB6DB6E67CB5A,172,172,10284,10284,llvm::VPCanonicalIVPHIRecipe::isCanonical,llvm-project/llvm/lib/Transforms/Vectorize/VPlanRecipes.cpp,"Check if the induction described by \p Kind, /p Start and \p Step is
+canonical, i.e.  has the same start and step (of 1) as the canonical IV.",1,1,0,1,0,0,0,16,1655,26.01.2024,7217.0,llvm,135AB6DB6E67CB5A,"bool VPCanonicalIVPHIRecipe::isCanonical(
+    InductionDescriptor::InductionKind Kind, VPValue *Start,
+    VPValue *Step) const {
+  // Must be an integer induction.
+  if (Kind != InductionDescriptor::IK_IntInduction)
+    return false;
+  // Start must match the start value of this canonical induction.
+  if (Start != getStartValue())
+    return false;
+
+  // If the step is defined by a recipe, it is not a ConstantInt.
+  if (Step->getDefiningRecipe())
+    return false;
+
+  ConstantInt *StepC = dyn_cast<ConstantInt>(Step->getLiveInIRValue());
+  return StepC && StepC->isOne();
+}
+"
+9D32EA254C7044EC,173,173,83059,83059,llvm::AArch64TargetLowering::CCAssignFnForReturn,llvm-project/llvm/lib/Target/AArch64/AArch64ISelLowering.cpp,Selects the correct CCAssignFn for a given CallingConvention value.,6,1,0,1,0,0,0,12,6598,23.01.2024,233545.0,llvm,9D32EA254C7044EC,"CCAssignFn *
+AArch64TargetLowering::CCAssignFnForReturn(CallingConv::ID CC) const {
+  switch (CC) {
+  default:
+    return RetCC_AArch64_AAPCS;
+  case CallingConv::ARM64EC_Thunk_X64:
+    return RetCC_AArch64_Arm64EC_Thunk;
+  case CallingConv::CFGuard_Check:
+    if (Subtarget->isWindowsArm64EC())
+      return RetCC_AArch64_Arm64EC_CFGuard_Check;
+    return RetCC_AArch64_AAPCS;
+  }
+}
+"
+4735CDFEDB70C30E,174,174,37732,37732,llvm::outliner::Candidate::initInSeq,llvm-project/llvm/include/llvm/CodeGen/MachineOutliner.h,Populate InSeq with liveness information.,1,1,0,1,0,0,0,10,95,23.01.2024,678.0,llvm,4735CDFEDB70C30E,"  void initInSeq(const TargetRegisterInfo &TRI) {
+    assert(MBB->getParent()->getRegInfo().tracksLiveness() &&
+           ""Candidate's Machine Function must track liveness"");
+    // Only initialize once.
+    if (InSeqWasSet)
+      return;
+    InSeqWasSet = true;
+    InSeq.init(TRI);
+    for (auto &MI : *this)
+      InSeq.accumulate(MI);
+  }
+"
+47249762535B6FF1,175,175,37684,37684,llvm::RegionBase::getEnteringBlock,llvm-project/llvm/include/llvm/Analysis/RegionInfoImpl.h,"Return the first block of this region's single entry edge,
+       if existing.
+
+@return The BasicBlock starting this region's single entry edge,
+        else NULL.",1,1,0,1,0,0,0,8,160,20.01.2024,11000.0,llvm,47249762535B6FF1,"template <class Tr>
+typename RegionBase<Tr>::BlockT *RegionBase<Tr>::getEnteringBlock() const {
+  auto isEnteringBlock = [&](BlockT *Pred, bool AllowRepeats) -> BlockT * {
+    assert(!AllowRepeats && ""Unexpected parameter value."");
+    return DT->getNode(Pred) && !contains(Pred) ? Pred : nullptr;
+  };
+  return find_singleton<BlockT>(llvm::inverse_children<BlockT *>(getEntry()),
+                                isEnteringBlock);
+}
+"
+57A29FD53DCA2606,176,176,46434,46434,llvm::SMEAttrs::requiresSMChange,llvm-project/llvm/lib/Target/AArch64/Utils/AArch64SMEAttributes.cpp,"\return true if a call from Caller -> Callee requires a change in
+streaming mode.",6,5,0,5,0,0,0,13,88,19.01.2024,47389.0,llvm,57A29FD53DCA2606,"  if (Callee.hasStreamingCompatibleInterface())
+    return false;
+
+  // Both non-streaming
+  if (hasNonStreamingInterfaceAndBody() && Callee.hasNonStreamingInterface())
+    return false;
+
+  // Both streaming
+  if (hasStreamingInterfaceOrBody() && Callee.hasStreamingInterface())
+    return false;
+
+  return true;
+}
+"
+081EA200BE41D4AA,177,177,4336,4336,llvm::TargetPassConfig::addCodeGenPrepare,llvm-project/llvm/lib/CodeGen/TargetPassConfig.cpp,"Add pass to prepare the LLVM IR for code generation. This should be done
+before exception handling preparation passes.",4,3,2,1,0,0,0,3,935,09.01.2024,43834.0,llvm,081EA200BE41D4AA,"void TargetPassConfig::addCodeGenPrepare() {
+  if (getOptLevel() != CodeGenOptLevel::None && !DisableCGP)
+    addPass(createCodeGenPrepareLegacyPass());
+}
+"
+41446EA1547D3DBE,178,178,34605,34605,llvm::TargetLoweringBase::isTruncateFree,llvm-project/llvm/include/llvm/CodeGen/TargetLowering.h,Return true if truncating the specific node Val to type VT2 is free.,0,2,1,1,0,0,0,3,2865,24.12.2023,44673.0,llvm,41446EA1547D3DBE,"  virtual bool isTruncateFree(SDValue Val, EVT VT2) const {
+    // Fallback to type matching.
+    return isTruncateFree(Val.getValueType(), VT2);
+  }
+"
+DCAD5D2D52DC76DF,179,179,116640,116640,llvm::AMDGPUInstructionSelector::splitIllegalMUBUFOffset,llvm-project/llvm/lib/Target/AMDGPU/AMDGPUInstructionSelector.cpp,"Split an immediate offset \p ImmOffset depending on whether it fits in the
+immediate field. Modifies \p ImmOffset and sets \p SOffset to the variable
+component.",2,1,0,1,0,0,0,11,5151,15.12.2023,1406.0,llvm,DCAD5D2D52DC76DF,"void AMDGPUInstructionSelector::splitIllegalMUBUFOffset(
+  MachineIRBuilder &B, Register &SOffset, int64_t &ImmOffset) const {
+  if (TII.isLegalMUBUFImmOffset(ImmOffset))
+    return;
+
+  // Illegal offset, store it in soffset.
+  SOffset = MRI->createVirtualRegister(&AMDGPU::SReg_32RegClass);
+  B.buildInstr(AMDGPU::S_MOV_B32)
+    .addDef(SOffset)
+    .addImm(ImmOffset);
+  ImmOffset = 0;
+}
+"
+3A3B56C79D8D1481,180,180,30909,30909,llvm::vputils::getOrCreateVPValueForSCEVExpr,llvm-project/llvm/lib/Transforms/Vectorize/VPlan.cpp,"Get or create a VPValue that corresponds to the expansion of \p Expr. If \p
+Expr is a SCEVConstant or SCEVUnknown, return a VPValue wrapping the live-in
+value. Otherwise return a VPExpandSCEVRecipe to expand \p Expr. If \p Plan's
+pre-header already contains a recipe expanding \p Expr, return it. If not,
+create a new one.",3,1,0,1,0,0,0,15,1410,08.12.2023,15899.0,llvm,3A3B56C79D8D1481,"                                                ScalarEvolution &SE) {
+  if (auto *Expanded = Plan.getSCEVExpansion(Expr))
+    return Expanded;
+  VPValue *Expanded = nullptr;
+  if (auto *E = dyn_cast<SCEVConstant>(Expr))
+    Expanded = Plan.getVPValueOrAddLiveIn(E->getValue());
+  else if (auto *E = dyn_cast<SCEVUnknown>(Expr))
+    Expanded = Plan.getVPValueOrAddLiveIn(E->getValue());
+  else {
+    Expanded = new VPExpandSCEVRecipe(Expr, SE);
+    Plan.getPreheader()->appendRecipe(Expanded->getDefiningRecipe());
+  }
+  Plan.addSCEVExpansion(Expr, Expanded);
+  return Expanded;
+}
+"
+CB2779E506111B64,181,181,107442,107442,llvm::LiveRangeEdit::rematerializeAt,llvm-project/llvm/lib/CodeGen/LiveRangeEdit.cpp,"rematerializeAt - Rematerialize RM.ParentVNI into DestReg by inserting an
+instruction into MBB before MI. The new instruction is mapped, but
+liveness is not updated. If ReplaceIndexMI is not null it will be replaced
+by new MI in the index map.
+Return the SlotIndex of the new instruction.",3,2,0,2,0,0,0,18,182,05.12.2023,63506.0,llvm,CB2779E506111B64,"SlotIndex LiveRangeEdit::rematerializeAt(MachineBasicBlock &MBB,
+                                         MachineBasicBlock::iterator MI,
+                                         Register DestReg, const Remat &RM,
+                                         const TargetRegisterInfo &tri,
+                                         bool Late, unsigned SubIdx,
+                                         MachineInstr *ReplaceIndexMI) {
+  assert(RM.OrigMI && ""Invalid remat"");
+  TII.reMaterialize(MBB, MI, DestReg, SubIdx, *RM.OrigMI, tri);
+  // DestReg of the cloned instruction cannot be Dead. Set isDead of DestReg
+  // to false anyway in case the isDead flag of RM.OrigMI's dest register
+  // is true.
+  (*--MI).clearRegisterDeads(DestReg);
+  Rematted.insert(RM.ParentVNI);
+  ++NumReMaterialization;
+
+  if (ReplaceIndexMI)
+    return LIS.ReplaceMachineInstrInMaps(*ReplaceIndexMI, *MI).getRegSlot();
+  return LIS.getSlotIndexes()->insertMachineInstrInMaps(*MI, Late).getRegSlot();
+}
+"
+8E118F1D6EE743FE,182,182,75321,75321,llvm::SCEVExpander::isExpandedAddRecExprPHI,llvm-project/llvm/lib/Transforms/Utils/ScalarEvolutionExpander.cpp,"Determine if this cyclic phi is in a form that would have been generated by
+LSR. We don't care if the phi was actually expanded in this pass, as long
+as it is in a low-cost form, for example, no implied multiplication. This
+should match any patterns generated by getAddRecExprPHILiterally and
+expandAddtoGEP.",0,1,1,0,0,0,0,9,779,20.02.2024,4495.0,llvm,8E118F1D6EE743FE,"bool SCEVExpander::isExpandedAddRecExprPHI(PHINode *PN, Instruction *IncV,
+                                           const Loop *L) {
+  for(Instruction *IVOper = IncV;
+      (IVOper = getIVIncOperand(IVOper, L->getLoopPreheader()->getTerminator(),
+                                /*allowScale=*/false));) {
+    if (IVOper == PN)
+      return true;
+  }
+  return false;
+}
+"
+1E5C45F37A76125F,183,183,16045,16045,llvm::VPlanTransforms::createAndOptimizeReplicateRegions,llvm-project/llvm/lib/Transforms/Vectorize/VPlanTransforms.cpp,"Wrap predicated VPReplicateRecipes with a mask operand in an if-then
+region block and remove the mask operand. Optimize the created regions by
+iteratively sinking scalar operands into the region, followed by merging
+regions until no improvements are remaining.",1,4,4,0,0,0,0,10,360,17.02.2024,6975.0,llvm,1E5C45F37A76125F,"void VPlanTransforms::createAndOptimizeReplicateRegions(VPlan &Plan) {
+  // Convert masked VPReplicateRecipes to if-then region blocks.
+  addReplicateRegions(Plan);
+
+  bool ShouldSimplify = true;
+  while (ShouldSimplify) {
+    ShouldSimplify = sinkScalarOperands(Plan);
+    ShouldSimplify |= mergeReplicateRegionsIntoSuccessors(Plan);
+    ShouldSimplify |= VPlanTransforms::mergeBlocksIntoPredecessors(Plan);
+  }
+}
+"
+21896FC1EC29AD52,184,184,17724,17724,llvm::TargetLibraryInfoImpl::isFunctionVectorizable,llvm-project/llvm/lib/Analysis/TargetLibraryInfo.cpp,"Return true if the function F has a vector equivalent with any
+vectorization factor.",1,1,1,0,0,0,0,8,1281,15.02.2024,148489.0,llvm,21896FC1EC29AD52,"bool TargetLibraryInfoImpl::isFunctionVectorizable(StringRef funcName) const {
+  funcName = sanitizeFunctionName(funcName);
+  if (funcName.empty())
+    return false;
+
+  std::vector<VecDesc>::const_iterator I =
+      llvm::lower_bound(VectorDescs, funcName, compareWithScalarFnName);
+  return I != VectorDescs.end() && StringRef(I->getScalarFnName()) == funcName;
+}
+"
+C6A84ACD8DB87546,185,185,104984,104984,llvm::SequenceToOffsetTable::add,llvm-project/llvm/utils/TableGen/SequenceToOffsetTable.h,"add - Add a sequence to the table.
+This must be called before layout().",0,1,1,0,0,0,0,14,81,14.02.2024,37968.0,llvm,C6A84ACD8DB87546,"  void add(const SeqT &Seq) {
+    assert(Entries == 0 && ""Cannot call add() after layout()"");
+    typename SeqMap::iterator I = Seqs.lower_bound(Seq);
+
+    // If SeqMap contains a sequence that has Seq as a suffix, I will be
+    // pointing to it.
+    if (I != Seqs.end() && isSuffix(Seq, I->first))
+      return;
+
+    I = Seqs.insert(I, std::make_pair(Seq, 0u));
+
+    // The entry before I may be a suffix of Seq that can now be erased.
+    if (I != Seqs.begin() && isSuffix((--I)->first, Seq))
+      Seqs.erase(I);
+  }
+"
+347889ACE5A83B22,186,186,27922,27922,FindDepVars,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,Find dependent variables within child patterns,1,1,1,0,0,0,0,7,4472,09.02.2024,187.0,llvm,347889ACE5A83B22,"static void FindDepVars(TreePatternNode &N, MultipleUseVarSet &DepVars) {
+  DepVarMap depcounts;
+  FindDepVarsOf(N, depcounts);
+  for (const auto &Pair : depcounts) {
+    if (Pair.getValue() > 1)
+      DepVars.insert(Pair.getKey());
+  }
+}
+"
+022B4872CF6D47FE,187,187,1129,1129,llvm::Matcher::isContradictory,llvm-project/llvm/utils/TableGen/DAGISelMatcher.h,"isContradictory - Return true of these two matchers could never match on
+the same node.",1,2,2,0,0,0,0,8,178,09.02.2024,23.0,llvm,022B4872CF6D47FE,"  bool isContradictory(const Matcher *Other) const {
+    // Since this predicate is reflexive, we canonicalize the ordering so that
+    // we always match a node against nodes with kinds that are greater or
+    // equal to them.  For example, we'll pass in a CheckType node as an
+    // argument to the CheckOpcode method, not the other way around.
+    if (getKind() < Other->getKind())
+      return isContradictoryImpl(Other);
+    return Other->isContradictoryImpl(this);
+  }
+"
+D2DFB13208EA8A37,188,188,111391,111391,llvm::TreePredicateFn::isAtomicOrderingWeakerThanRelease,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,Is this predicate the predefined weaker-than-release atomic predicate?,4,1,1,0,0,0,0,3,1243,09.02.2024,21.0,llvm,D2DFB13208EA8A37,"bool TreePredicateFn::isAtomicOrderingWeakerThanRelease() const {
+  return isPredefinedPredicateEqualTo(""IsAtomicOrderingReleaseOrStronger"",
+                                      false);
+}
+"
+5FF38911DE3E69F9,189,189,50889,50889,llvm::CGIOperandList::isFlatOperandNotEmitted,llvm-project/llvm/utils/TableGen/CodeGenInstruction.h,"isFlatOperandNotEmitted - Return true if the specified flat operand #
+should not be emitted with the code emitter.",0,1,1,0,0,0,0,5,214,09.02.2024,10.0,llvm,5FF38911DE3E69F9,"  bool isFlatOperandNotEmitted(unsigned FlatOpNo) const {
+    std::pair<unsigned, unsigned> Op = getSubOperandNumber(FlatOpNo);
+    if (OperandList[Op.first].DoNotEncode.size() > Op.second)
+      return OperandList[Op.first].DoNotEncode[Op.second];
+    return false;
+  }
+"
+61FDF85A255190F3,190,190,51948,51948,llvm::TargetInstrInfo::isLoadFromStackSlot,llvm-project/llvm/include/llvm/CodeGen/TargetInstrInfo.h,"Optional extension of isLoadFromStackSlot that returns the number of
+bytes loaded from the stack. This must be implemented if a backend
+supports partial stack slot spills/loads to further disambiguate
+what the load does.",0,1,1,0,0,0,0,5,281,02.02.2024,55205.0,llvm,61FDF85A255190F3,"  virtual Register isLoadFromStackSlot(const MachineInstr &MI,
+                                       int &FrameIndex,
+                                       unsigned &MemBytes) const {
+    MemBytes = 0;
+    return isLoadFromStackSlot(MI, FrameIndex);
+  }
+"
+A9F73F1640F117BA,192,192,89895,89895,llvm::dsymutil::DwarfLinkerForBinary::AddressManager::hasValidRelocationAt,llvm-project/llvm/tools/dsymutil/DwarfLinkerForBinary.cpp,"Checks that there is a relocation in the \p Relocs array against a
+debug map entry between \p StartOffset and \p NextOffset.
+Print debug output if \p Verbose is set.
+
+\returns relocation value if relocation exist, otherwise std::nullopt.",2,1,1,0,0,0,0,13,1041,23.01.2024,2419.0,llvm,A9F73F1640F117BA,"std::optional<int64_t>
+DwarfLinkerForBinary::AddressManager::hasValidRelocationAt(
+    const std::vector<ValidReloc> &AllRelocs, uint64_t StartOffset,
+    uint64_t EndOffset, bool Verbose) {
+  std::vector<ValidReloc> Relocs =
+      getRelocations(AllRelocs, StartOffset, EndOffset);
+  if (Relocs.size() == 0)
+    return std::nullopt;
+
+  if (Verbose)
+    printReloc(Relocs[0]);
+
+  return getRelocValue(Relocs[0]);
+}
+"
+F4FABCF2EFB953C6,193,193,129503,129503,FunctionVarLocsBuilder::addVarLoc,llvm-project/llvm/lib/CodeGen/AssignmentTrackingAnalysis.cpp,Add a def to the wedge of defs just before /p Before.,1,1,1,0,0,0,0,8,149,22.01.2024,186.0,llvm,F4FABCF2EFB953C6,"  void addVarLoc(VarLocInsertPt Before, DebugVariable Var, DIExpression *Expr,
+                 DebugLoc DL, RawLocationWrapper R) {
+    VarLocInfo VarLoc;
+    VarLoc.VariableID = insertVariable(Var);
+    VarLoc.Expr = Expr;
+    VarLoc.DL = DL;
+    VarLoc.Values = R;
+    VarLocsBeforeInst[Before].emplace_back(VarLoc);
+  }
+"
+C9181FD72A40273A,194,194,106369,106369,llvm::getCachedOrDownloadDebuginfo,llvm-project/llvm/lib/Debuginfod/Debuginfod.cpp,"Fetches a debug binary by searching the default local cache directory and
+server URLs.",2,3,3,0,0,0,0,3,157,22.01.2024,15.0,llvm,C9181FD72A40273A,"Expected<std::string> getCachedOrDownloadDebuginfo(BuildIDRef ID) {
+  std::string UrlPath = getDebuginfodDebuginfoUrlPath(ID);
+  return getCachedOrDownloadArtifact(getDebuginfodCacheKey(UrlPath), UrlPath);
+}
+"
+DB9278CCBDD4AA03,195,195,116057,116057,llvm::SetVector::insert,llvm-project/llvm/include/llvm/ADT/SetVector.h,"Insert a new element into the SetVector.
+\returns true if the element was inserted into the SetVector.",0,3,3,0,0,0,0,16,162,20.01.2024,147282320.0,llvm,DB9278CCBDD4AA03,"  bool insert(const value_type &X) {
+    if constexpr (canBeSmall())
+      if (isSmall()) {
+        if (!llvm::is_contained(vector_, X)) {
+          vector_.push_back(X);
+          if (vector_.size() > N)
+            makeBig();
+          return true;
+        }
+        return false;
+      }
+
+    bool result = set_.insert(X).second;
+    if (result)
+      vector_.push_back(X);
+    return result;
+  }
+"
+DC59B5FC4D1431C9,196,196,116483,116483,processDbgDeclares,llvm-project/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp,"Collect llvm.dbg.declare information. This is done after argument lowering
+in case the declarations refer to arguments.",1,0,0,0,0,0,0,15,1458,20.02.2024,586936.0,llvm,DC59B5FC4D1431C9,"static void processDbgDeclares(FunctionLoweringInfo &FuncInfo) {
+  for (const auto &I : instructions(*FuncInfo.Fn)) {
+    const auto *DI = dyn_cast<DbgDeclareInst>(&I);
+    if (DI && processDbgDeclare(FuncInfo, DI->getAddress(), DI->getExpression(),
+                                DI->getVariable(), DI->getDebugLoc()))
+      FuncInfo.PreprocessedDbgDeclares.insert(DI);
+
+    for (const DPValue &DPV : I.getDbgValueRange()) {
+      if (DPV.getType() == DPValue::LocationType::Declare &&
+          processDbgDeclare(FuncInfo, DPV.getVariableLocationOp(0),
+                            DPV.getExpression(), DPV.getVariable(),
+                            DPV.getDebugLoc()))
+        FuncInfo.PreprocessedDPVDeclares.insert(&DPV);
+    }
+  }
+}
+"
+58EA62325D0C48FF,197,197,47109,47109,llvm::DebugInfoFinder::processInstruction,llvm-project/llvm/lib/IR/DebugInfo.cpp,Process a single instruction and collect debug info anchors.,0,0,0,0,0,0,0,10,235,20.02.2024,33286.0,llvm,58EA62325D0C48FF,"void DebugInfoFinder::processInstruction(const Module &M,
+                                         const Instruction &I) {
+  if (auto *DVI = dyn_cast<DbgVariableIntrinsic>(&I))
+    processVariable(M, DVI->getVariable());
+
+  if (auto DbgLoc = I.getDebugLoc())
+    processLocation(M, DbgLoc.get());
+
+  for (const DPValue &DPV : I.getDbgValueRange())
+    processDPValue(M, DPV);
+}
+"
+56E03C653BFF681D,198,198,46033,46033,llvm::AMDGPU::isInlinableLiteralV216,llvm-project/llvm/lib/Target/AMDGPU/Utils/AMDGPUBaseInfo.cpp,Whether the given literal can be inlined for a V_PK_* instruction.,1,0,0,0,0,0,0,13,2740,16.02.2024,18586.0,llvm,56E03C653BFF681D,"bool isInlinableLiteralV216(uint32_t Literal, uint8_t OpType) {
+  switch (OpType) {
+  case AMDGPU::OPERAND_REG_IMM_V2INT16:
+  case AMDGPU::OPERAND_REG_INLINE_C_V2INT16:
+  case AMDGPU::OPERAND_REG_INLINE_AC_V2INT16:
+    return getInlineEncodingV216(false, Literal).has_value();
+  case AMDGPU::OPERAND_REG_IMM_V2FP16:
+  case AMDGPU::OPERAND_REG_INLINE_C_V2FP16:
+  case AMDGPU::OPERAND_REG_INLINE_AC_V2FP16:
+    return getInlineEncodingV216(true, Literal).has_value();
+  default:
+    llvm_unreachable(""bad packed operand type"");
+  }
+}
+"
+6FEDAEEA24DD55B0,199,199,59297,59297,llvm::createAnyOfOp,llvm-project/llvm/lib/Transforms/Utils/LoopUtils.cpp,"See RecurrenceDescriptor::isAnyOfPattern for a description of the pattern we
+are trying to match. In this pattern, we are only ever selecting between two
+values: 1) an initial start value \p StartVal of the reduction PHI, and 2) a
+loop invariant value. If any of lane value in \p Left, \p Right is not equal
+to \p StartVal, select the loop invariant value. This is done by selecting
+\p Right iff \p Left is equal to \p StartVal.",1,0,0,0,0,0,0,7,965,16.02.2024,49.0,llvm,6FEDAEEA24DD55B0,"Value *llvm::createAnyOfOp(IRBuilderBase &Builder, Value *StartVal,
+                           RecurKind RK, Value *Left, Value *Right) {
+  if (auto VTy = dyn_cast<VectorType>(Left->getType()))
+    StartVal = Builder.CreateVectorSplat(VTy->getElementCount(), StartVal);
+  Value *Cmp =
+      Builder.CreateCmp(CmpInst::ICMP_NE, Left, StartVal, ""rdx.select.cmp"");
+  return Builder.CreateSelect(Cmp, Left, Right, ""rdx.select"");
+}
+"
+2154C620E839CDEB,200,200,17619,17619,llvm::ConstantFoldLoadFromUniformValue,llvm-project/llvm/lib/Analysis/ConstantFolding.cpp,"If C is a uniform value where all bits are the same (either all zero, all
+ones, all undef or all poison), return the corresponding uniform value in
+the new type. If the value is not uniform or the result cannot be
+represented, return null.",7,0,0,0,0,0,0,11,757,15.02.2024,63240.0,llvm,2154C620E839CDEB,"Constant *llvm::ConstantFoldLoadFromUniformValue(Constant *C, Type *Ty) {
+  if (isa<PoisonValue>(C))
+    return PoisonValue::get(Ty);
+  if (isa<UndefValue>(C))
+    return UndefValue::get(Ty);
+  if (C->isNullValue() && !Ty->isX86_MMXTy() && !Ty->isX86_AMXTy())
+    return Constant::getNullValue(Ty);
+  if (C->isAllOnesValue() &&
+      (Ty->isIntOrIntVectorTy() || Ty->isFPOrFPVectorTy()))
+    return Constant::getAllOnesValue(Ty);
+  return nullptr;
+}
+"
+F90B550650B98F0A,201,201,131736,131736,llvm::CombinerHelper::tryCombineConcatVectors,llvm-project/llvm/lib/CodeGen/GlobalISel/CombinerHelper.cpp,"If \p MI is G_CONCAT_VECTORS, try to combine it.
+Returns true if MI changed.
+Right now, we support:
+- concat_vector(undef, undef) => undef
+- concat_vector(build_vector(A, B), build_vector(C, D)) =>
+  build_vector(A, B, C, D)
+
+\pre MI.getOpcode() == G_CONCAT_VECTORS.",3,0,0,0,0,0,0,8,225,15.02.2024,2159.0,llvm,F90B550650B98F0A,"bool CombinerHelper::tryCombineConcatVectors(MachineInstr &MI) {
+  bool IsUndef = false;
+  SmallVector<Register, 4> Ops;
+  if (matchCombineConcatVectors(MI, IsUndef, Ops)) {
+    applyCombineConcatVectors(MI, IsUndef, Ops);
+    return true;
+  }
+  return false;
+}
+"
+70EEF13BFD6CD7B9,202,202,59833,59833,llvm::CodeGenSubRegIndex::addComposite,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,"Add a composite subreg index: this+A = B.
+Return a conflicting composite, or NULL",4,0,0,0,0,0,0,15,111,14.02.2024,2313960.0,llvm,70EEF13BFD6CD7B9,"  CodeGenSubRegIndex *addComposite(CodeGenSubRegIndex *A,
+                                   CodeGenSubRegIndex *B) {
+    assert(A && B);
+    std::pair<CompMap::iterator, bool> Ins =
+        Composed.insert(std::make_pair(A, B));
+    // Synthetic subreg indices that aren't contiguous (for instance ARM
+    // register tuples) don't have a bit range, so it's OK to let
+    // B->Offset == -1. For the other cases, accumulate the offset and set
+    // the size here. Only do so if there is no offset yet though.
+    if ((Offset != (uint16_t)-1 && A->Offset != (uint16_t)-1) &&
+        (B->Offset == (uint16_t)-1)) {
+      B->Offset = Offset + A->Offset;
+      B->Size = A->Size;
+    }
+    return (Ins.second || Ins.first->second == B) ? nullptr : Ins.first->second;
+  }
+"
+8FD16A68609F8B70,203,203,76237,76237,llvm::fcmpToClassTest,llvm-project/llvm/lib/Analysis/ValueTracking.cpp,"Returns a pair of values, which if passed to llvm.is.fpclass, returns the
+same result as an fcmp with the given operands.
+
+If \p LookThroughSrc is true, consider the input value when computing the
+mask.
+
+If \p LookThroughSrc is false, ignore the source value (i.e. the first pair
+element will always be LHS.",6,0,0,0,0,0,0,9,3815,14.02.2024,14480.0,llvm,8FD16A68609F8B70,"std::pair<Value *, FPClassTest> llvm::fcmpToClassTest(FCmpInst::Predicate Pred,
+                                                      const Function &F,
+                                                      Value *LHS, Value *RHS,
+                                                      bool LookThroughSrc) {
+  const APFloat *ConstRHS;
+  if (!match(RHS, m_APFloatAllowUndef(ConstRHS)))
+    return {nullptr, fcAllFlags};
+
+  return fcmpToClassTest(Pred, F, LHS, ConstRHS, LookThroughSrc);
+}
+"
+4AAC00F9DBAB2703,204,204,39463,39463,llvm::CodeGenRegBank::addToMaps,llvm-project/llvm/utils/TableGen/CodeGenRegisters.cpp,Add RC to *2RC maps.,2,0,0,0,0,0,0,8,1342,14.02.2024,371.0,llvm,4AAC00F9DBAB2703,"void CodeGenRegBank::addToMaps(CodeGenRegisterClass *RC) {
+  if (Record *Def = RC->getDef())
+    Def2RC.insert(std::make_pair(Def, RC));
+
+  // Duplicate classes are rejected by insert().
+  // That's OK, we only care about the properties handled by CGRC::Key.
+  CodeGenRegisterClass::Key K(*RC);
+  Key2RC.insert(std::make_pair(K, RC));
+}
+"
+C769B65650756DEB,205,205,105407,105407,getMaxPushPopReg,llvm-project/llvm/lib/Target/RISCV/RISCVFrameLowering.cpp,Get the max reg of Push/Pop for restoring callee saved registers.,0,0,0,0,0,0,0,13,290,14.02.2024,74.0,llvm,C769B65650756DEB,"static Register getMaxPushPopReg(const MachineFunction &MF,
+                                 const std::vector<CalleeSavedInfo> &CSI) {
+  Register MaxPushPopReg = RISCV::NoRegister;
+  for (auto &CS : CSI) {
+    // RISCVRegisterInfo::hasReservedSpillSlot assigns negative frame indices to
+    // registers which can be saved by Zcmp Push.
+    if (CS.getFrameIdx() < 0)
+      MaxPushPopReg = std::max(MaxPushPopReg.id(), CS.getReg().id());
+  }
+  // if rlist is {rs, s0-s10}, then s11 will also be included
+  if (MaxPushPopReg == RISCV::X26)
+    MaxPushPopReg = RISCV::X27;
+  return MaxPushPopReg;
+}
+"
+292D96CBB32F5AF6,206,206,21895,21895,llvm::CodeGenRegBank::newRegUnit,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,"Create a new non-native register unit that can be adopted by a register
+to increase its pressure. Note that NumNativeRegUnits is not increased.",1,0,0,0,0,0,0,4,727,13.02.2024,1577.0,llvm,292D96CBB32F5AF6,"  unsigned newRegUnit(unsigned Weight) {
+    RegUnits.resize(RegUnits.size() + 1);
+    RegUnits.back().Weight = Weight;
+    return RegUnits.size() - 1;
+  }
+"
+5FA5D3F4E05F7A0B,207,207,50713,50713,llvm::CodeGenRegBank::newRegUnit,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,"Create a native register unit that is associated with one or two root
+registers.",1,0,0,0,0,0,0,9,714,13.02.2024,1577.0,llvm,5FA5D3F4E05F7A0B,"  unsigned newRegUnit(CodeGenRegister *R0, CodeGenRegister *R1 = nullptr) {
+    RegUnits.resize(RegUnits.size() + 1);
+    RegUnit &RU = RegUnits.back();
+    RU.Roots[0] = R0;
+    RU.Roots[1] = R1;
+    RU.Artificial = R0->Artificial;
+    if (R1)
+      RU.Artificial |= R1->Artificial;
+    return RegUnits.size() - 1;
+  }
+"
+7A1498112E0F97DE,208,208,64513,64513,llvm::CodeGenRegister::getTopoSig,llvm-project/llvm/utils/TableGen/CodeGenRegisters.h,"Get the topological signature of this register. This is a small integer
+less than RegBank.getNumTopoSigs(). Registers with the same TopoSig have
+identical sub-register structure. That is, they support the same set of
+sub-register indices mapping to the same kind of sub-registers
+(TopoSig-wise).",2,0,0,0,0,0,0,3,222,09.02.2024,321494.0,llvm,7A1498112E0F97DE,"  unsigned getTopoSig() const {
+    assert(SuperRegsComplete && ""TopoSigs haven't been computed yet."");
+    return TopoSig;
+  }
+"
+FD5686A3D786BAAE,209,209,134135,134135,llvm::CodeGenRegBank::getSubRegIdx,llvm-project/llvm/utils/TableGen/CodeGenRegisters.cpp,"Find a SubRegIndex from its Record def or add to the list if it does
+not exist there yet.",6,0,0,0,0,0,0,7,1319,09.02.2024,77083.0,llvm,FD5686A3D786BAAE,"CodeGenSubRegIndex *CodeGenRegBank::getSubRegIdx(Record *Def) {
+  CodeGenSubRegIndex *&Idx = Def2SubRegIdx[Def];
+  if (Idx)
+    return Idx;
+  SubRegIndices.emplace_back(Def, SubRegIndices.size() + 1);
+  Idx = &SubRegIndices.back();
+  return Idx;
+}
+"
+79BD5116DDE48C39,210,210,64341,64341,llvm::CombinerHelper::matchCombineUnmergeWithDeadLanesToTrunc,llvm-project/llvm/lib/CodeGen/GlobalISel/CombinerHelper.cpp,"Transform X, Y<dead> = G_UNMERGE Z -> X = G_TRUNC Z.",0,4,0,0,4,0,0,9,2074,20.02.2024,21326.0,llvm,79BD5116DDE48C39,"bool CombinerHelper::matchCombineUnmergeWithDeadLanesToTrunc(MachineInstr &MI) {
+  assert(MI.getOpcode() == TargetOpcode::G_UNMERGE_VALUES &&
+         ""Expected an unmerge"");
+  // Check that all the lanes are dead except the first one.
+  for (unsigned Idx = 1, EndIdx = MI.getNumDefs(); Idx != EndIdx; ++Idx) {
+    if (!MRI.use_nodbg_empty(MI.getOperand(Idx).getReg()))
+      return false;
+  }
+  return true;
+}
+"
+2D830BDA333FFC11,211,211,24232,24232,llvm::VPlanVerifier::verifyHierarchicalCFG,llvm-project/llvm/lib/Transforms/Vectorize/VPlanVerifier.cpp,"Verify the invariants of the H-CFG starting from \p TopRegion. The
+verification process comprises the following steps:
+1. Region/Block verification: Check the Region/Block verification
+invariants for every region in the H-CFG.",1,2,1,0,1,0,0,8,126,20.02.2024,37.0,llvm,2D830BDA333FFC11,"void VPlanVerifier::verifyHierarchicalCFG(
+    const VPRegionBlock *TopRegion) const {
+  if (!EnableHCFGVerifier)
+    return;
+
+  LLVM_DEBUG(dbgs() << ""Verifying VPlan H-CFG.\n"");
+  assert(!TopRegion->getParent() && ""VPlan Top Region should have no parent."");
+  verifyRegionRec(TopRegion);
+}
+"
+3241D0D94F5756B0,212,212,26753,26753,llvm::createLibcall,llvm-project/llvm/lib/CodeGen/GlobalISel/LegalizerHelper.cpp,Helper function that creates the given libcall.,0,1,0,0,1,0,0,9,592,17.02.2024,2911.0,llvm,3241D0D94F5756B0,"LegalizerHelper::LegalizeResult
+llvm::createLibcall(MachineIRBuilder &MIRBuilder, RTLIB::Libcall Libcall,
+                    const CallLowering::ArgInfo &Result,
+                    ArrayRef<CallLowering::ArgInfo> Args,
+                    LostDebugLocObserver &LocObserver, MachineInstr *MI) {
+  auto &TLI = *MIRBuilder.getMF().getSubtarget().getTargetLowering();
+  const char *Name = TLI.getLibcallName(Libcall);
+  const CallingConv::ID CC = TLI.getLibcallCallingConv(Libcall);
+  return createLibcall(MIRBuilder, Name, Result, Args, CC, LocObserver, MI);
+}
+"
+6E2C5D1F01DE0934,213,213,58391,58391,getFixedObjectSize,llvm-project/llvm/lib/Target/AArch64/AArch64FrameLowering.cpp,"Returns the size of the fixed object area (allocated next to sp on entry)
+On Win64 this may include a var args area and an UnwindHelp object for EH.",4,5,0,2,3,0,0,14,400,16.02.2024,267493.0,llvm,6E2C5D1F01DE0934,"static unsigned getFixedObjectSize(const MachineFunction &MF,
+                                   const AArch64FunctionInfo *AFI, bool IsWin64,
+                                   bool IsFunclet) {
+  if (!IsWin64 || IsFunclet) {
+    return AFI->getTailCallReservedStack();
+  } else {
+    if (AFI->getTailCallReservedStack() != 0)
+      report_fatal_error(""cannot generate ABI-changing tail call for Win64"");
+    // Var args are stored here in the primary function.
+    const unsigned VarArgsArea = AFI->getVarArgsGPRSize();
+    // To support EH funclets we allocate an UnwindHelp object
+    const unsigned UnwindHelpObject = (MF.hasEHFunclets() ? 8 : 0);
+    return alignTo(VarArgsArea + UnwindHelpObject, 16);
+  }
+}
+"
+0B22468A30F51D0C,214,214,5980,5980,llvm::SIInstrInfo::getAddNoCarry,llvm-project/llvm/lib/Target/AMDGPU/SIInstrInfo.cpp,"Return a partially built integer add instruction without carry.
+Caller must add source operands.
+For pre-GFX9 it will generate unused carry destination operand.
+TODO: After GFX9 it should return a no-carry operation.",0,1,0,0,1,0,0,14,8820,16.02.2024,131.0,llvm,0B22468A30F51D0C,"MachineInstrBuilder
+SIInstrInfo::getAddNoCarry(MachineBasicBlock &MBB,
+                           MachineBasicBlock::iterator I,
+                           const DebugLoc &DL,
+                           Register DestReg) const {
+  if (ST.hasAddNoCarry())
+    return BuildMI(MBB, I, DL, get(AMDGPU::V_ADD_U32_e64), DestReg);
+
+  MachineRegisterInfo &MRI = MBB.getParent()->getRegInfo();
+  Register UnusedCarry = MRI.createVirtualRegister(RI.getBoolRC());
+  MRI.setRegAllocationHint(UnusedCarry, 0, RI.getVCC());
+
+  return BuildMI(MBB, I, DL, get(AMDGPU::V_ADD_CO_U32_e64), DestReg)
+           .addReg(UnusedCarry, RegState::Define | RegState::Dead);
+}
+"
+5812479803CFD38A,215,215,46659,46659,llvm::InstrProfSymtab::getFunctionHashFromAddress,llvm-project/llvm/lib/ProfileData/InstrProf.cpp,"Return a function's hash, or 0, if the function isn't in this SymTab.",1,1,0,0,1,0,0,12,552,13.02.2024,94.0,llvm,5812479803CFD38A,"uint64_t InstrProfSymtab::getFunctionHashFromAddress(uint64_t Address) {
+  finalizeSymtab();
+  auto It = partition_point(AddrToMD5Map, [=](std::pair<uint64_t, uint64_t> A) {
+    return A.first < Address;
+  });
+  // Raw function pointer collected by value profiler may be from
+  // external functions that are not instrumented. They won't have
+  // mapping data to be used by the deserializer. Force the value to
+  // be 0 in this case.
+  if (It != AddrToMD5Map.end() && It->first == Address)
+    return (uint64_t)It->second;
+  return 0;
+}
+"
+7D36128668CA20A7,217,217,66212,66212,llvm::SDNodeInfo::SDNodeInfo,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,Parse the specified record.,0,4,0,1,3,0,0,15,1795,09.02.2024,27362.0,llvm,7D36128668CA20A7,"SDNodeInfo::SDNodeInfo(Record *R, const CodeGenHwModes &CGH) : Def(R) {
+  EnumName = R->getValueAsString(""Opcode"");
+  SDClassName = R->getValueAsString(""SDClass"");
+  Record *TypeProfile = R->getValueAsDef(""TypeProfile"");
+  NumResults = TypeProfile->getValueAsInt(""NumResults"");
+  NumOperands = TypeProfile->getValueAsInt(""NumOperands"");
+
+  // Parse the properties.
+  Properties = parseSDPatternOperatorProperties(R);
+
+  // Parse the type constraints.
+  std::vector<Record *> ConstraintList =
+      TypeProfile->getValueAsListOfDefs(""Constraints"");
+  for (Record *R : ConstraintList)
+    TypeConstraints.emplace_back(R, CGH);
+}
+"
+4C1DC2D4407A506B,218,218,40240,40240,llvm::CodeGenRegBank::getRegClass,llvm-project/llvm/utils/TableGen/CodeGenRegisters.cpp,Find a register class from its def.,5,2,0,0,2,0,0,5,1369,09.02.2024,2914.0,llvm,4C1DC2D4407A506B,"CodeGenRegisterClass *CodeGenRegBank::getRegClass(const Record *Def) const {
+  if (CodeGenRegisterClass *RC = Def2RC.lookup(Def))
+    return RC;
+
+  PrintFatalError(Def->getLoc(), ""Not a known RegisterClass!"");
+}
+"
+6EF0AC47AE4C4498,219,219,58784,58784,getInstructionsInTree,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,Get all the instructions in a tree.,2,7,2,4,1,0,0,8,3726,09.02.2024,1248.0,llvm,6EF0AC47AE4C4498,"static void getInstructionsInTree(TreePatternNode &Tree,
+                                  SmallVectorImpl<Record *> &Instrs) {
+  if (Tree.isLeaf())
+    return;
+  if (Tree.getOperator()->isSubClassOf(""Instruction""))
+    Instrs.push_back(Tree.getOperator());
+  for (unsigned i = 0, e = Tree.getNumChildren(); i != e; ++i)
+    getInstructionsInTree(Tree.getChild(i), Instrs);
+}
+"
+B5EB2DF18B98E871,220,220,96118,96118,printBitVectorAsHex,llvm-project/llvm/utils/TableGen/RegisterInfoEmitter.cpp,"Print a BitVector as a sequence of hex numbers using a little-endian mapping.
+Width is the number of bits per hex number.",1,3,0,0,3,0,0,10,589,09.02.2024,496.0,llvm,B5EB2DF18B98E871,"static void printBitVectorAsHex(raw_ostream &OS, const BitVector &Bits,
+                                unsigned Width) {
+  assert(Width <= 32 && ""Width too large"");
+  unsigned Digits = (Width + 3) / 4;
+  for (unsigned i = 0, e = Bits.size(); i < e; i += Width) {
+    unsigned Value = 0;
+    for (unsigned j = 0; j != Width && i + j != e; ++j)
+      Value |= Bits.test(i + j) << j;
+    OS << format(""0x%0*x, "", Digits, Value);
+  }
+}
+"
+08DD857AED455A3B,221,221,4740,4740,llvm::CodeGenTarget::CodeGenTarget,llvm-project/llvm/utils/TableGen/CodeGenTarget.cpp,getTarget - Return the current instance of the Target class.,0,1,0,0,1,0,0,9,289,09.02.2024,292.0,llvm,08DD857AED455A3B,"CodeGenTarget::CodeGenTarget(RecordKeeper &records)
+    : Records(records), CGH(records) {
+  std::vector<Record *> Targets = Records.getAllDerivedDefinitions(""Target"");
+  if (Targets.size() == 0)
+    PrintFatalError(""No 'Target' subclasses defined!"");
+  if (Targets.size() != 1)
+    PrintFatalError(""Multiple subclasses of Target defined!"");
+  TargetRec = Targets[0];
+  MacroFusions = Records.getAllDerivedDefinitions(""Fusion"");
+}
+"
+0F0AC8651F1F799F,222,222,8019,8019,checkOperandClass,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,"Check the class of a pattern leaf node against the instruction operand it
+represents.",1,1,0,0,1,0,0,14,3738,09.02.2024,184.0,llvm,0F0AC8651F1F799F,"static bool checkOperandClass(CGIOperandList::OperandInfo &OI, Record *Leaf) {
+  if (OI.Rec == Leaf)
+    return true;
+
+  // Allow direct value types to be used in instruction set patterns.
+  // The type will be checked later.
+  if (Leaf->isSubClassOf(""ValueType""))
+    return true;
+
+  // Patterns can also be ComplexPattern instances.
+  if (Leaf->isSubClassOf(""ComplexPattern""))
+    return true;
+
+  return false;
+}
+"
+F79A96D3CF50C978,223,223,130943,130943,llvm::TreePredicateFn::getMemoryVT,llvm-project/llvm/utils/TableGen/CodeGenDAGPatterns.cpp,"If non-null, indicates that this predicate is a predefined memory VT
+predicate for a load/store and returns the ValueType record for the memory
+VT.",6,3,0,1,2,0,0,5,1247,09.02.2024,107.0,llvm,F79A96D3CF50C978,"Record *TreePredicateFn::getMemoryVT() const {
+  Record *R = getOrigPatFragRecord()->getRecord();
+  if (R->isValueUnset(""MemoryVT""))
+    return nullptr;
+  return R->getValueAsDef(""MemoryVT"");
+}
+"
