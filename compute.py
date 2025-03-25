@@ -20,9 +20,9 @@ DOCKER_CHECK_PERIOD = 5
 TIMEOUT_CHECK_PERIOD = 300
 
 TIMEOUT = {
-    "bullet3": timedelta(minutes=30),
-    "llvm": timedelta(minutes=60),
-    "openssl": timedelta(minutes=30),
+    "bullet3": timedelta(minutes=10),
+    "llvm": timedelta(minutes=30),
+    "openssl": timedelta(minutes=10),
     "redis": timedelta(minutes=30),
 }
 
@@ -186,7 +186,7 @@ def run_tests_with_queue(results_path, generations, bench):
             last_len = len(q)
             print("Instances in queue:", last_len)
 
-        if containers != -1 and len(containers) == 0 and time.time() - t_last > TIMEOUT_CHECK_PERIOD / 5:
+        if time.time() - t_last > TIMEOUT_CHECK_PERIOD:
             containers = docker_ps()
             kill_timeouts(results_path, TIMEOUT, containers)
             t_last = time.time()
@@ -223,7 +223,7 @@ def run_tests(generations, working_dir, bench_v, pass_k=1):
     failed = {
         fn for repo, repo_res in results.items()
         for fn, fn_res in repo_res.items()
-        if sum(int(res_dict["passed"]) for res_dict in fn_res.values()) == 0
+        if sum(int(res_dict.get("passed", False)) for res_dict in fn_res.values()) == 0
     }
     rm_results_for_fns(failed, results_path)
     generations_retry = {fn: gens for fn, gens in generations.items() if fn in failed}
