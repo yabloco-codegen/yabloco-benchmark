@@ -13,12 +13,7 @@ def read_json(path):
 
 
 def read_fn_results(fn, path):
-    try:
-        f = read_json(f"{path}/{fn}.json")
-    except Exception as e:
-        print(fn, path)
-        raise e
-
+    f = read_json(f"{path}/{fn}.json")
     if f:
         f.update(read_json(f"{path}/{fn}-res.json") or {})
         return f

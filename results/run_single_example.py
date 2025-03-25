@@ -28,7 +28,6 @@ def run_single_example(row, generated_code, repo, results_path, identifier, pref
     results_path = os.path.abspath(results_path)
     cmd = f"docker run -d --rm -v {results_path}:/results --name {prefix}{identifier.replace('/', '_')} " \
           f"{prefix}{repo} python3 /results/run_single_example.py {identifier}"
-    print(cmd)
     try:
         subprocess.run(cmd, shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     except Exception as e:
