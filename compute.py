@@ -234,7 +234,7 @@ def run_tests(generations, working_dir, bench_v, pass_k=1):
     results = {
         fn: {
             f"pass@{pass_k}": estimate_pass_at_k(n=len(fn_res), k=pass_k,
-                                                 c=sum(int(res_dict["passed"]) for res_dict in fn_res.values())),
+                                                 c=sum(int(res_dict.get("passed", False)) for res_dict in fn_res.values())),
             "exact_match": sum(exact_match(res_dict["generated_code"], bench_js[fn]["code"])
                                for res_dict in fn_res.values()) / len(fn_res),
         }
