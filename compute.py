@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from glob import glob
 
 from read_data import read_bench_df, read_results, get_result_from_disk
-from metrics import exact_match, estimate_pass_at_k, edit_similarity
+from metrics import exact_match, estimate_pass_at_k#, edit_similarity
 from results.run_single_example import run_single_example
 
 
@@ -237,8 +237,8 @@ def run_tests(generations, working_dir, bench_v, pass_k=1):
                                                  c=sum(int(res_dict.get("passed", False)) for res_dict in fn_res.values())),
             "exact_match": sum(exact_match(res_dict["generated_code"], bench_js[fn]["code"])
                                for res_dict in fn_res.values()) / len(fn_res),
-            "edit_similarity": sum(edit_similarity(res_dict["generated_code"], bench_js[fn]["code"])
-                                   for res_dict in fn_res.values()) / len(fn_res),
+            # "edit_similarity": sum(edit_similarity(res_dict["generated_code"], bench_js[fn]["code"])
+            #                        for res_dict in fn_res.values()) / len(fn_res),
         }
         for repo, repo_res in results.items()
         for fn, fn_res in repo_res.items()
