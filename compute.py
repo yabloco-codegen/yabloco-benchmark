@@ -211,7 +211,7 @@ def run_tests_with_queue(results_path, generations, bench):
 def run_tests(generations, working_dir, bench_v, pass_k=1):
     bench_path_v = f"{working_dir}/bench/bench-{bench_v}"
     docker_path = f"{working_dir}/docker"
-    results_path = f"{working_dir}/results"
+    results_path = f"{working_dir}/results/{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
     docker_build(docker_path)
     bench, bench_js = read_bench_df(bench_path_v)
 
