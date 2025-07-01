@@ -5,9 +5,9 @@ import numpy as np
 
 
 def exact_match(prediction, ground_truth):
-    return float(
-        prediction and re.sub(r'\W+', "", prediction) == re.sub(r'\W+', "", ground_truth)
-    )
+    if not prediction:
+        return 0
+    return re.sub(r'\W+', "", prediction) == re.sub(r'\W+', "", ground_truth)
 
 
 def estimate_pass_at_k(n: int, c: int, k: int) -> float:
