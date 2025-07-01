@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import subprocess
 import time
 from datetime import datetime, timedelta
@@ -35,6 +36,7 @@ def get_identifier(repo, fn, gen_i=None):
 
 
 def parse_generation(text):
+    print(text)
     if not isinstance(text, str):
         return ""
 
@@ -212,6 +214,8 @@ def run_tests(generations, working_dir, bench_v, pass_k=1):
     bench_path_v = f"{working_dir}/bench/bench-{bench_v}"
     docker_path = f"{working_dir}/docker"
     results_path = f"{working_dir}/results/{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
+    shutil.copy(f"{working_dir}/results/run_single_example.py", f"{results_path}/run_single_example.py")
+
     docker_build(docker_path)
     bench, bench_js = read_bench_df(bench_path_v)
 
