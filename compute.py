@@ -47,7 +47,7 @@ def parse_generation(text):
     if len(sections) == 1:
         generated_code = sections[0]
 
-    remove_prefix = ["cpp", "c++", "c", "++"]
+    remove_prefix = ["cpp", "c++", "c", "++", "C", "C++"]
     for pref in remove_prefix:
         generated_code = generated_code.removeprefix(pref)
     generated_lines = generated_code.split('\n')
