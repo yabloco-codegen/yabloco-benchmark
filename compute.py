@@ -36,7 +36,6 @@ def get_identifier(repo, fn, gen_i=None):
 
 
 def parse_generation(text):
-    print(text)
     if not isinstance(text, str):
         return ""
 
