@@ -214,6 +214,7 @@ def run_tests(generations, working_dir, bench_v, pass_k=1):
     bench_path_v = f"{working_dir}/bench/bench-{bench_v}"
     docker_path = f"{working_dir}/docker"
     results_path = f"{working_dir}/results/{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
+    os.makedirs(results_path)
     shutil.copy(f"{working_dir}/results/run_single_example.py", f"{results_path}/run_single_example.py")
 
     docker_build(docker_path)
