@@ -93,8 +93,19 @@ def docker_ps():
 
 
 def mark_timeout(identifier, results_path):
-    with open(f"{results_path}/{identifier}.json", "r") as f:
-        config = json.load(f)
+    if os.path.exists(f"{results_path}/{identifier}.json"):
+        with open(f"{results_path}/{identifier}.json", "r") as f:
+            config = json.load(f)
+    else:
+        config = {
+            "row": {
+                "file": "",
+                "pos": 0,
+                "code_length": 0,
+            },
+            "generated_code": "",
+            "repo": identifier.split("/")[0] if "/" in identifier else "",
+        }
 
     config.update({
         "built": False,
